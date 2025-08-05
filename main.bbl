@@ -1,8 +1,38 @@
 \begin{thebibliography}{1}
 
-\bibitem{bibtex}
-Help on {BibTeX} entry types.
-\newblock \url{http://nwalsh.com/tex/texhelp/bibtx-7.html}.
-\newblock Accessed: 2015-03-12.
+\bibitem{kettle_surge}
+R.~BURDETT-GARDINER, ``The great british kettle surge.''
+  \url{https://www.renewableenergyhub.co.uk/blog/the-great-british-kettle-surge},
+  2023.
+\newblock Accessed: 2025-08-05.
+
+\bibitem{li2023ultra}
+K.~Li, W.~Huang, G.~Hu, and J.~Li, ``Ultra-short term power load forecasting
+  based on ceemdan-se and lstm neural network,'' {\em Energy and Buildings},
+  vol.~279, p.~112666, 2023.
+
+\bibitem{IBM_loadforecasting}
+A.~McGrath, ``What is load forecasting?.''
+  \url{https://www.ibm.com/think/topics/load-forecasting}, 2024.
+\newblock Accessed: 2025-08-05.
+
+\bibitem{festas2001computational}
+S.~Tzafestas and E.~Tzafestas, ``Computational intelligence techniques for
+  short-term electric load forecasting,'' {\em Journal of Intelligent and
+  Robotic Systems}, vol.~31, no.~1, pp.~7--68, 2001.
+
+\bibitem{han2018enhanced}
+L.~Han, Y.~Peng, Y.~Li, B.~Yong, Q.~Zhou, and L.~Shu, ``Enhanced deep networks
+  for short-term and medium-term load forecasting,'' {\em IEEE Access}, vol.~7,
+  pp.~4045--4055, 2018.
+
+\bibitem{shohan2022forecasting}
+J.~Shohan, M.~Faruque, and S.~Foo, ``Forecasting of electric load using a
+  hybrid lstm--neural prophet model. energies 2022, 15, 2158,'' 2022.
+
+\bibitem{tarmanini2023short}
+C.~Tarmanini, N.~Sarma, C.~Gezegin, and O.~Ozgonenel, ``Short term load
+  forecasting based on arima and ann approaches,'' {\em Energy Reports},
+  vol.~9, pp.~550--557, 2023.
 
 \end{thebibliography}

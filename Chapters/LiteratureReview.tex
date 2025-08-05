@@ -1,31 +1,16 @@
 \chapter{Literature Review}
+\subsection{Introduction}
+An odd power surge phenomenon was recognized during the 2008 Olympics in the UK. At certain times in  the evening there would be massive power surges at what seemed like random times in the evening. Though they seemed random to the utility companies they realized something rather funny was happening at these random times. Making a cup of tea is deeply ingrained in the english culture , after looking at the data they realized that the power surge was happening during times when a TV commercial would come on. Whenever a commercial came on TV multiple families would switch on their kettles to make a cup of tea. Though a single kettle may seem harmless  , but millions of kettles switched on at the same time would cause a large effect on the load of the power grid. This phenomenon was called the \textbf{\textit{'Great British Kettle Surge'}} \cite{kettle_surge}.\textit{\textbf{you can also talk about the blackouts mentioned in \cite{li2023ultra}}}
 
-Once upon a time engineers and researchers believed... In this area of research, they used the following methods... \cite{jct2010}
+The effect of this great kettle surge can be very harmful to the grid if necessary steps are not taken to increase the grids capacity in times when we expect the power of the grid to increase suddenly. This is where the concept of load forecasting comes into play.
+Electric Load forecasting is the process of predicting how much electricity will be needed at a given time and how that demand will affect the utility grid \cite{IBM_loadforecasting}. To bring this matter close to home , South Africa has been struggling with provision of power to its population. This could be accredited to the lack of proper load forecasting in the previous years. A Growing population results in a growth in the demand of electricity. If the country does not build facilities to supply enough electricity for the load requirements then  load-shedding becomes the only solution to protect the grid. In a perfect country the advice from load forecasters in the early 2000's would have been taken into consideration and built more facilities to meet this demand.
+The above example shows the hand in hand relationship between load forecasts and their economic impacts.Large forecasting errors may lead to either excessively risky or excessively conservative
+scheduling, which can in turn result in undesirable economic penalties\cite{festas2001computational}. This means that there is a massive push towards finding the best load forecasting techniques that can be reliable.
 
-Write this section first as it will take you the longest. I suggest you start writing this as soon as you
-have done your initial research at the beginning of your project. You can then return to it once you
-have completed your work to edit and adjust it.
+Load forecasting is separated into 3 main categories which are Short , Medium and Long term Load Forecasting. the major differentiator between the three is the duration in which the forecasting is predicted for.
 
-A literature review forms the theoretical basis of your project. You need to read a large number of
-journal papers, sections in books, technical reports etc. relevant to your work at the start of project.
-This will give you a good idea of the field of research.
+\textbf{Long Term Load Forecasting(LTLF)} considers periods that are more than a year. LTLF mainly considers factors such as demographic changes, economic growth and energy policy impacts \cite{IBM_loadforecasting}. This forecasting helps utilities think of what can be done to improve their systems to meet the increasing demand of the grid in the future.
+\textbf{Medium Term Load Forecasting (MTLF)} forecasts look at periods between a few months and a year. MTLF is important for demand side management  , storage maintenance and scheduling of power \cite{han2018enhanced}.
 
-When writing your review start of with the general concepts and move to the more specific aspects
-explaining the necessary theory as you go. This section is NOT a copy and paste from others work or a
-rewrite-but-change-one-word section. I suggest you read all your material, and then put it down and
-write this section, referring back to the work only when you need to check something.
-
-See your PCS textbook for more details on how to write a literature review.
-
-If you include a figure or a table in your text please see the example in Fig. \ref{fig:model} as to how to caption it.
-Please make sure that all text in your figures is readable and that you reference your figures if they are
-from another source.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.7\textwidth]{model.png}
-	\caption{A block diagram illustrating the connections to the IRQ pin on the MCS08GT16A microcontroller (Please
-		note that your headings should be short descriptions of what is in the diagram not simply the figure title)}
-	\label{fig:model}
-\end{figure}
-
+Finally we have short term load forecasting(STLF) which looks at shorter time periods from hourly, daily all the way up to a week of load prediction.STLF is essential in daily operation perfomance , such as load flow and estimating how many power generators can be used in a particular day \cite{shohan2022forecasting}. If there is efficient model for STLF  , problems such as \textit{british kettle surge} can easily be planned for ahead by ensuring more generators are operational when the demand for power rises.STLF can also ensure that the grid has a reliable continuous power flow during power shortages or outages\cite{tarmanini2023short}.
+ 
