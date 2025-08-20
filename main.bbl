@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{kettle_surge}
 R.~BURDETT-GARDINER, ``The great british kettle surge.''
@@ -21,6 +21,11 @@ S.~Tzafestas and E.~Tzafestas, ``Computational intelligence techniques for
   short-term electric load forecasting,'' {\em Journal of Intelligent and
   Robotic Systems}, vol.~31, no.~1, pp.~7--68, 2001.
 
+\bibitem{gochhait2023regression}
+S.~Gochhait and D.~Sharma, ``Regression model-based short-term load forecasting
+  for load dispatch centre,'' {\em Journal of Applied Engineering and
+  Technological Science (JAETS)}, vol.~4, no.~2, pp.~693--710, 2023.
+
 \bibitem{han2018enhanced}
 L.~Han, Y.~Peng, Y.~Li, B.~Yong, Q.~Zhou, and L.~Shu, ``Enhanced deep networks
   for short-term and medium-term load forecasting,'' {\em IEEE Access}, vol.~7,
@@ -34,5 +39,200 @@ J.~Shohan, M.~Faruque, and S.~Foo, ``Forecasting of electric load using a
 C.~Tarmanini, N.~Sarma, C.~Gezegin, and O.~Ozgonenel, ``Short term load
   forecasting based on arima and ann approaches,'' {\em Energy Reports},
   vol.~9, pp.~550--557, 2023.
+
+\bibitem{wang2023improving}
+C.~Wang, Y.~Zhou, Q.~Wen, and Y.~Wang, ``Improving load forecasting performance
+  via sample reweighting,'' {\em IEEE Transactions on Smart Grid}, vol.~14,
+  no.~4, pp.~3317--3320, 2023.
+
+\bibitem{Rusina2022ShorttermLFH}
+A.~Rusina, T.~Osgonbaatar, and P.~Matrenin, ``Short-term load forecasting using
+  statistical methods for the central power system of mongolia,'' {\em 2022
+  IEEE International Multi-Conference on Engineering, Computer and Information
+  Sciences (SIBIRCON)}, pp.~2030--2035, 2022.
+
+\bibitem{vardhan2023comparative}
+B.~S. Vardhan, M.~Khedkar, I.~Srivastava, P.~Thakre, and N.~D. Bokde, ``A
+  comparative analysis of hyperparameter tuned stochastic short term load
+  forecasting for power system operator,'' {\em Energies}, vol.~16, no.~3,
+  p.~1243, 2023.
+
+\bibitem{Dhaval2020ShorttermLFB}
+B.~Dhaval and A.~Deshpande, ``Short-term load forecasting with using multiple
+  linear regression,'' {\em International Journal of Electrical and Computer
+  Engineering}, vol.~10, pp.~3911--3917, 2020.
+
+\bibitem{tshipata2024multi}
+O.~T. Tshipata, D.~T. Kazumba, P.~S. Nzakuna, V.~Paciello, and A.~K. Lusala,
+  ``Multi-horizon short-term electrical load forecasting: a comparative
+  analysis of statistical models and deep neural networks,'' in {\em 2024 IEEE
+  International Symposium on Measurements \& Networking (M\&N)}, pp.~1--6,
+  IEEE, 2024.
+
+\bibitem{ramos2015performance}
+P.~Ramos, N.~Santos, and R.~Rebelo, ``Performance of state space and arima
+  models for consumer retail sales forecasting,'' {\em Robotics and
+  computer-integrated manufacturing}, vol.~34, pp.~151--163, 2015.
+
+\bibitem{ahmed2020review}
+R.~Ahmed, V.~Sreeram, Y.~Mishra, and M.~Arif, ``A review and evaluation of the
+  state-of-the-art in pv solar power forecasting: Techniques and
+  optimization,'' {\em Renewable and sustainable energy reviews}, vol.~124,
+  p.~109792, 2020.
+
+\bibitem{rendon2019structural}
+J.~F. Rendon-Sanchez and L.~M. de~Menezes, ``Structural combination of seasonal
+  exponential smoothing forecasts applied to load forecasting,'' {\em European
+  Journal of Operational Research}, vol.~275, no.~3, pp.~916--924, 2019.
+
+\bibitem{wang2019novel}
+R.~Wang, J.~Wang, and Y.~Xu, ``A novel combined model based on hybrid
+  optimization algorithm for electrical load forecasting,'' {\em Applied Soft
+  Computing}, vol.~82, p.~105548, 2019.
+
+\bibitem{takeda2016using}
+H.~Takeda, Y.~Tamura, and S.~Sato, ``Using the ensemble kalman filter for
+  electricity load forecasting and analysis,'' {\em Energy}, vol.~104,
+  pp.~184--198, 2016.
+
+\bibitem{revathi2025short}
+V.~Revathi, K.~Prashant, A.~Singla, B.~Boddu, A.~A. Hameed, S.~Kalyani, and
+  K.~Pandey, ``Short-term load forecasting for virtual power plants using time
+  series analysis and open energy data,'' in {\em 2025 International Conference
+  on Cognitive Computing in Engineering, Communications, Sciences and
+  Biomedical Health Informatics (IC3ECSBHI)}, pp.~741--746, IEEE, 2025.
+
+\bibitem{dai2020short}
+S.~Dai~Haleema, ``Short-term load forecasting using statistical methods: A case
+  study on load data,'' {\em Int. J. Eng. Res. Technol}, vol.~9, pp.~516--520,
+  2020.
+
+\bibitem{abbas2025self}
+M.~Abbas, Y.~Che, S.~Maqsood, M.~Z. Yousaf, M.~Abdullah, W.~Khan, S.~Khalid,
+  M.~Bajaj, and M.~Shabaz, ``Self-adaptive evolutionary neural networks for
+  high-precision short-term electric load forecasting,'' {\em Scientific
+  Reports}, vol.~15, no.~1, p.~21674, 2025.
+
+\bibitem{wang2012application}
+Y.~Wang, J.~Wang, G.~Zhao, and Y.~Dong, ``Application of residual modification
+  approach in seasonal arima for electricity demand forecasting: A case study
+  of china,'' {\em Energy Policy}, vol.~48, pp.~284--294, 2012.
+
+\bibitem{jiang2016short}
+H.~Jiang, Y.~Zhang, E.~Muljadi, J.~J. Zhang, and D.~W. Gao, ``A short-term and
+  high-resolution distribution system load forecasting approach using support
+  vector regression with hybrid parameters optimization,'' {\em IEEE
+  Transactions on Smart Grid}, vol.~9, no.~4, pp.~3341--3350, 2016.
+
+\bibitem{li2023short}
+S.~Li, J.~Wang, H.~Zhang, and Y.~Liang, ``Short-term load forecasting system
+  based on sliding fuzzy granulation and equilibrium optimizer,'' {\em Applied
+  Intelligence}, vol.~53, no.~19, pp.~21606--21640, 2023.
+
+\bibitem{arvanitidis2021enhanced}
+A.~Arvanitidis, D.~Bargiotas, A.~Daskalopulu, V.~Laitsos, and L.~Tsoukalas,
+  ``Enhanced short-term load forecasting using artificial neural networks.
+  energies 2021, 14, 7788,'' 2021.
+
+\bibitem{wang2018short}
+Y.~Wang, M.~Liu, Z.~Bao, and S.~Zhang, ``Short-term load forecasting with
+  multi-source data using gated recurrent unit neural networks,'' {\em
+  Energies}, vol.~11, no.~5, p.~1138, 2018.
+
+\bibitem{mohandes2002support}
+M.~Mohandes, ``Support vector machines for short-term electrical load
+  forecasting,'' {\em International Journal of Energy Research}, vol.~26,
+  no.~4, pp.~335--345, 2002.
+
+\bibitem{hussien2021comparative}
+M.~Hussien, W.~Yehia, and A.~B. El-Sisi, ``A comparative study of machine
+  learning algorithms for short-term electrical load forecasting,'' {\em IJCI.
+  International Journal of Computers and Information}, vol.~8, no.~2,
+  pp.~32--37, 2021.
+
+\bibitem{dong2017short}
+X.~Dong, L.~Qian, and L.~Huang, ``Short-term load forecasting in smart grid: A
+  combined cnn and k-means clustering approach,'' in {\em 2017 IEEE
+  international conference on big data and smart computing (BigComp)},
+  pp.~119--125, IEEE, 2017.
+
+\bibitem{rafi2021short}
+S.~H. Rafi, S.~R. Deeba, E.~Hossain, {\em et~al.}, ``A short-term load
+  forecasting method using integrated cnn and lstm network,'' {\em IEEE
+  access}, vol.~9, pp.~32436--32448, 2021.
+
+\bibitem{wang2023short}
+N.~Wang and Z.~Li, ``Short term power load forecasting based on bes-vmd and
+  cnn-bi-lstm method with error correction,'' {\em Frontiers in Energy
+  Research}, vol.~10, p.~1076529, 2023.
+
+\bibitem{ibrahim2022machine}
+B.~Ibrahim, L.~Rabelo, E.~Gutierrez-Franco, and N.~Clavijo-Buritica, ``Machine
+  learning for short-term load forecasting in smart grids,'' {\em Energies},
+  vol.~15, no.~21, p.~8079, 2022.
+
+\bibitem{he2019hybrid}
+F.~He, J.~Zhou, Z.-k. Feng, G.~Liu, and Y.~Yang, ``A hybrid short-term load
+  forecasting model based on variational mode decomposition and long short-term
+  memory networks considering relevant factors with bayesian optimization
+  algorithm,'' {\em Applied energy}, vol.~237, pp.~103--116, 2019.
+
+\bibitem{moradzadeh2021deep}
+A.~Moradzadeh, H.~Moayyed, S.~Zakeri, B.~Mohammadi-Ivatloo, and A.~P. Aguiar,
+  ``Deep learning-assisted short-term load forecasting for sustainable
+  management of energy in microgrid,'' {\em Inventions}, vol.~6, no.~1, p.~15,
+  2021.
+
+\bibitem{kong2019improved}
+X.~Kong, C.~Li, F.~Zheng, and C.~Wang, ``Improved deep belief network for
+  short-term load forecasting considering demand-side management,'' {\em IEEE
+  transactions on power systems}, vol.~35, no.~2, pp.~1531--1538, 2019.
+
+\bibitem{boopathy2024deep}
+P.~Boopathy, M.~Liyanage, N.~Deepa, M.~Velavali, S.~Reddy, P.~K.~R. Maddikunta,
+  N.~Khare, T.~R. Gadekallu, W.-J. Hwang, and Q.-V. Pham, ``Deep learning for
+  intelligent demand response and smart grids: A comprehensive survey,'' {\em
+  Computer science review}, vol.~51, p.~100617, 2024.
+
+\bibitem{hiceemdanQteg}
+J.~Wang, H.~Liu, G.~Zheng, Y.~Li, and S.~Yin, ``Short-term load forecasting
+  based on outlier correction, decomposition, and ensemble reinforcement
+  learning,'' {\em Energies}, vol.~16, no.~11, p.~4401, 2023.
+
+\bibitem{dong2021short}
+Y.~Dong, Z.~Dong, T.~Zhao, Z.~Li, and Z.~Ding, ``Short term load forecasting
+  with markovian switching distributed deep belief networks,'' {\em
+  International Journal of Electrical Power \& Energy Systems}, vol.~130,
+  p.~106942, 2021.
+
+\bibitem{huang2023two}
+W.~Huang, Q.~Song, and Y.~Huang, ``Two-stage short-term power load forecasting
+  based on ssa--vmd and feature selection,'' {\em Applied Sciences}, vol.~13,
+  no.~11, p.~6845, 2023.
+
+\bibitem{zhu2025novel}
+J.~Zhu, J.~Yang, X.~Cui, M.~Peng, and X.~Liang, ``A novel adaptive adjustment
+  kolmogorov-arnold network for heat load prediction in district heating
+  systems,'' {\em Applied Thermal Engineering}, p.~126552, 2025.
+
+\bibitem{wu2020short}
+L.~Wu, C.~Kong, X.~Hao, and W.~Chen, ``A short-term load forecasting method
+  based on gru-cnn hybrid neural network model,'' {\em Mathematical problems in
+  engineering}, vol.~2020, no.~1, p.~1428104, 2020.
+
+\bibitem{danish2025kolmogorov}
+M.~U. Danish and K.~Grolinger, ``Kolmogorov--arnold recurrent network for short
+  term load forecasting across diverse consumers,'' {\em Energy Reports},
+  vol.~13, pp.~713--727, 2025.
+
+\bibitem{tang2019application}
+X.~Tang, Y.~Dai, Q.~Liu, X.~Dang, and J.~Xu, ``Application of bidirectional
+  recurrent neural network combined with deep belief network in short-term load
+  forecasting,'' {\em IEEE Access}, vol.~7, pp.~160660--160670, 2019.
+
+\bibitem{gao2021cooling}
+Y.~Gao, Y.~Hang, and M.~Yang, ``A cooling load prediction method using improved
+  ceemdan and markov chains correction,'' {\em Journal of Building
+  Engineering}, vol.~42, p.~103041, 2021.
 
 \end{thebibliography}

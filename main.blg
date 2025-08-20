@@ -25,49 +25,54 @@ A level-1 auxiliary file: Chapters/appendixa.aux
 Reallocating 'name_of_file' (item size: 1) to 23 items.
 A level-1 auxiliary file: Chapters/appendixb.aux
 Database file #1: Bibliography/References.bib
-Repeated entry---line 105 of file Bibliography/References.bib
+Repeated entry---line 125 of file Bibliography/References.bib
  : @misc{shohan2022forecasting
  :                            ,
 I'm skipping whatever remains of this entry
-You've used 7 entries,
+Repeated entry---line 501 of file Bibliography/References.bib
+ : @article{dai2020short
+ :                      ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "wang2023"
+You've used 44 entries,
             1876 wiz_defined-function locations,
-            532 strings with 4994 characters,
-and the built_in function-call counts, 1795 in all, are:
-= -- 179
-> -- 75
+            750 strings with 13443 characters,
+and the built_in function-call counts, 14275 in all, are:
+= -- 1459
+> -- 591
 < -- 0
-+ -- 28
-- -- 21
-* -- 117
-:= -- 258
-add.period$ -- 9
-call.type$ -- 7
-change.case$ -- 7
++ -- 213
+- -- 169
+* -- 980
+:= -- 1935
+add.period$ -- 46
+call.type$ -- 44
+change.case$ -- 44
 chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 82
-empty$ -- 167
-format.name$ -- 21
-if$ -- 440
+cite$ -- 44
+duplicate$ -- 762
+empty$ -- 1210
+format.name$ -- 169
+if$ -- 3543
 int.to.chr$ -- 0
-int.to.str$ -- 7
-missing$ -- 4
-newline$ -- 26
-num.names$ -- 7
-pop$ -- 27
+int.to.str$ -- 44
+missing$ -- 40
+newline$ -- 137
+num.names$ -- 44
+pop$ -- 119
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 69
+skip$ -- 647
 stack$ -- 0
-substring$ -- 103
-swap$ -- 38
+substring$ -- 993
+swap$ -- 414
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 17
-width$ -- 8
-write$ -- 70
-(There was 1 error message)
+while$ -- 130
+width$ -- 46
+write$ -- 451
+(There were 2 error messages)
