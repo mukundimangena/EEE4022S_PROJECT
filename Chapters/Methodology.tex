@@ -1,17 +1,19 @@
 \chapter{Methodology}
 
-This is what I did to test and confirm my hypothesis.
+The goal for this research is to investigate the impact of ML methods in STLF. As seen in the literature review ML methods have proved to better predict time series data. The main downside that has been identified within using ML methods is the processing time , however this downside is offset by the need of an accurate method of prediction. This is due to the cost of inaccurate predictions to the power providers. The literature review \ref{litReview} highlights the effectiveness of ARIMA as a statistical model in STLF and SVM's as an early AI model that is also effective in temporal prediction tasks. These two models are therefore used as the benchmarking tools to evaluate the effectiveness of advanced ML/AI models in STLF. \ref{litReview} explains the superiority of using hybrid models to capture the benefits of different methods in one combination. Therefore in this research we will test the effectiveness of Bi-LSTM , CNN-LSTM and a DBN-RNN in STLF. We will also check the effects of data preprocessing on the final result of the model.
 
+\section{Data Collection and Description}
+The dataset that is used in the experiments handled in this research was collected by the Panama in central America as an initiative to research and improve  methods for short term load forecasting.The dataset is available on Kaggle and  Mendeley Data and provides historical records of electrical load data and relevant weather variables of Panama city\cite{dataset}.
 
-You may want to split this chapter into sub chapters depending on your design. I suggest you change
-the title to something more specific to your project.
+The dataset consists of hourly observations spanning the period from January 2015 to December 2019, yielding approximately 43,800 data points. The target variable is electricity load demand (measured in megawatts, MW), while the explanatory variables include multiple weather and environmental parameters recorded at different stations across Panama. Key features include:
+\begin{itemize}
+	\item T2M – Temperature at 2 meters above ground (°C)
+	\item QV2M – Specific humidity at 2 meters (g/kg)
+	\item TQL – Total cloud water content (kg/kg)
+	\item W2M – Wind speed at 2 meters (m/s)
+	
+\end{itemize}
 
-This is where you describe your design process in detail, from component/device selection to actual
-design implementation, to how you tested your system. Remember detail is important in technical
-writing. Do not just write I used a computer give the computer specifications or the oscilloscopes part
-number. Describe the system in enough detail so that someone else can replicate your design as well
-as your testing methodology.
+Each of the above variables is provided across multiple weather stations (e.g., Tocumen, Santiago, David), denoted by suffixes such as toc, san, dav. These meteorological inputs have been selected due to their established influence on electricity demand, as load consumption often correlates with environmental factors such as ambient temperature, humidity, and weather patterns. Prior to use, the dataset required cleaning and preprocessing to ensure its suitability for statistical and machine learning models. Missing values, outliers, and scale differences across features were addressed in the preprocessing stage in \textbf{reference the data preprocessing stage}.
 
-If you use or design code for your system, represent it as flow diagrams in text.
-
-\textbf{IMPORTANT:} Include a motivation for your selection of an appropriate technique, or engineering or IT tool to solve your project problem. Discuss any limitations if appropriate.
++

@@ -6,11 +6,6 @@ R.~BURDETT-GARDINER, ``The great british kettle surge.''
   2023.
 \newblock Accessed: 2025-08-05.
 
-\bibitem{li2023ultra}
-K.~Li, W.~Huang, G.~Hu, and J.~Li, ``Ultra-short term power load forecasting
-  based on ceemdan-se and lstm neural network,'' {\em Energy and Buildings},
-  vol.~279, p.~112666, 2023.
-
 \bibitem{IBM_loadforecasting}
 A.~McGrath, ``What is load forecasting?.''
   \url{https://www.ibm.com/think/topics/load-forecasting}, 2024.
@@ -21,10 +16,10 @@ S.~Tzafestas and E.~Tzafestas, ``Computational intelligence techniques for
   short-term electric load forecasting,'' {\em Journal of Intelligent and
   Robotic Systems}, vol.~31, no.~1, pp.~7--68, 2001.
 
-\bibitem{gochhait2023regression}
-S.~Gochhait and D.~Sharma, ``Regression model-based short-term load forecasting
-  for load dispatch centre,'' {\em Journal of Applied Engineering and
-  Technological Science (JAETS)}, vol.~4, no.~2, pp.~693--710, 2023.
+\bibitem{wang2023short}
+N.~Wang and Z.~Li, ``Short term power load forecasting based on bes-vmd and
+  cnn-bi-lstm method with error correction,'' {\em Frontiers in Energy
+  Research}, vol.~10, p.~1076529, 2023.
 
 \bibitem{han2018enhanced}
 L.~Han, Y.~Peng, Y.~Li, B.~Yong, Q.~Zhou, and L.~Shu, ``Enhanced deep networks
@@ -34,6 +29,16 @@ L.~Han, Y.~Peng, Y.~Li, B.~Yong, Q.~Zhou, and L.~Shu, ``Enhanced deep networks
 \bibitem{shohan2022forecasting}
 J.~Shohan, M.~Faruque, and S.~Foo, ``Forecasting of electric load using a
   hybrid lstm--neural prophet model. energies 2022, 15, 2158,'' 2022.
+
+\bibitem{wu2020short}
+L.~Wu, C.~Kong, X.~Hao, and W.~Chen, ``A short-term load forecasting method
+  based on gru-cnn hybrid neural network model,'' {\em Mathematical problems in
+  engineering}, vol.~2020, no.~1, p.~1428104, 2020.
+
+\bibitem{rafi2021short}
+S.~H. Rafi, S.~R. Deeba, E.~Hossain, {\em et~al.}, ``A short-term load
+  forecasting method using integrated cnn and lstm network,'' {\em IEEE
+  access}, vol.~9, pp.~32436--32448, 2021.
 
 \bibitem{tarmanini2023short}
 C.~Tarmanini, N.~Sarma, C.~Gezegin, and O.~Ozgonenel, ``Short term load
@@ -50,6 +55,11 @@ A.~Rusina, T.~Osgonbaatar, and P.~Matrenin, ``Short-term load forecasting using
   statistical methods for the central power system of mongolia,'' {\em 2022
   IEEE International Multi-Conference on Engineering, Computer and Information
   Sciences (SIBIRCON)}, pp.~2030--2035, 2022.
+
+\bibitem{gochhait2023regression}
+S.~Gochhait and D.~Sharma, ``Regression model-based short-term load forecasting
+  for load dispatch centre,'' {\em Journal of Applied Engineering and
+  Technological Science (JAETS)}, vol.~4, no.~2, pp.~693--710, 2023.
 
 \bibitem{vardhan2023comparative}
 B.~S. Vardhan, M.~Khedkar, I.~Srivastava, P.~Thakre, and N.~D. Bokde, ``A
@@ -68,6 +78,12 @@ O.~T. Tshipata, D.~T. Kazumba, P.~S. Nzakuna, V.~Paciello, and A.~K. Lusala,
   analysis of statistical models and deep neural networks,'' in {\em 2024 IEEE
   International Symposium on Measurements \& Networking (M\&N)}, pp.~1--6,
   IEEE, 2024.
+
+\bibitem{hussien2021comparative}
+M.~Hussien, W.~Yehia, and A.~B. El-Sisi, ``A comparative study of machine
+  learning algorithms for short-term electrical load forecasting,'' {\em IJCI.
+  International Journal of Computers and Information}, vol.~8, no.~2,
+  pp.~32--37, 2021.
 
 \bibitem{ramos2015performance}
 P.~Ramos, N.~Santos, and R.~Rebelo, ``Performance of state space and arima
@@ -144,27 +160,11 @@ M.~Mohandes, ``Support vector machines for short-term electrical load
   forecasting,'' {\em International Journal of Energy Research}, vol.~26,
   no.~4, pp.~335--345, 2002.
 
-\bibitem{hussien2021comparative}
-M.~Hussien, W.~Yehia, and A.~B. El-Sisi, ``A comparative study of machine
-  learning algorithms for short-term electrical load forecasting,'' {\em IJCI.
-  International Journal of Computers and Information}, vol.~8, no.~2,
-  pp.~32--37, 2021.
-
 \bibitem{dong2017short}
 X.~Dong, L.~Qian, and L.~Huang, ``Short-term load forecasting in smart grid: A
   combined cnn and k-means clustering approach,'' in {\em 2017 IEEE
   international conference on big data and smart computing (BigComp)},
   pp.~119--125, IEEE, 2017.
-
-\bibitem{rafi2021short}
-S.~H. Rafi, S.~R. Deeba, E.~Hossain, {\em et~al.}, ``A short-term load
-  forecasting method using integrated cnn and lstm network,'' {\em IEEE
-  access}, vol.~9, pp.~32436--32448, 2021.
-
-\bibitem{wang2023short}
-N.~Wang and Z.~Li, ``Short term power load forecasting based on bes-vmd and
-  cnn-bi-lstm method with error correction,'' {\em Frontiers in Energy
-  Research}, vol.~10, p.~1076529, 2023.
 
 \bibitem{ibrahim2022machine}
 B.~Ibrahim, L.~Rabelo, E.~Gutierrez-Franco, and N.~Clavijo-Buritica, ``Machine
@@ -215,11 +215,6 @@ J.~Zhu, J.~Yang, X.~Cui, M.~Peng, and X.~Liang, ``A novel adaptive adjustment
   kolmogorov-arnold network for heat load prediction in district heating
   systems,'' {\em Applied Thermal Engineering}, p.~126552, 2025.
 
-\bibitem{wu2020short}
-L.~Wu, C.~Kong, X.~Hao, and W.~Chen, ``A short-term load forecasting method
-  based on gru-cnn hybrid neural network model,'' {\em Mathematical problems in
-  engineering}, vol.~2020, no.~1, p.~1428104, 2020.
-
 \bibitem{danish2025kolmogorov}
 M.~U. Danish and K.~Grolinger, ``Kolmogorov--arnold recurrent network for short
   term load forecasting across diverse consumers,'' {\em Energy Reports},
@@ -234,5 +229,15 @@ X.~Tang, Y.~Dai, Q.~Liu, X.~Dang, and J.~Xu, ``Application of bidirectional
 Y.~Gao, Y.~Hang, and M.~Yang, ``A cooling load prediction method using improved
   ceemdan and markov chains correction,'' {\em Journal of Building
   Engineering}, vol.~42, p.~103041, 2021.
+
+\bibitem{kappal2019data}
+S.~Kappal {\em et~al.}, ``Data normalization using median median absolute
+  deviation mmad based z-score for robust predictions vs. min--max
+  normalization,'' {\em London Journal of Research in Science: Natural and
+  Formal}, vol.~19, no.~4, pp.~39--44, 2019.
+
+\bibitem{dataset}
+E.~Aguilar~Madrid, ``Short-term electricity load forecasting (panama case
+  study).'' Mendeley Data, V1, 2021.
 
 \end{thebibliography}
