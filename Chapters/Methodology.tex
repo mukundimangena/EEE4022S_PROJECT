@@ -3,17 +3,132 @@
 The goal for this research is to investigate the impact of ML methods in STLF. As seen in the literature review ML methods have proved to better predict time series data. The main downside that has been identified within using ML methods is the processing time , however this downside is offset by the need of an accurate method of prediction. This is due to the cost of inaccurate predictions to the power providers. The literature review \ref{litReview} highlights the effectiveness of ARIMA as a statistical model in STLF and SVM's as an early AI model that is also effective in temporal prediction tasks. These two models are therefore used as the benchmarking tools to evaluate the effectiveness of advanced ML/AI models in STLF. \ref{litReview} explains the superiority of using hybrid models to capture the benefits of different methods in one combination. Therefore in this research we will test the effectiveness of Bi-LSTM , CNN-LSTM and a DBN-RNN in STLF. We will also check the effects of data preprocessing on the final result of the model.
 
 \section{Data Collection and Description}
-The dataset that is used in the experiments handled in this research was collected by the Panama in central America as an initiative to research and improve  methods for short term load forecasting.The dataset is available on Kaggle and  Mendeley Data and provides historical records of electrical load data and relevant weather variables of Panama city\cite{dataset}.
+The dataset that is used in the experiments handled in this research was collected by the Panama City government in central America as an initiative to research and improve  methods for short term load forecasting. The dataset is available on Kaggle and  Mendeley Data and provides historical records of electrical load data and relevant weather variables of Panama city\cite{dataset}.
 
-The dataset consists of hourly observations spanning the period from January 2015 to December 2019, yielding approximately 43,800 data points. The target variable is electricity load demand (measured in megawatts, MW), while the explanatory variables include multiple weather and environmental parameters recorded at different stations across Panama. Key features include:
+The dataset consists of hourly observations spanning the period from January 2015 to December 2019, yielding approximately 48048 data points. The target variable is the load demand measured in megawatts(MW), while the other features include multiple weather and environmental parameters recorded at different stations across Santiago, Tocumen and David. 
+
+The dataset has the following features:
 \begin{itemize}
+	\item datetime - The date and time sampled every hour from 
 	\item T2M – Temperature at 2 meters above ground (°C)
-	\item QV2M – Specific humidity at 2 meters (g/kg)
-	\item TQL – Total cloud water content (kg/kg)
-	\item W2M – Wind speed at 2 meters (m/s)
+	\item QV2M – Specific humidity at 2 meters (\%) sampled in the three cities
+	\item TQL – Total cloud water content (liters/\si{m^2}) sampled n the three cities
+	\item W2M – Wind speed at 2 meters (m/s) sampled in the three cities
+	\item Holiday\_ID - a unique value representing a particular holiday in the country
+	\item holiday - a binary value representing whether the day is a holiday or not
+	\item school - a binary representing schools being open or closed \cite{dataset}
 	
 \end{itemize}
 
-Each of the above variables is provided across multiple weather stations (e.g., Tocumen, Santiago, David), denoted by suffixes such as toc, san, dav. These meteorological inputs have been selected due to their established influence on electricity demand, as load consumption often correlates with environmental factors such as ambient temperature, humidity, and weather patterns. Prior to use, the dataset required cleaning and preprocessing to ensure its suitability for statistical and machine learning models. Missing values, outliers, and scale differences across features were addressed in the preprocessing stage in \textbf{reference the data preprocessing stage}.
 
-+
+The environmental features in the dataset are sampled hourly in the three cities and are represented as toc, san and dav as the extensions of the feature name (e.g. T2M\_dav would be the temperature in David). These meteorological inputs have been selected due to their established influence on electricity demand, as load consumption often correlates with environmental factors such as ambient temperature, humidity, and weather patterns.The relationship between temperature and load has been established with Hor et al \cite{hor2005analyzing} seeing a correlation in the increase in temperature with the increase in the load demand.
+
+The dataset has been cleaned previously by the  initial collectors to ensure minimum erroneous values. The dataset has 4 separate folders namely:
+\begin{itemize}
+	\item continuous-dataset.csv - containing data sampled every hour for the duration of the collection
+	\item test\_dataframes.xslx - a test dataset prepared with historical load from 4 weeks previously \cite{dataset}
+	\item train\_dataframes.xslx - a train dataset prepared with historical load from 4 weeks previously with hourly granularity \cite{dataset}
+	\item weekly\_pre\_dispatch\_forecast.csv - contains the load forecast from the weekly predispatch report
+\end{itemize}
+
+To train the models in this research I chose to use the continuous\_dataset.csv. The decision to use this dataset was because of the comprehensive feature set in the dataset. This dataset also has continuous unsplit time series data allowing for testing of custom train test splits that align with my model design. Finally the flexibility for feature engineering on this dataset is enhanced. It can allow you to generate custom lagged features and rolling statistics giving the researcher transparency and reproducibility.
+
+\section{Data Preprocessing}
+
+Data preprocessing is an important step in training of ML and statistical models as it ensures that the data being used is free of noise and outliers. Preprocessing also includes feature engineering which help identify and retain the most influential features, hence simplifying models, reducing redundancy and improving performance \cite{gao2021cooling}.
+
+\subsection{Choice of programming language}
+There were two options for the programming language to use for this problem, which were Python and MATLAB. Both these choices offered pros and cons, shown in table \ref{tab:python_matlab_comparison}.
+\begin{table}[h!]
+	\centering
+	\renewcommand{\arraystretch}{1.8} % spacing
+	\begin{tabular}{|p{3.5cm}|p{5.5cm}|p{5.5cm}|}
+		\hline
+		\textbf{Aspect} & \textbf{Python} & \textbf{MATLAB} \\
+		\hline
+		\textbf{Data Processing} & Rich data processing framework(Pandas, NumPy). & Built-in data handling but less flexible than Python’s frameworks. \\
+		\hline
+		\textbf{Machine Learning \& AI} & Strong libraries: TensorFlow, PyTorch, Scikit-learn. & ML toolboxes available, but limited adoption compared to Python. \\
+		\hline
+		\textbf{Community Support} & Huge global community; extensive tutorials, forums, and open-source contributions. & Strong academic/engineering base, but smaller community outside academia. \\
+		\hline
+		\textbf{Flexibility of production environment} & Works well for online development online with google collab offering CPU and GPU services. & Better integration with control simulations, and hardware prototyping. \\
+		\hline
+		\textbf{Ease of Use} & Easy-to-read syntax, intuitive for beginners, widely taught. & Powerful for numerical computing syntax less intuitive for general-purpose tasks. \\
+		\hline
+		\textbf{Performance} & Fast with optimized libraries (NumPy, TensorFlow GPU acceleration). & Highly optimized for matrix operations sometimes faster out-of-the-box for linear algebra. \\
+		\hline
+	\end{tabular}
+	\caption{Comparison of Python and MATLAB for data analysis and machine learning.}
+	\label{tab:python_matlab_comparison}
+\end{table}
+
+Matlab is powerful in numerical computing and is widely used in academia and engineering settings, python was chosen for this research due to several key reasons. Python provides robust data processing frameworks, which make data cleaning, transformation and preprocessing efficient and straightforward. Python supports industry standard ML frameworks such as TensorFlow and Scikit-learn that were extensively used in this research for setting up and training the models. These models offer a ease of use and advanced modeling and experimentation. Python has a massive global community offering more resources and troubleshooting support more than MATLAB.
+
+\subsection{Feature Engineering}
+The data handling framework that is used in the project is python Pandas. Pandas offers a wide range of features to process and feature engineer your dataset. It also sets the dataset into a format that is user friendly for training and testing both statistical and machine learning models. 
+
+\paragraph{Forward Filling}
+The first step taken to ensure that the dataset is complete and there are no missing values, was the forward fill method. Forward fill is a method where you fill a missing value with the last known value. The last known value is carried forward to replace the missing value. An illustration of how this method works is shown in figure \ref{fig:forward_fill}. This method is simple and effective for filling in values such as temperature which have low variance. 
+
+\paragraph{Day of Week Encoding}
+A \texttt{day\_of\_week} column was added to the dataset to represent the weekday on which each observation occurred. This feature allows the models to capture temporal seasonality related to human activity patterns that typically vary across weekdays and weekends. For instance, energy consumption or cooling demand may be systematically higher on weekdays compared to weekends.
+
+\paragraph{Weekend and Weekday Tag}
+Building on the day-of-week information, a binary tag distinguishing between weekdays and weekends was introduced. This feature reduces the dimensionality of temporal effects and allows the models to easily account for systematic differences in behaviour between weekdays and weekends.
+
+\paragraph{Month Identifier}
+To incorporate longer-term seasonal variations, a \texttt{month} identifier was added. This feature makes it possible to detect monthly or seasonal cycles in the data, such as weather-related patterns or operational schedules that repeat on a monthly basis.
+
+\paragraph{Holiday Combination Feature}
+The dataset included two holiday-related variables: \texttt{holiday\_ID}, which was a categorical value ranging from 1 to 22 representing different types of holidays, and \texttt{holiday}, which was a binary value indicating whether a given day was a holiday or not. To enhance the interpretability and usability of these features, a combined feature was created by multiplying \texttt{holiday\_ID} with \texttt{holiday}. This ensured that non-holiday days were represented as zero, while holidays retained their unique identifiers. This transformation simplified model training by consolidating redundant information into a single, more informative feature.
+
+\subsection{Outlier Detection and Removal using the Hampel Identifier Method}
+Outliers can significantly bias statistical and machine learning models if not properly addressed. To mitigate this, the Hampel identifier(HI) method was employed for outlier detection. The HI method was chosen because it is a robust statistical technique based on the median and the median absolute deviation (MAD)\cite{hiceemdanQteg}. The method is also robust to heavy tailed data and skewed distributions of raw data. Below are the equations used for the implementation as taken from \cite{hiceemdanQteg}.
+
+Consider the input sequence \(A = [a_1, a_2, \ldots, a_k]\). For each sample \(a_i\), a symmetric sliding window of length \(w = 2n + 1\) centered at \(i\) is defined. Within this window:
+
+\[
+m_i = \operatorname{median}(a_{i-n}, \ldots, a_i, \ldots, a_{i+n})
+\tag{1}
+\]
+
+The median absolute deviation (MAD) is calculated as:
+
+\[
+\mathrm{MAD}_i = \operatorname{median}\big(|a_{j} - m_i| : j \in [i-n,\, i+n]\big)
+\tag{2}
+\]
+
+To estimate the standard deviation, the MAD is scaled using a constant \(\alpha = 0.6745\) (consistent with normal distribution assumptions):
+
+\[
+\sigma_i = \frac{\mathrm{MAD}_i}{\alpha}
+\tag{3}
+\]
+
+An observation is identified as an outlier if it deviates from the local median beyond three times the estimated standard deviation:
+
+\[
+|a_i - m_i| > 3\sigma_i
+\tag{4}
+\]
+
+If an outlier is detected, the original value \(a_i\) is replaced with the local median \(m_i\). This correction preserves the temporal structure of the data while reducing the influence of anomalies. Incorporating HI ensures that erroneous spikes caused by equipment errors, missing sensor calibration, or human errors do not affect model training and forecasting. This HI formulation was shown to improve quality of raw data and reduce time series complexity \cite{hiceemdanQteg}.
+
+\subsubsection{Data Normalization}
+
+To ensure that the features contributed proportionally during model training, all numerical variables in the dataset were normalized, with the exception of the \texttt{datetime} column, which was retained in its original format for temporal referencing and indexing the dataset. Normalization prevents features with larger absolute values from dominating those with smaller ranges, and it improves the convergence behavior of machine learning algorithms.
+
+Several normalization and standardization approaches exist, such as z-score standardization, robust scaling, and Min–Max scaling. In this work, the Min–Max scaling method was selected due to its effectiveness in rescaling features to a fixed range while preserving the original distribution’s shape. The transformation is defined as:
+
+\[
+x' = \frac{x - x_{\min}}{x_{\max} - x_{\min}}
+\tag{5}
+\]
+
+where \(x\) is the original feature value, \(x_{\min}\) and \(x_{\max}\) are the minimum and maximum values of the feature, and \(x'\) is the normalized value rescaled to the interval \([0,1]\).
+
+The Min–Max scaling method was chosen because it is well-suited for neural networks and distance-based models, particularly those relying on gradient descent, as these algorithms perform optimally when features are restricted to a bounded range \cite{featureScaling}. Unlike z-score normalization, which recenters data around the mean, Min–Max scaling preserves the original relative spacing between values, making it appropriate when proportional differences carry meaning. Furthermore, by rescaling all features to the interval \([0,1]\), it provides a consistent and interpretable representation that simplifies visualization and ensures that all features contribute fairly during training.
+
+By applying Min–Max scaling, the dataset was transformed into a consistent format across all features, thereby improving model training stability and ensuring fair contribution of each feature to the learning process.
