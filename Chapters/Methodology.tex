@@ -129,6 +129,167 @@ x' = \frac{x - x_{\min}}{x_{\max} - x_{\min}}
 
 where \(x\) is the original feature value, \(x_{\min}\) and \(x_{\max}\) are the minimum and maximum values of the feature, and \(x'\) is the normalized value rescaled to the interval \([0,1]\).
 
-The Min–Max scaling method was chosen because it is well-suited for neural networks and distance-based models, particularly those relying on gradient descent, as these algorithms perform optimally when features are restricted to a bounded range \cite{featureScaling}. Unlike z-score normalization, which recenters data around the mean, Min–Max scaling preserves the original relative spacing between values, making it appropriate when proportional differences carry meaning. Furthermore, by rescaling all features to the interval \([0,1]\), it provides a consistent and interpretable representation that simplifies visualization and ensures that all features contribute fairly during training.
+The Min–Max scaling method was chosen because it is well-suited for neural networks and distance-based models, particularly those relying on gradient descent, as these algorithms perform optimally when features are restricted to a bounded range \cite{featureScaling}. Unlike z-score normalization, which re-centers data around the mean, Min–Max scaling preserves the original relative spacing between values, making it appropriate when proportional differences carry meaning. Furthermore, by rescaling all features to the interval \([0,1]\), it provides a consistent and interpretable representation that simplifies visualization and ensures that all features contribute fairly during training.
 
 By applying Min–Max scaling, the dataset was transformed into a consistent format across all features, thereby improving model training stability and ensuring fair contribution of each feature to the learning process.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Chapters/images/preprocess}
+	\caption{The data preprocessing steps taken to process the data for model training}
+	\label{fig:preprocessing}
+\end{figure}
+
+The steps taken for the data preprocessing are shown in the fig \ref{fig:preprocessing} 
+
+\section{Evaluation Metrics}
+The models were compared using standard error metrics and information criteria that are widely used in forecasting literature. These metrics provide complementary views on model performance in terms of accuracy, error magnitude, and model complexity. The chosen metrics are briefly described below. 
+
+\subsubsection{Mean Absolute Percentage Error (MAPE)} 
+MAPE expresses forecast accuracy as a percentage, making it easy to interpret across different scales. Lower values indicate better performance.  
+\[
+\text{MAPE} = \frac{100}{n}\sum_{t=1}^{n} \left| \frac{Y_t - \hat{Y}_t}{Y_t} \right|
+\]
+
+\subsubsection{Mean Squared Error (MSE)} 
+MSE penalises larger errors more heavily by squaring them, making it sensitive to outliers.  
+\[
+\text{MSE} = \frac{1}{n}\sum_{t=1}^{n} (Y_t - \hat{Y}_t)^2
+\]
+
+\subsubsection{Root Mean Squared Error (RMSE)} 
+RMSE is the square root of MSE and brings the error measure back to the same scale as the original data.  
+\[
+\text{RMSE} = \sqrt{\frac{1}{n}\sum_{t=1}^{n} (Y_t - \hat{Y}_t)^2}
+\]
+
+\subsubsection{Coefficient of Determination ($R^2$)} 
+$R^2$ measures how well the forecasts explain the variance in the actual data. Higher values (closer to 1) indicate better fit.  
+\[
+R^2 = 1 - \frac{\sum_{t=1}^{n} (Y_t - \hat{Y}_t)^2}{\sum_{t=1}^{n} (Y_t - \bar{Y})^2}
+\]
+
+\subsubsection{Akaike Information Criterion (AIC)} 
+AIC balances model fit and complexity. It penalizes over-parameterized models, with lower values indicating a better trade-off.  
+\[
+\text{AIC} = 2k - 2\ln(\hat{L})
+\]
+where $k$ is the number of model parameters and $\hat{L}$ is the maximized likelihood.
+
+
+
+\section{Statistical and Machine Learning Models}
+\subsection{Exponential Smoothing}
+
+Exponential smoothing has been widely used as a method for STLF due to its low computational needs and fast processing times. The core idea of this method is to produce a forecast from an exponentially weighted average of past observations, giving the largest weight to the most recent data and exponentially decreasing weights to older data \cite{ostertagova2011simple}. This method's functionality has been discussed extensively in section \ref{sec:exponential smoothing}. In this section we will focus on the theoretical fundamentals and the choice of model we used in our research.  
+
+There are multiple forms of ES, each designed to capture different components of a time series data.
+\paragraph{Simple Exponential Smoothing(SES)}\label{par:ses}
+SES is designed for time series datasets that lack seasonality and trend. The forecast is based solely on the weighted average of past observations. If $\hat{Y}_{t}$  is the value at time t  and $\alpha$ is the smoothing parameter between 0 and 1. The equation for the smoothed value $S_{t}$ would be \ref{eqn:6} as adapted from \cite{ostertagova2011simple}.
+
+\[
+\hat{S}_{t+1}  = \alpha Y_t + (1-\alpha)\hat{Y}_t
+\tag{6}
+\label{eqn:6}
+\]
+ Though the simplicity of SES is good for very low computational tasks it is not favorable for STLF due to the high level of accuracy required in forecasting and the trend and seasonality present in the data.
+ 
+ \paragraph{Double Exponential Smoothing (DES)} method introduces capturing of trend in the time series data. This is in addition to the already existing level component in SES \ref{par:ses}. The equation of DES as adapted from \cite{nist_double_exp_smoothing} would be:
+ \[
+  S_t = \alpha Y_t + (1-\alpha)(S_{t-1} + b_{t-1})
+  \tag{7}
+ \label{eqn:7}
+ \] 
+ \[
+  b_t = \gamma (S_t - S_{t-1}) + (1-\gamma) b_{t-1}
+  \tag{8}
+ \label{eqn:8}
+ \]
+ 
+ where $b_t$ would be the estimated trend or slope of the dataset and $\gamma$ would be the smoothing parameter for the trend  between 0 and 1. The data shows a clear flat trend over the long-term and seasonality every 24 hours with a fast rise and peak demand during midday shown in image \ref{fig:weeklydemand}. This 24 hour seasonality brings us to the third ES model which s the Triple Exponential Smoothing (TES). \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[width=0.7\linewidth]{Chapters/images/weekly_demand}
+ 	\caption{Real electricity demand from Sunday 13th to Saturday 20th of October 2019}
+ 	\label{fig:weeklydemand}
+ \end{figure}
+ 
+ \paragraph{Triple Exponential Smoothing } introduces the equation that takes care of the seasonality component of the data \cite{nist_double_exp_smoothing}. TES inherits equation \ref{eqn:7} and \ref{eqn:8} and introduces equation \ref{eqn:9} for seasonality adapted from \cite{nist_double_exp_smoothing}.
+ \[
+ I_t = \beta \frac{Y_t}{S_t} + (1-\beta) I_{t-m}  
+ \tag{9}
+ \label{eqn:9}
+ \]
+ $I_t$ is the estimated seasonal component and $\beta$ is the seasonality constant that is between 0 and 1. With the combination of equation \ref{eqn:6} , \ref{eqn:8}  and \ref{eqn:9} the overall smoothed value equation would be \ref{eqn:10}. 
+ \[
+ S_t = \alpha \frac{Y_t}{I_{t-L}} + (1-\alpha)(S_{t-1}+b_{t-1})
+ \tag{10}
+ \label{eqn:10}
+ \]
+ 
+ \paragraph{Damping} is a mechanism used to reduce or dampen the trend in forecasts over long horizons \cite{taylor2003exponential}. This method makes the forecast trend more conservative, preventing it from overshooting the actual data , which is a common issue in ES methods projecting a linear trend indefinitely in the future \cite{taylor2003exponential}. The equation below is for the smoothed value inclusive of the damping factor $\phi$ which is between 0 and 1, adapted from \cite{taylor2003exponential}. With equation \ref{eqn:11.a} being the additive in level and equation \ref{eqn:11.b} being the multiplicative in level.
+ \[
+ 	S_t = \alpha \frac{Y_t}{I_{t-L}} + (1-\alpha)\bigl(S_{t-1} + \phi\, b_{t-1}) 
+ \tag{11.a}
+ \label{eqn:11.a}
+ \]
+ 
+ 
+ \[
+ S_t = \alpha \frac{Y_t}{I_{t-L}} + (1-\alpha)\bigl(S_{t-1} \cdot b_{t-1}^{\,\phi}\bigr)
+ \tag{11.b}
+ \label{eqn:11.b}
+ \]
+ 
+
+ \subsubsection{Choice of best Exponential Smoothing model}
+ The objective of the research is to improve STLF by using Ml and AI methods. ES as a statistical method would  be the benchmark for comparison of the ML models. However because of the different variations of ES an algorithm was  developed to help choose the best performing ES model to be used as the benchmark for the rest of the project. The models performance were compared on their MAPE, MAE, Mean Squared Error(MSE), RMSE and the AIC.
+ 
+ This algorithm would create a model using statsmodel holtwinters \cite{statsmodels_expsmoothing_doc} and test its performance of forecasts on the dataset. Different model's performance would be compared to each other. Image \ref{fig:exponential-smoothing-model-choice} in appendix A shows a flow chart of how the algorithm functions. Table \ref{tab:es_model_selection} shows the different models that were tested to find the best model and their results.
+ 
+
+
+\begin{table}[ht]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{lccccccc}
+			\hline
+			\textbf{Model} & \textbf{Trend} & \textbf{Seasonality} & \textbf{Seasonality Period} & \textbf{Damped} & \textbf{MAPE (\%)} & \textbf{MSE (MWh)} & \textbf{AIC} \\
+			\hline
+			Simple               & None  & None & –  & –   & 13.76\%  & 180.98 & 343990.96 \\
+			Double               & Add   & None & –  & –   & 15.14\%  & 172.11 & 327001.68 \\
+			Triple\_Add          & Add   & Add  & 24 & –   & 10.56\%  & 125.56 & 277981.02 \\
+			Triple\_Mul          & Mul   & Mul  & 24 & –   & 34.48\%  & 408.23 & 272265.85 \\
+			Triple\_Add\_Damped  & Add   & Add  & 24 & Yes &  9.99\%  & 120.81 & 277708.98 \\
+			Triple\_Mul\_Damped  & Mul   & Mul  & 24 & Yes & 10.01\%  & 119.49 & 272266.18 \\
+			\hline
+		\end{tabular}%
+	}
+	\caption{Exponential Smoothing Models chosen for benchmarking and their performance.}
+	\label{tab:es_model_selection}
+\end{table}
+
+Comparison of performance metrics through the algorithm in figure \ref{fig:exponential-smoothing-model-choice} was the Triple Multiplicative Damped algorithm with a seasonality period of 24 data points. Since the dataset is sampled hourly the seasonality was set to 24 hours. The MAPE and MSE are very close to each other with a difference of about 0.01 each. However the AIC value for  $Triple\_Mul\_Damped$ is lower than the one for $Triple\_Add\_Damped$, this showing a better model fit for  $Triple\_Mul\_Damped$. The final choice for the ES model was  $Triple\_Mul\_Damped$ and it served as a benchmark for testing performance of other models used in the experiment.
+ 
+ 
+\subsection{Deep Belief Network}
+ 
+ A DBN is a probabilistic generative model composed of multiple layers of stochastic, latent variables \cite{zhang2017deep}. It is constructed by stacking multiple layers of RBMs on top of each other \cite{zhang2016short}.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

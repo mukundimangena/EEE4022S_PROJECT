@@ -1,0 +1,70 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Background to the study}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Objectives of this study}{1}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Problems to be investigated}{1}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Purpose of the study}{1}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Scope and Limitations}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Plan of development}{2}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Literature Review }{3}{chapter.2}%
+\contentsline {subsection}{\numberline {2.0.1}Introduction}{3}{subsection.2.0.1}%
+\contentsline {section}{\numberline {2.1}Statistical Models }{5}{section.2.1}%
+\contentsline {subsubsection}{Regression Models }{6}{section*.2}%
+\contentsline {subsubsection}{Exponential Smoothing }{7}{section*.3}%
+\contentsline {subsubsection}{Auto Regressive Integrated Moving Average}{8}{section*.4}%
+\contentsline {section}{\numberline {2.2}Intelligent Models}{9}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Early Artificial Intelligence(AI) and Machine Learning Models}{10}{subsection.2.2.1}%
+\contentsline {paragraph}{Support Vector Machines (SVMs)}{10}{section*.5}%
+\contentsline {paragraph}{Fuzzy Logic methods}{10}{section*.6}%
+\contentsline {paragraph}{Artificial Neural Networks(ANNs)}{10}{section*.7}%
+\contentsline {subsubsection}{Challenges and Drawbacks of Early AI Models}{11}{section*.8}%
+\contentsline {subsection}{\numberline {2.2.2}Advanced Deep Learning Architecture for Enhanced STLF}{11}{subsection.2.2.2}%
+\contentsline {subsubsection}{Recurrent Neural Networks and Long Short Term Memory}{11}{section*.9}%
+\contentsline {subsubsection}{Bidirectional LSTM (Bi-LSTM)}{12}{section*.10}%
+\contentsline {subsubsection}{Deep Belief Network (DBN)}{13}{section*.11}%
+\contentsline {subsubsection}{Other Advanced Models}{13}{section*.12}%
+\contentsline {paragraph}{Gated Recurrent Unit (GRU)}{13}{section*.13}%
+\contentsline {paragraph}{Convolutional Neural Networks (CNNs)}{13}{section*.14}%
+\contentsline {section}{\numberline {2.3} Hybrid Models }{14}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Decomposition-Based Hybrid Models }{14}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Deep Learning Combination Hybrid Models}{15}{subsection.2.3.2}%
+\contentsline {subsubsection}{CNN-LSTM/GRU}{15}{section*.15}%
+\contentsline {subsubsection}{DBN-RNN/Bi-RNN}{15}{section*.16}%
+\contentsline {section}{\numberline {2.4}Data Pre-Processing Techniques}{16}{section.2.4}%
+\contentsline {subsubsection}{Data Cleaning and Outlier Detection}{17}{section*.17}%
+\contentsline {subsubsection}{Data Normalization and Transformation}{18}{section*.18}%
+\contentsline {subsubsection}{Feature Engineering and Selection}{18}{section*.19}%
+\contentsline {subsection}{\numberline {2.4.1}Summary}{19}{subsection.2.4.1}%
+\contentsline {chapter}{\numberline {3}Methodology}{20}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Data Collection and Description}{20}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Data Preprocessing}{22}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Choice of programming language}{22}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Feature Engineering}{23}{subsection.3.2.2}%
+\contentsline {paragraph}{Forward Filling}{23}{section*.20}%
+\contentsline {paragraph}{Day of Week Encoding}{24}{section*.21}%
+\contentsline {paragraph}{Weekend and Weekday Tag}{24}{section*.22}%
+\contentsline {paragraph}{Month Identifier}{24}{section*.23}%
+\contentsline {paragraph}{Holiday Combination Feature}{24}{section*.24}%
+\contentsline {subsection}{\numberline {3.2.3}Outlier Detection and Removal using the Hampel Identifier Method}{24}{subsection.3.2.3}%
+\contentsline {subsubsection}{Data Normalization}{25}{section*.29}%
+\contentsline {section}{\numberline {3.3}Evaluation Metrics}{26}{section.3.3}%
+\contentsline {subsubsection}{Mean Absolute Percentage Error (MAPE)}{27}{section*.31}%
+\contentsline {subsubsection}{Mean Squared Error (MSE)}{27}{section*.32}%
+\contentsline {subsubsection}{Root Mean Squared Error (RMSE)}{27}{section*.33}%
+\contentsline {subsubsection}{Coefficient of Determination ($R^2$)}{28}{section*.34}%
+\contentsline {subsubsection}{Akaike Information Criterion (AIC)}{28}{section*.35}%
+\contentsline {section}{\numberline {3.4}Statistical and Machine Learning Models}{28}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Exponential Smoothing}{28}{subsection.3.4.1}%
+\contentsline {paragraph}{Simple Exponential Smoothing(SES)}{28}{section*.36}%
+\contentsline {paragraph}{Double Exponential Smoothing (DES)}{29}{section*.38}%
+\contentsline {paragraph}{Triple Exponential Smoothing }{30}{section*.41}%
+\contentsline {paragraph}{Damping}{30}{section*.44}%
+\contentsline {subsubsection}{Choice of best Exponential Smoothing model}{30}{section*.47}%
+\contentsline {subsection}{\numberline {3.4.2}Deep Belief Network}{31}{subsection.3.4.2}%
+\contentsline {chapter}{\numberline {4}Results}{32}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Simulation Results}{32}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Experimental Results}{32}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Discussion}{33}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusions}{34}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Recommendations}{35}{chapter.7}%
+\contentsline {chapter}{\numberline {A}Addenda}{44}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Ethics Forms}{44}{section.A.1}%

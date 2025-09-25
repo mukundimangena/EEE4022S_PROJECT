@@ -249,4 +249,36 @@ C.-L. Hor, S.~J. Watson, and S.~Majithia, ``Analyzing the impact of weather
 A.~Vidhya, ``What is feature scaling and why is it important?,'' 2020.
 \newblock Accessed: 2025-09-20.
 
+\bibitem{ostertagova2011simple}
+E.~Ostertagov{\'a} and O.~Ostertag, ``The simple exponential smoothing model,''
+  in {\em The 4th International Conference on modelling of mechanical and
+  mechatronic systems, Technical University of Ko{\v{s}}ice, Slovak Republic,
+  Proceedings of Conference}, pp.~380--384, 2011.
+
+\bibitem{nist_double_exp_smoothing}
+N.~e-Handbook~of Statistical~Methods, ``Double exponential smoothing.''
+  \url{https://www.itl.nist.gov/div898/handbook/pmc/section4/pmc433.htm}, 2025.
+\newblock Accessed: 2025-09-23.
+
+\bibitem{taylor2003exponential}
+J.~W. Taylor, ``Exponential smoothing with a damped multiplicative trend,''
+  {\em International journal of Forecasting}, vol.~19, no.~4, pp.~715--725,
+  2003.
+
+\bibitem{statsmodels_expsmoothing_doc}
+{Statsmodels Developers}, ``{statsmodels.tsa.holtwinters.ExponentialSmoothing
+  documentation}.'' Web documentation, 2025.
+\newblock Accessed: 24 September 2025.
+
+\bibitem{zhang2017deep}
+B.~Zhang, X.~Xu, H.~Xing, and Y.~Li, ``A deep learning based framework for
+  power demand forecasting with deep belief networks,'' in {\em 2017 18th
+  international conference on parallel and distributed computing, applications
+  and technologies (PDCAT)}, pp.~191--195, IEEE, 2017.
+
+\bibitem{zhang2016short}
+X.~Zhang, R.~Wang, T.~Zhang, and Y.~Zha, ``Short-term load forecasting based on
+  a improved deep belief network,'' in {\em 2016 International Conference on
+  Smart Grid and Clean Energy Technologies (ICSGCE)}, pp.~339--342, IEEE, 2016.
+
 \end{thebibliography}

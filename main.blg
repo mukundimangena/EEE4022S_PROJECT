@@ -35,45 +35,45 @@ Repeated entry---line 501 of file Bibliography/References.bib
 I'm skipping whatever remains of this entry
 Warning--entry type for "featureScaling" isn't style-file defined
 --line 949 of file Bibliography/References.bib
-You've used 47 entries,
+You've used 53 entries,
             1876 wiz_defined-function locations,
-            763 strings with 13877 characters,
-and the built_in function-call counts, 14894 in all, are:
-= -- 1527
-> -- 604
+            795 strings with 15149 characters,
+and the built_in function-call counts, 16578 in all, are:
+= -- 1702
+> -- 652
 < -- 0
-+ -- 219
-- -- 172
-* -- 1019
-:= -- 2020
-add.period$ -- 50
-call.type$ -- 47
-change.case$ -- 47
++ -- 238
+- -- 185
+* -- 1122
+:= -- 2237
+add.period$ -- 58
+call.type$ -- 53
+change.case$ -- 53
 chr.to.int$ -- 0
-cite$ -- 47
-duplicate$ -- 783
-empty$ -- 1282
-format.name$ -- 172
-if$ -- 3696
+cite$ -- 53
+duplicate$ -- 871
+empty$ -- 1459
+format.name$ -- 185
+if$ -- 4119
 int.to.chr$ -- 0
-int.to.str$ -- 47
-missing$ -- 41
-newline$ -- 147
-num.names$ -- 47
-pop$ -- 131
+int.to.str$ -- 53
+missing$ -- 45
+newline$ -- 167
+num.names$ -- 53
+pop$ -- 163
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 664
+skip$ -- 730
 stack$ -- 0
-substring$ -- 1045
-swap$ -- 419
+substring$ -- 1173
+swap$ -- 455
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 138
-width$ -- 49
-write$ -- 480
+while$ -- 156
+width$ -- 55
+write$ -- 540
 (There were 2 error messages)

@@ -1,0 +1,25 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.4">
+  <diagram name="Page-1" id="C_tuE6d4y0P6U2uv0sjN">
+    <mxGraphModel dx="2470" dy="749" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4AdrlFn0J5hl-Lt0yi14-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="4AdrlFn0J5hl-Lt0yi14-3" target="4AdrlFn0J5hl-Lt0yi14-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4AdrlFn0J5hl-Lt0yi14-3" value="Start" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry y="110" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4AdrlFn0J5hl-Lt0yi14-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4AdrlFn0J5hl-Lt0yi14-4" target="4AdrlFn0J5hl-Lt0yi14-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4AdrlFn0J5hl-Lt0yi14-4" value="Initialize best_model = none" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-45" y="180" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4AdrlFn0J5hl-Lt0yi14-7" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Define candidate model:&lt;/font&gt;&lt;/b&gt;&lt;br&gt;Simpe, Double, Triple Additive , Triple Multiplicative , Triple Additive Damped and Triple Multiplicative Damped" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-45" y="270" width="170" height="170" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
