@@ -254,10 +254,10 @@ SES is designed for time series datasets that lack seasonality and trend. The fo
 			\hline
 			\textbf{Model} & \textbf{Trend} & \textbf{Seasonality} & \textbf{Seasonality Period} & \textbf{Damped} & \textbf{MAPE (\%)} & \textbf{MSE (MWh)} & \textbf{AIC} \\
 			\hline
-			Simple               & None  & None & –  & –   & 13.76\%  & 180.98 & 343990.96 \\
-			Double               & Add   & None & –  & –   & 15.14\%  & 172.11 & 327001.68 \\
-			Triple\_Add          & Add   & Add  & 24 & –   & 10.56\%  & 125.56 & 277981.02 \\
-			Triple\_Mul          & Mul   & Mul  & 24 & –   & 34.48\%  & 408.23 & 272265.85 \\
+			Simple               & None  & None & –  & No  & 13.76\%  & 180.98 & 343990.96 \\
+			Double               & Add   & None & –  & No  & 15.14\%  & 172.11 & 327001.68 \\
+			Triple\_Add          & Add   & Add  & 24 & No  & 10.56\%  & 125.56 & 277981.02 \\
+			Triple\_Mul          & Mul   & Mul  & 24 & No   & 34.48\%  & 408.23 & 272265.85 \\
 			Triple\_Add\_Damped  & Add   & Add  & 24 & Yes &  9.99\%  & 120.81 & 277708.98 \\
 			Triple\_Mul\_Damped  & Mul   & Mul  & 24 & Yes & 10.01\%  & 119.49 & 272266.18 \\
 			\hline
@@ -272,24 +272,72 @@ Comparison of performance metrics through the algorithm in figure \ref{fig:expon
  
 \subsection{Deep Belief Network}
  
- A DBN is a probabilistic generative model composed of multiple layers of stochastic, latent variables \cite{zhang2017deep}. It is constructed by stacking multiple layers of RBMs on top of each other \cite{zhang2016short}.  
+ A DBN is a probabilistic generative model composed of multiple layers of stochastic, latent variables \cite{zhang2017deep}. It is constructed by stacking multiple layers of RBMs on top of each other \cite{zhang2016short}. This model benefits from its capabilities of limiting the occurrence of the local minima by pre-training RBMs using unsupervised training to adjust weights and parameters to ensure an enhanced performance in actual prediction use cases.
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+\subsubsection{Restricted Boltzmann Machine (RBM)}
+
+A Restricted Boltzmann Machine (RBM) is a two-layer probabilistic generative model designed to learn the underlying probability distribution of input data. RBMs are widely used as building blocks for constructing DBNs \cite{dong2021short}. The architecture consists of a \textit{visible layer}, which receives the observed data, and a \textit{hidden layer}, which captures latent features and higher-order correlations in the data. Learning in RBMs is unsupervised: the model attempts to represent the structure of the input data by adjusting its parameters weights and biases so as to maximize the likelihood of the training samples \cite{zhang2017deep}.
+
+An RBM is defined by a weight matrix that connects each visible unit to each hidden unit in a bipartite manner, together with bias vectors for both layers. No intra-layer connections are permitted, which simplifies inference and training. The structure is shown in figure \ref{fig:singlerbm}, adapted from Zhang et al. \cite{zhang2017deep}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Chapters/images/singleRBM}
+	\caption{Illustration of an RBM with visible and hidden layers, including weights and biases}
+	\label{fig:singlerbm}
+\end{figure}
+
+\paragraph{Energy-Based Formulation: } 
+An RBM is an energy-based model, meaning it assigns a scalar energy value to each configuration of visible and hidden units. Configurations with lower energy are more likely under the model. The energy function is given by \cite{kong2019improved, zhang2016short}:
+
+\[
+E(v,h;\theta) = -\sum_i a_i v_i - \sum_j b_j h_j - \sum_{i,j} v_i W_{ij} h_j
+\tag{12}
+\label{eqn:12}
+\]
+
+where
+\begin{itemize}
+	\item $v_i$: the state of visible unit $i$,
+	\item $h_j$: the state of hidden unit $j$,
+	\item $a_i$: the bias associated with visible unit $i$,
+	\item $b_j$: the bias associated with hidden unit $j$,
+	\item $W_{ij}$: the weight between visible unit $i$ and hidden unit $j$,
+	\item $\theta = \{W, a, b\}$: the model parameters.
+\end{itemize}
+
+\paragraph{Probability Distribution: } 
+Using the energy function, the joint probability of a visible–hidden configuration is defined by the Boltzmann distribution \cite{DBN_GeeksforGeeks}:
+
+\[
+P(v,h) = \frac{e^{-E(v,h)}}{Z}
+\tag{13}
+\label{eqn:13}
+\]
+
+where $Z$ is the \textit{partition function}, given by summing over all possible visible and hidden states:
+\[
+Z = \sum_{v,h} e^{-E(v,h)}
+\]
+
+The probability of a visible vector $v$ is obtained by marginalizing out the hidden layer:
+\[
+P(v) = \frac{1}{Z} \sum_{h} e^{-E(v,h)}
+\]
+
+\paragraph{Training RBMs: } 
+RBMs are typically trained using the \textit{Contrastive Divergence} (CD) algorithm. Training consists of two phases:
+\begin{enumerate}
+	\item \textbf{Positive phase:} a visible vector from the data activates the hidden layer, and correlations $\langle v_i h_j \rangle_{\text{data}}$ are computed.
+	\item \textbf{Negative phase:} the hidden units are used to reconstruct the visible layer, producing a reconstructed vector. From this, correlations $\langle v_i h_j \rangle_{\text{recon}}$ are obtained.
+\end{enumerate}
+
+The difference between the two phases provides the learning signal for updating weights:
+\[
+\Delta W_{ij} = \eta \Big( \langle v_i h_j \rangle_{\text{data}} - \langle v_i h_j \rangle_{\text{recon}} \Big)
+\tag{14}
+\label{eqn:14}
+\]
+where $\eta$ is the learning rate. In this way, the RBM iteratively learns to reduce the gap between the distribution of the training data and the distribution it models. The feed-forward (data-to-hidden) and feed-backward (hidden-to-reconstruction) passes, together with weight updates, constitute the CD training loop \cite{RBM_GeeksforGeeks}.
+
+\paragraph{Stacking RBMs to make a DBN: } as mentioned in 

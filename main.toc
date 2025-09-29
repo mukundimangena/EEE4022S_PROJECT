@@ -60,11 +60,15 @@
 \contentsline {paragraph}{Damping}{30}{section*.44}%
 \contentsline {subsubsection}{Choice of best Exponential Smoothing model}{30}{section*.47}%
 \contentsline {subsection}{\numberline {3.4.2}Deep Belief Network}{31}{subsection.3.4.2}%
-\contentsline {chapter}{\numberline {4}Results}{32}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Simulation Results}{32}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Experimental Results}{32}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Discussion}{33}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusions}{34}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Recommendations}{35}{chapter.7}%
-\contentsline {chapter}{\numberline {A}Addenda}{44}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Ethics Forms}{44}{section.A.1}%
+\contentsline {subsubsection}{Restricted Boltzmann Machine (RBM)}{31}{section*.48}%
+\contentsline {paragraph}{Energy-Based Formulation: }{32}{section*.49}%
+\contentsline {paragraph}{Probability Distribution: }{33}{section*.51}%
+\contentsline {paragraph}{Training RBMs: }{33}{section*.53}%
+\contentsline {chapter}{\numberline {4}Results}{34}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Simulation Results}{34}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Experimental Results}{34}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Discussion}{35}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusions}{36}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Recommendations}{37}{chapter.7}%
+\contentsline {chapter}{\numberline {A}Addenda}{46}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Ethics Forms}{46}{section.A.1}%

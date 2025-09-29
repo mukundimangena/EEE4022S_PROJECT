@@ -281,4 +281,16 @@ X.~Zhang, R.~Wang, T.~Zhang, and Y.~Zha, ``Short-term load forecasting based on
   a improved deep belief network,'' in {\em 2016 International Conference on
   Smart Grid and Clean Energy Technologies (ICSGCE)}, pp.~339--342, IEEE, 2016.
 
+\bibitem{DBN_GeeksforGeeks}
+GeeksforGeeks, ``Deep belief network (dbn) in deep learning.''
+  \url{https://www.geeksforgeeks.org/deep-learning/deep-belief-network-dbn-in-deep-learning/},
+  [2023].
+\newblock Accessed: [29 Sept. 2025].
+
+\bibitem{RBM_GeeksforGeeks}
+GeeksforGeeks, ``Restricted boltzmann machine.''
+  \url{https://www.geeksforgeeks.org/machine-learning/restricted-boltzmann-machine/},
+  [2023].
+\newblock Accessed: [ 29 Sept. 2025].
+
 \end{thebibliography}
