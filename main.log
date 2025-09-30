@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.30)  29 SEP 2025 22:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.30)  30 SEP 2025 17:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -452,8 +452,12 @@ Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
 \backup@length=\skip79
 \ar@cellbox=\box64
 ))
+(C:\Users\mukundi mangena\AppData\Local\Programs\MiKTeX\tex/latex/comment\comme
+nt.sty
+\CommentStream=\write3
+ Excluding comment 'comment')
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 32.
+h' as default language. on input line 33.
 
 (C:\Users\mukundi mangena\AppData\Local\Programs\MiKTeX\tex/latex/graphics\colo
 r.sty
@@ -472,30 +476,42 @@ ackend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count330
 ) (main.aux (Chapters/Introduction.aux)
-(Chapters/LiteratureReview.aux) (Chapters/Methodology.aux) (Chapters/Result.aux
-) (Chapters/Discussion.aux) (Chapters/Conclusions.aux)
+(Chapters/LiteratureReview.aux) (Chapters/Methodology.aux
+
+LaTeX Warning: Label `sec:datapreprocessing' multiply defined.
+
+
+LaTeX Warning: Label `sec:datapreprocessing' multiply defined.
+
+
+LaTeX Warning: Label `sec:datapreprocessing' multiply defined.
+
+
+LaTeX Warning: Label `sec:datapreprocessing' multiply defined.
+
+) (Chapters/Result.aux) (Chapters/Discussion.aux) (Chapters/Conclusions.aux)
 (Chapters/Recommendations.aux) (Chapters/References.aux)
 (Chapters/appendixa.aux) (Chapters/appendixb.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -557,10 +573,10 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 opdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 32.
+Package hyperref Info: Link coloring OFF on input line 33.
  (main.out) (main.out)
-\@outlinefile=\write3
-\openout3 = `main.out'.
+\@outlinefile=\write4
+\openout4 = `main.out'.
 
 
 (C:\Users\mukundi mangena\AppData\Local\Programs\MiKTeX\tex/latex/translations/
@@ -569,11 +585,11 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 32.
-<Chapters/images/UCT.jpg, id=147, 144.54pt x 144.54pt>
+or `english'. on input line 33.
+<Chapters/images/UCT.jpg, id=155, 144.54pt x 144.54pt>
 File: Chapters/images/UCT.jpg Graphic file (type jpg)
 <use Chapters/images/UCT.jpg>
-Package pdftex.def Info: Chapters/images/UCT.jpg  used on input line 46.
+Package pdftex.def Info: Chapters/images/UCT.jpg  used on input line 47.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 
 
@@ -583,28 +599,28 @@ Package pdftex.def Info: Chapters/images/UCT.jpg  used on input line 46.
 Chapters/images/UCT.jpg>]
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 106--106
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
 
  []
 
 
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
 
  []
 
 
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
 
 
 [1]
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
@@ -629,8 +645,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ]
 
 [4])
-\tf@toc=\write4
-\openout4 = `main.toc'.
+\tf@toc=\write5
+\openout5 = `main.toc'.
 
 
 
@@ -639,13 +655,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 151.
+ine 152.
 
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 152.
+ine 153.
 
 \openout2 = `Chapters/Introduction.aux'.
 
@@ -676,7 +692,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.159 		\include{Chapters/Introduction.tex}
+l.160 		\include{Chapters/Introduction.tex}
                                             [2]
 \openout2 = `Chapters/LiteratureReview.aux'.
 
@@ -953,7 +969,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [25]
-<Chapters/images/preprocess.png, id=561, 3854.4pt x 2503.3525pt>
+<Chapters/images/preprocess.png, id=571, 3854.4pt x 2503.3525pt>
 File: Chapters/images/preprocess.png Graphic file (type png)
 <use Chapters/images/preprocess.png>
 Package pdftex.def Info: Chapters/images/preprocess.png  used on input line 137
@@ -991,11 +1007,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [28]
-<Chapters/images/weekly_demand.png, id=595, 593.21625pt x 406.51875pt>
+<Chapters/images/weekly_demand.png, id=605, 593.21625pt x 406.51875pt>
 File: Chapters/images/weekly_demand.png Graphic file (type png)
 <use Chapters/images/weekly_demand.png>
 Package pdftex.def Info: Chapters/images/weekly_demand.png  used on input line 
-210.
+211.
 (pdftex.def)             Requested size: 317.07614pt x 217.28998pt.
 
 
@@ -1025,10 +1041,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [31]
-<Chapters/images/singleRBM.png, id=653, 1267.73625pt x 605.26125pt>
+<Chapters/images/singleRBM.png, id=664, 1267.73625pt x 605.26125pt>
 File: Chapters/images/singleRBM.png Graphic file (type png)
 <use Chapters/images/singleRBM.png>
-Package pdftex.def Info: Chapters/images/singleRBM.png  used on input line 285.
+Package pdftex.def Info: Chapters/images/singleRBM.png  used on input line 289.
 
 (pdftex.def)             Requested size: 317.07614pt x 151.37958pt.
 
@@ -1040,7 +1056,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32 <./Chapters/images/singleRBM.png>])
+[32 <./Chapters/images/singleRBM.png>]
+<Chapters/images/CORRECT_RBM.png, id=678, 1990.43625pt x 966.61125pt>
+File: Chapters/images/CORRECT_RBM.png Graphic file (type png)
+<use Chapters/images/CORRECT_RBM.png>
+Package pdftex.def Info: Chapters/images/CORRECT_RBM.png  used on input line 35
+1.
+(pdftex.def)             Requested size: 317.07614pt x 153.98248pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1050,13 +1077,60 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [33]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[34 <./Chapters/images/CORRECT_RBM.png>]
+
+LaTeX Warning: Citation `bibid' on page 35 undefined on input line 398.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[35]
+
+LaTeX Warning: Reference `label' on page 36 undefined on input line 404.
+
+
+LaTeX Warning: Reference `' on page 36 undefined on input line 404.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[36])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[37]
 \openout2 = `Chapters/Result.aux'.
 
  (Chapters/Result.tex
 Chapter 4.
 )
 
-[34
+[38
 
 
 
@@ -1068,7 +1142,7 @@ Chapter 4.
 Chapter 5.
 )
 
-[35
+[39
 
 
 
@@ -1080,7 +1154,7 @@ Chapter 5.
 Chapter 6.
 )
 
-[36
+[40
 
 
 
@@ -1092,7 +1166,7 @@ Chapter 6.
 Chapter 7.
 )
 
-[37
+[41
 
 
 
@@ -1108,7 +1182,7 @@ Underfull \hbox (badness 1377) in paragraph at lines 4--8
 
 
 
-[38
+[42
 
 
 
@@ -1122,7 +1196,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[39]
+[43]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1131,7 +1205,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[40]
+[44]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1140,7 +1214,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[41]
+[45]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1149,7 +1223,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[42]
+[46]
 Underfull \hbox (badness 10000) in paragraph at lines 285--289
 []\OT1/cmr/m/n/12 GeeksforGeeks, ``Deep be-lief net-work (dbn) in deep learn-
  []
@@ -1169,7 +1243,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[43]
+[47]
 \openout2 = `Chapters/appendixa.aux'.
 
  (Chapters/appendixa.tex
@@ -1177,13 +1251,13 @@ File: Chapters/images/preprocess.png Graphic file (type png)
 <use Chapters/images/preprocess.png>
 Package pdftex.def Info: Chapters/images/preprocess.png  used on input line 4.
 (pdftex.def)             Requested size: 385.46259pt x 250.34991pt.
-<Chapters/images/forward_fill.jpg, id=731, 383.93437pt x 301.8778pt>
+<Chapters/images/forward_fill.jpg, id=777, 383.93437pt x 301.8778pt>
 File: Chapters/images/forward_fill.jpg Graphic file (type jpg)
 <use Chapters/images/forward_fill.jpg>
 Package pdftex.def Info: Chapters/images/forward_fill.jpg  used on input line 1
 2.
 (pdftex.def)             Requested size: 153.57101pt x 120.74898pt.
-<Chapters/images/exponentialsmoothingmodel.png, id=732, 786.94pt x 3854.4pt>
+<Chapters/images/exponentialsmoothingmodel.png, id=778, 786.94pt x 3854.4pt>
 File: Chapters/images/exponentialsmoothingmodel.png Graphic file (type png)
 <use Chapters/images/exponentialsmoothingmodel.png>
 Package pdftex.def Info: Chapters/images/exponentialsmoothingmodel.png  used on
@@ -1205,7 +1279,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[44
+[48
 
 
 
@@ -1218,14 +1292,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[45 <./Chapters/images/exponentialsmoothingmodel.png>]
+[49 <./Chapters/images/exponentialsmoothingmodel.png>]
 \openout2 = `Chapters/appendixb.aux'.
 
  (Chapters/appendixb.tex
 Appendix A.
 )
 
-[46
+[50
 
 
 
@@ -1240,37 +1314,46 @@ enddocument/afterlastpage (AED): lastpage setting LastPage.
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-19>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: CD741578E6EEAA23239AAFDDEAA7013D;6306.
+(rerunfilecheck)             Checksum: A132EA547827A8A0653864EF998E4C2A;6761.
  ) 
 Here is how much of TeX's memory you used:
- 15550 strings out of 468149
- 312142 string characters out of 5426206
- 681005 words of memory out of 5000000
- 43696 multiletter control sequences out of 15000+600000
- 634806 words of font info for 69 fonts, out of 8000000 for 9000
+ 15652 strings out of 468149
+ 314025 string characters out of 5426206
+ 682161 words of memory out of 5000000
+ 43768 multiletter control sequences out of 15000+600000
+ 637268 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,1947b,1147s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,16n,79p,1947b,1147s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\mukundi mangena\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
 pi600\tcrm1200.pk><C:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/mukundi mangena/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/mukundi man
-gena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C
-:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmmi12.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/mukundi mangena/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/mukundi mangena/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/User
-s/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr8.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/mukundi mangena/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/muku
-ndi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12
-.pfb>
-Output written on main.pdf (55 pages, 960892 bytes).
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/mukundi mangen
+a/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:
+/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmex10.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmmi12.pfb><C:/Users/mukundi mangena/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/mukundi mangena/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Us
+ers/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmr12.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmr17.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/mukundi mangena/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/muk
+undi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8
+.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmti12.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (59 pages, 1244632 bytes).
 PDF statistics:
- 851 PDF objects out of 1000 (max. 8388607)
- 212 named destinations out of 1000 (max. 500000)
- 319 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 910 PDF objects out of 1000 (max. 8388607)
+ 230 named destinations out of 1000 (max. 500000)
+ 340 words of extra memory for PDF output out of 10000 (max. 10000000)
 

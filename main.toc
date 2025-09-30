@@ -36,7 +36,7 @@
 \contentsline {subsection}{\numberline {2.4.1}Summary}{19}{subsection.2.4.1}%
 \contentsline {chapter}{\numberline {3}Methodology}{20}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Data Collection and Description}{20}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Data Preprocessing}{22}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Data Preprocessing }{22}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Choice of programming language}{22}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Feature Engineering}{23}{subsection.3.2.2}%
 \contentsline {paragraph}{Forward Filling}{23}{section*.20}%
@@ -59,16 +59,25 @@
 \contentsline {paragraph}{Triple Exponential Smoothing }{30}{section*.41}%
 \contentsline {paragraph}{Damping}{30}{section*.44}%
 \contentsline {subsubsection}{Choice of best Exponential Smoothing model}{30}{section*.47}%
+\contentsline {subsubsection}{Implementation of the Triple Multiplicative Damped ES model}{31}{section*.48}%
 \contentsline {subsection}{\numberline {3.4.2}Deep Belief Network}{31}{subsection.3.4.2}%
-\contentsline {subsubsection}{Restricted Boltzmann Machine (RBM)}{31}{section*.48}%
-\contentsline {paragraph}{Energy-Based Formulation: }{32}{section*.49}%
-\contentsline {paragraph}{Probability Distribution: }{33}{section*.51}%
-\contentsline {paragraph}{Training RBMs: }{33}{section*.53}%
-\contentsline {chapter}{\numberline {4}Results}{34}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Simulation Results}{34}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Experimental Results}{34}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Discussion}{35}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusions}{36}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Recommendations}{37}{chapter.7}%
-\contentsline {chapter}{\numberline {A}Addenda}{46}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Ethics Forms}{46}{section.A.1}%
+\contentsline {subsubsection}{Restricted Boltzmann Machine (RBM)}{31}{section*.49}%
+\contentsline {paragraph}{Energy-Based Formulation: }{32}{section*.50}%
+\contentsline {paragraph}{Probability Distribution: }{33}{section*.52}%
+\contentsline {paragraph}{Training RBMs:}{33}{section*.54}%
+\contentsline {paragraph}{RBMs are stacked to create a DBN}{33}{section*.56}%
+\contentsline {subsection}{\numberline {3.4.3}Implementation of DBN architecture for STLF}{34}{subsection.3.4.3}%
+\contentsline {subsubsection}{Input Feature Engineering}{34}{section*.57}%
+\contentsline {subsubsection}{DBN Structure}{35}{section*.58}%
+\contentsline {subsection}{\numberline {3.4.4}Training Procedure}{36}{subsection.3.4.4}%
+\contentsline {subsubsection}{Pre-training (Unsupuervised)}{36}{section*.59}%
+\contentsline {subsubsection}{Fine-Tuning (Supervised)}{36}{section*.60}%
+\contentsline {subsubsection}{Regularization Strategies}{37}{section*.61}%
+\contentsline {chapter}{\numberline {4}Results}{38}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Simulation Results}{38}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Experimental Results}{38}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Discussion}{39}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusions}{40}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Recommendations}{41}{chapter.7}%
+\contentsline {chapter}{\numberline {A}Addenda}{50}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Ethics Forms}{50}{section.A.1}%

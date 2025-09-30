@@ -1,6 +1,6 @@
 \chapter{Methodology}
 
-The goal for this research is to investigate the impact of ML methods in STLF. As seen in the literature review ML methods have proved to better predict time series data. The main downside that has been identified within using ML methods is the processing time , however this downside is offset by the need of an accurate method of prediction. This is due to the cost of inaccurate predictions to the power providers. The literature review \ref{litReview} highlights the effectiveness of ARIMA as a statistical model in STLF and SVM's as an early AI model that is also effective in temporal prediction tasks. These two models are therefore used as the benchmarking tools to evaluate the effectiveness of advanced ML/AI models in STLF. \ref{litReview} explains the superiority of using hybrid models to capture the benefits of different methods in one combination. Therefore in this research we will test the effectiveness of Bi-LSTM , CNN-LSTM and a DBN-RNN in STLF. We will also check the effects of data preprocessing on the final result of the model.
+The goal for this research is to investigate the impact of ML methods in STLF. As seen in the literature review ML methods have proved to better predict time series data. The main downside that has been identified within using ML methods is the processing time , however this downside is offset by the need of an accurate method of prediction. This is due to the cost of inaccurate predictions to the power providers. The literature review \ref{litReview} highlights the effectiveness of ARIMA as a statistical model in STLF and SVM's as an early AI model that is also effective in temporal prediction tasks. These two models are therefore used as the benchmarking tools to evaluate the effectiveness of advanced ML/AI models in STLF. The \ref{litReview} explains the superiority of using hybrid models to capture the benefits of different methods in one combination. Therefore in this research we will test the effectiveness of Bi-LSTM , CNN-LSTM and a DBN-RNN in STLF. We will also check the effects of data preprocessing on the final result of the model.
 
 \section{Data Collection and Description}
 The dataset that is used in the experiments handled in this research was collected by the Panama City government in central America as an initiative to research and improve  methods for short term load forecasting. The dataset is available on Kaggle and  Mendeley Data and provides historical records of electrical load data and relevant weather variables of Panama city\cite{dataset}.
@@ -33,7 +33,7 @@ The dataset has been cleaned previously by the  initial collectors to ensure min
 
 To train the models in this research I chose to use the continuous\_dataset.csv. The decision to use this dataset was because of the comprehensive feature set in the dataset. This dataset also has continuous unsplit time series data allowing for testing of custom train test splits that align with my model design. Finally the flexibility for feature engineering on this dataset is enhanced. It can allow you to generate custom lagged features and rolling statistics giving the researcher transparency and reproducibility.
 
-\section{Data Preprocessing}
+\section{Data Preprocessing \label{sec:datapreprocessing}}
 
 Data preprocessing is an important step in training of ML and statistical models as it ensures that the data being used is free of noise and outliers. Preprocessing also includes feature engineering which help identify and retain the most influential features, hence simplifying models, reducing redundancy and improving performance \cite{gao2021cooling}.
 
@@ -205,7 +205,8 @@ SES is designed for time series datasets that lack seasonality and trend. The fo
  \label{eqn:8}
  \]
  
- where $b_t$ would be the estimated trend or slope of the dataset and $\gamma$ would be the smoothing parameter for the trend  between 0 and 1. The data shows a clear flat trend over the long-term and seasonality every 24 hours with a fast rise and peak demand during midday shown in image \ref{fig:weeklydemand}. This 24 hour seasonality brings us to the third ES model which s the Triple Exponential Smoothing (TES). \begin{figure}[h]
+ where $b_t$ would be the estimated trend or slope of the dataset and $\gamma$ would be the smoothing parameter for the trend  between 0 and 1. The data shows a clear flat trend over the long-term and seasonality every 24 hours with a fast rise and peak demand during midday shown in image \ref{fig:weeklydemand}. This 24 hour seasonality brings us to the third ES model which s the Triple Exponential Smoothing (TES). 
+ \begin{figure}[h]
  	\centering
  	\includegraphics[width=0.7\linewidth]{Chapters/images/weekly_demand}
  	\caption{Real electricity demand from Sunday 13th to Saturday 20th of October 2019}
@@ -251,8 +252,9 @@ SES is designed for time series datasets that lack seasonality and trend. The fo
 	\centering
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{lccccccc}
-			\hline
-			\textbf{Model} & \textbf{Trend} & \textbf{Seasonality} & \textbf{Seasonality Period} & \textbf{Damped} & \textbf{MAPE (\%)} & \textbf{MSE (MWh)} & \textbf{AIC} \\
+			\hline \\
+			\textbf{Model} & \textbf{Trend} & \textbf{Seasonality} & \textbf{Seasonality Period} & \textbf{Damped} & \textbf{MAPE (\%)} & \textbf{MSE (MWh)} & \textbf{AIC}
+			 \\
 			\hline
 			Simple               & None  & None & –  & No  & 13.76\%  & 180.98 & 343990.96 \\
 			Double               & Add   & None & –  & No  & 15.14\%  & 172.11 & 327001.68 \\
@@ -268,8 +270,10 @@ SES is designed for time series datasets that lack seasonality and trend. The fo
 \end{table}
 
 Comparison of performance metrics through the algorithm in figure \ref{fig:exponential-smoothing-model-choice} was the Triple Multiplicative Damped algorithm with a seasonality period of 24 data points. Since the dataset is sampled hourly the seasonality was set to 24 hours. The MAPE and MSE are very close to each other with a difference of about 0.01 each. However the AIC value for  $Triple\_Mul\_Damped$ is lower than the one for $Triple\_Add\_Damped$, this showing a better model fit for  $Triple\_Mul\_Damped$. The final choice for the ES model was  $Triple\_Mul\_Damped$ and it served as a benchmark for testing performance of other models used in the experiment.
- 
- 
+\subsubsection{Implementation of the Triple Multiplicative Damped ES model}
+
+
+
 \subsection{Deep Belief Network}
  
  A DBN is a probabilistic generative model composed of multiple layers of stochastic, latent variables \cite{zhang2017deep}. It is constructed by stacking multiple layers of RBMs on top of each other \cite{zhang2016short}. This model benefits from its capabilities of limiting the occurrence of the local minima by pre-training RBMs using unsupervised training to adjust weights and parameters to ensure an enhanced performance in actual prediction use cases.
@@ -325,8 +329,9 @@ The probability of a visible vector $v$ is obtained by marginalizing out the hid
 P(v) = \frac{1}{Z} \sum_{h} e^{-E(v,h)}
 \]
 
-\paragraph{Training RBMs: } 
+\paragraph{Training RBMs:} 
 RBMs are typically trained using the \textit{Contrastive Divergence} (CD) algorithm. Training consists of two phases:
+
 \begin{enumerate}
 	\item \textbf{Positive phase:} a visible vector from the data activates the hidden layer, and correlations $\langle v_i h_j \rangle_{\text{data}}$ are computed.
 	\item \textbf{Negative phase:} the hidden units are used to reconstruct the visible layer, producing a reconstructed vector. From this, correlations $\langle v_i h_j \rangle_{\text{recon}}$ are obtained.
@@ -340,4 +345,82 @@ The difference between the two phases provides the learning signal for updating 
 \]
 where $\eta$ is the learning rate. In this way, the RBM iteratively learns to reduce the gap between the distribution of the training data and the distribution it models. The feed-forward (data-to-hidden) and feed-backward (hidden-to-reconstruction) passes, together with weight updates, constitute the CD training loop \cite{RBM_GeeksforGeeks}.
 
-\paragraph{Stacking RBMs to make a DBN: } as mentioned in 
+\paragraph{RBMs are stacked to create a DBN} When 1 or more RBMs are stacked together they create a DBN. This DBN has the advantage of pre-trained RBMs that have adjusted their weightings to minimize error in the training phase. Stacking of RBMs is as shown in the figure \ref{fig:correctrbm}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Chapters/images/CORRECT_RBM}
+	\caption{An illustration of stacked RBMs making a DBN}
+	\label{fig:correctrbm}
+\end{figure} 
+This illustration highlights how the hidden layer of the first RBM is the visible layer of RBM 2. During pretraining each RBM is trained separately RBM1 will receive the original data and perform CD on RBM1, the recreated output on the hidden layer 1(HD1) becomes the input of RBM2 through the visible layer 2(V2). RBM2 will go through CD and continues the loop until the full RBM has been trained.
+
+\subsection{Implementation of DBN architecture for STLF}
+The proposed DBN designed for the STLF task, leverages its hierarchical feature extraction capabilities to model complex temporal and non linear dependencies present in the time series data.
+
+The DBN was implemented using \textit{tensorflow.keras.callbacks} for fitting, evaluating and prediction functionality of the model. The DBN also uses \textit{tensorflow.keras.layers} for creating the different RBM layers in the model. Scikit-learn was also used for data scaling and evaluating performance using features such as the \textit{MinMaxScaler} and \textit{mean\_absolute\_percentage\_error}. 
+\subsubsection{Input Feature Engineering}
+The original dataset went through its initial feature engineering as explained in section \ref{sec:datapreprocessing}, however further feature engineering is performed to enhance performance.
+
+\begin{enumerate}
+	\item \textbf{Lagged Load Values : } This is essential for capturing time series auto correlation, to do so the network uses lagged values of nat\_demand at $\tau$ = [1,2,3,7,24,168] hours . These lags will enable capturing past demand for 1-3 hours, 24 hours and 168 hours which is a week. The lags are important for capturing seasonality and aligns with the seasonality benchmark in the ES implementation.
+	\item \textbf{Cyclical Encoding : } To avoid discontinuities and ensure the network learns smooth transition of time eg from 11PM to 12 AM , cyclical encoding is applied to hour, day of week and month. With cyclical encoding the times 11PM and 12AM are represented as being close to each. This is performed by using sine and cosine transformation to the dataset columns associated.
+	\item \textbf{Rolling Statistics : } Mean and standard deviation of nat\_demand over 7 and 24-hour windows are included to capture recent trend and volatility.
+\end{enumerate}
+All missing values resulting from lag and rolling window operations were handled through forward and backward filling, followed by complete case removal to ensure data integrity. The final feature set comprised approximately 20-25 input variables depending on the available data columns.
+\subsubsection{DBN Structure}
+The DBN structure comprises a stacking of 3 RBMs, forming a deep architecture representation. Table \ref{tab:dbn_architecture} shows the representation of each layer.
+\begin{table}[h]
+	\centering
+	
+	
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{lccc}
+		\hline \\
+		\textbf{Layer Type} & \textbf{Units ($\boldsymbol{n}_{\mathbf{h}}$)} & \textbf{Activation (RBM Pre-training)} & \textbf{Activation (Fine-Tuning)} \\
+		\hline
+		\\
+		RBM 1 (H1) & 256 & Sigmoid ($\sigma$) & ReLU \\
+	
+		RBM 2 (H2) & 128 & Sigmoid ($\sigma$) & ReLU \\
+	
+		RBM 3 (H3) & 64 & Sigmoid ($\sigma$) & ReLU \\
+	
+		Fine-Tuning Layer & 32 & N/A & ReLU \\
+	
+		Output Layer & 1 & - & Linear (None) \\
+	\hline
+	\end{tabular}
+}
+	\caption{DBN Layer configuration}
+	\label{tab:dbn_architecture}
+\end{table}
+
+The architecture had 3 RBMs setup with 256, 128 and 64 units respectively. Each of these layers were trained using CD , before being stacked and initialized for the deep network. The final layer added a dense layer of 32 ReLU units for fine=tuning and a linear regression output layer for predicting continuous load values. The ReLu activation function is chosen due to its ability to mitigate to the disappearing gradient problem \cite{bibid}.\\
+ The fine tuning layer acts as the combiner of RBM-initialized layers, putting them together before the output layer. This design implementation was chosen to allow the network to learn task specific transformations on top of the general features learned during unsupervised learning.\\ The final output layer is a single dense linear unit without an activation function, producing a continuous regression output representing the forecasted electricity demand. This type of output is appropriate for regression tasks as it allows the network to predict values across the full range of the target value without constraints.
+\textbf{ADD AN IMAGE OF THE DBN}
+
+\subsection{Training Procedure}
+ DBN training is split into two sections, unsupervised learning for the RBMs and supervised learning for the stacked RBMs. These procedures will effectively initialize a deep forward netowrk to a good starting point.
+ \subsubsection{Pre-training (Unsupuervised)}Each of the RBMs are trained sequentially using the input data X\_train is an unsupervised manner to learn a robust and hierarchical representation of the input features. The CD algorithmn explained in \ref{label} is what is used to train each RBM, approximating the gradient using the error equation \ref{}. A fixed momentum term of 0.9 is set to accelerate convergence and dampen oscillation.\\ The learning rate was implemented during the pretraining, starting at 0.01 for the first layer and decaying by a factor or 0.8 for each subsequent RBM layer. This decaying factor is to counter the increasing abstraction in higher layer which will require the updates of the layers to be more conservative. Each RBM is trained for 25 epochs, this is because there was a negligible change in the final prediction with increased epochs.
+ 
+ \subsubsection{Fine-Tuning (Supervised)} Following the supervised pre-training, the network was unrolled nto a standard feed-forward neural network and fine tuned using supervised learning. The learned RBM weights and biases from the pre-training are transferred to initialize the corresponding dense layers in the supervised network. This initialization provides the network with meaningful feature representation. After the transfer the network will learn through supervised learning using standard back-propagation method which will train the network end-to-end.
+ The Adam optimizer is chosen with a base learning rate of 0.001. Adam is preferred over standard SGD for deep learning due to its adaptive learning rates for individual parameters, leading to faster and more stable convergence. The network is then compiled using MSE as its loss function, which is appropriate for regression tasks and is minimized during training.
+ 
+ \subsubsection{Regularization Strategies}
+ Multiple regularization strategies were employed to prevent overfitting and improve generalization.
+ 
+ \begin{itemize}
+ 	\item \textbf{L2 Weight Decay} : Applied to the kernel weights of all dense layers with a factor of 0.001 to prevent overfitting by penalizing large weights.
+ 	\item \textbf{Dropout} : A dropout rate of 0.2 is applied between the hidden layers, and a lower rate (0.1) is applied to the input layer and the final fine-tuning layer to prevent over-reliance on specific neurons.
+ 	\item \textbf{Early Stopping} : Training terminates if the validation loss) does not improve for 15 consecutive epochs. The best weights corresponding to the lowest validation loss are restored.
+ 	\item \textbf{Reduce LR On Plateau} : The learning rate is dynamically halved (factor=0.5) if the validation loss plateaus for 8 epochs, ensuring the model can escape local minima.
+ \end{itemize}
+ 
+ \textbf{ ADD AN IMAGE OF THE COMPLETE STEP BY STEP OF THE INITIALIZATION AND TRAINING OF THE DBN}
+ 
+ 
+ The DBN was evaluated using three complementary metrics to capture the different aspects of forecasting accuracy. MAPE, MAE and RMSE were used to evaluate and compare the DBN with the other models. These evaluations were performed on inverse transformed predictions to ensure the validation occurred in the original load scale rather than the normalized space used for training. Performance was also assessed separately on both training and test sets to monitor potential overfitting and evaluate generalization capability.
+ 
+ 
+ 
+ \subsection{Long Short Term Memory}
