@@ -401,7 +401,7 @@ The architecture had 3 RBMs setup with 256, 128 and 64 units respectively. Each 
 
 \subsection{Training Procedure}
  DBN training is split into two sections, unsupervised learning for the RBMs and supervised learning for the stacked RBMs. These procedures will effectively initialize a deep forward netowrk to a good starting point.
- \subsubsection{Pre-training (Unsupuervised)}Each of the RBMs are trained sequentially using the input data X\_train is an unsupervised manner to learn a robust and hierarchical representation of the input features. The CD algorithmn explained in \ref{label} is what is used to train each RBM, approximating the gradient using the error equation \ref{}. A fixed momentum term of 0.9 is set to accelerate convergence and dampen oscillation.\\ The learning rate was implemented during the pretraining, starting at 0.01 for the first layer and decaying by a factor or 0.8 for each subsequent RBM layer. This decaying factor is to counter the increasing abstraction in higher layer which will require the updates of the layers to be more conservative. Each RBM is trained for 25 epochs, this is because there was a negligible change in the final prediction with increased epochs.
+ \subsubsection{Pre-training (Unsupervised)}Each of the RBMs are trained sequentially using the input data X\_train is an unsupervised manner to learn a robust and hierarchical representation of the input features. The CD algorithmn explained in \ref{label} is what is used to train each RBM, approximating the gradient using the error equation \ref{}. A fixed momentum term of 0.9 is set to accelerate convergence and dampen oscillation.\\ The learning rate was implemented during the pretraining, starting at 0.01 for the first layer and decaying by a factor or 0.8 for each subsequent RBM layer. This decaying factor is to counter the increasing abstraction in higher layer which will require the updates of the layers to be more conservative. Each RBM is trained for 25 epochs, this is because there was a negligible change in the final prediction with increased epochs.
  
  \subsubsection{Fine-Tuning (Supervised)} Following the supervised pre-training, the network was unrolled nto a standard feed-forward neural network and fine tuned using supervised learning. The learned RBM weights and biases from the pre-training are transferred to initialize the corresponding dense layers in the supervised network. This initialization provides the network with meaningful feature representation. After the transfer the network will learn through supervised learning using standard back-propagation method which will train the network end-to-end.
  The Adam optimizer is chosen with a base learning rate of 0.001. Adam is preferred over standard SGD for deep learning due to its adaptive learning rates for individual parameters, leading to faster and more stable convergence. The network is then compiled using MSE as its loss function, which is appropriate for regression tasks and is minimized during training.
@@ -423,4 +423,172 @@ The architecture had 3 RBMs setup with 256, 128 and 64 units respectively. Each 
  
  
  
- \subsection{Long Short Term Memory}
+ \subsection{Long Short Term Memory Methodology}
+ 
+ LSTM is a specialized type of RNN that is particularly effective for time series data prediction \cite{rafi2021short}
+ . As an improved version of traditional RNN, the LSTM networks are designed to overcome long-term dependency issues such as vanishing and exploding gradients that can occur when processing long data sequences \cite{boopathy2024deep}. The LSTM was chosen for its effectiveness is overcoming long term dependency in this task of STLF. The data used for this task has long sequences. Using an RNN for this task would easily introduce the vanishing gradient problem as the model tries to remember long term dependencies of the data.
+ 
+ The ability of LSTM to be versatile and also potentially producing more accurate solutions that statistical methods made it very suitable as a contender in this research. Since our data is time series data and any prediction thereof should consider past data points to make an accurate prediction made this model a top choice for evaluation.
+ 
+\subsubsection{LSTM Theoretical Background}
+ 
+\paragraph{AN RNN Background} is essential to understand how an LSTM model functions. An RNN is a model that utilizes past sets of information to make a prediction of the present. They achieve this feat by using a feedback loop. The RNN tracks context or previous data on a hidden state at each time step \cite{stryker_ibm_rnn}. This hidden state then works as the memory of the system. 
+Imagine \textit{A} is a single unit of the RNN receiving input \textit{$X_t$} , \textit{A} will have a  hidden state \textit{$H_t$} that will store information about the previous input $X_{t-1}$ and it will output \textit{$Y_t$}. Image \ref{fig:rnnsingleunit} adapted from \cite{colah2015understanding} shows how the single unit looks like.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.1\linewidth]{Chapters/images/rnn_singleunit}
+	\caption{A single unit of a recurrent neural network}
+	\label{fig:rnnsingleunit}
+\end{figure}
+If the single unit in figure \ref{fig:rnnsingleunit} is unrolled we will end up with a simple RNN as shown in \ref{fig:unrolledrnn} as adapted from \cite{colah2015understanding}.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{Chapters/images/unrolled_rnn.jpeg}
+	\caption{An unrolled rnn}
+	\label{fig:unrolledrnn}
+\end{figure}
+
+An LSTM uses a similar mechanism  to remember past data. It introduces the concept of gates which act as a control mechanism for the what data to keep and discard as we process information in the LSTM. The LSTM has four main components the cell state , forget gate , input gate and output gate. These control the full mechanism of this neural network.
+
+\subsubsection{Cell State}
+The cell state is a block of information that propagates all the units of the LSTM. This unit contains the data from previous states that will be used as context in future data cells. \\ 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{Chapters/images/cellstate}
+	\caption{Cell state propagating through different units of the LSTM carrying data from previous states to future units}
+	\label{fig:cellstate}
+\end{figure} 
+
+ The image \ref{fig:cellstate} above shows the cell state \textit{$C_{t}$} propagating through the basic unit of an LSTM \textit{$A_t$}. In each of these units through an additive and multiplicative process data is added and removed from the cell state. 
+ \subsubsection{Forget gate}
+ 
+The cell state contains previous information however there needs to be a way to determine what information is important. The forget gate decides what information to discard from the previous cell state  \textit{$C_{t-1}$} \cite{zhu2025novel}. During back-propagation the forget gate plays a crucial role. If it learns that certain information is important and should be kept for long, the forget gates activation function will be close to 1 and 0 if the information is not very important \cite{zhu2025novel}. Equation \ref{eqn:15}  below adapted from \cite{colah2015understanding} shows how the forget gate works.
+
+\[
+f_t = \sigma \Big( W_f \cdot [h_{t-1}, x_t] + b_f \Big)
+\tag{15}
+\label{eqn:15}
+\]
+
+\begin{itemize}
+	\item $f_t$: Forget gate activation vector at time step $t$ (values between 0 and 1).
+	\item $\sigma$: Sigmoid activation function.
+	\item $W_f$: Weight matrix for the forget gate.
+	\item $[h_{t-1}, x_t]$: Concatenation of the previous hidden state $h_{t-1}$ and the current input $x_t$.
+	\item $b_f$: Bias vector for the forget gate.
+\end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"Chapters/images/LSTM input gate"}
+	\caption{Forget gate of an LSTM}
+	\label{fig:forgetgate}
+\end{figure}
+Figure \ref{fig:forgetgate} adapted from \cite{colah2015understanding} shows how the hidden state $h_{t-1}$ and input $x_t$ concatenate together. The concatenated hidden state and input are multiplied with a weight $W_f$ associated with the input.This sigmoid function also has a bias input vector $b_f$ that is added to the weighted hidden state and input .  The two are passed through a sigmoid function using the ReLU activation function giving a number between 0 and 1 as the output. Finally the function $f_t$ is multiplied with $c_{t-1}$ to determine if we add or subtract from the cell state.
+
+\[
+C_{t-1}*f_t = 0   ..... \text{    if} f_t = 0 \text{           (forget everything)}
+\tag{16.a}
+\label{eqn:16.a}
+\]
+
+\[
+C_{t-1}*f_t = 1  ..... \text{  if} f_t = 1 \text{            (forget nothing)}
+\tag{16.b}
+\label{eqn:16.b}
+\]
+ Equation \ref{eqn:16.a} and \ref{eqn:16.b} adapted from \cite{stryker_ibm_rnn} shows how the forget gate will be applied to the cell state through the multiplicative process.
+ 
+ 
+ \subsubsection{Input Gate}
+ The input gate determines what new information from the current input and previous hidden state should be stored in the current cell state \cite{rafi2021short}. 
+ The input gate quantifies the importance of new data carried in the input \cite{stryker_ibm_rnn}. The input layer is split into two parts, the output of the input gate $i_t$ and a candidate cell state $\tilde{C_t}$ used to update the global cell state. $\tilde{C_t}$ allows retaining of important information and effectively updating the global cell state \cite{zhu2025novel}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Chapters/images/forget_inputgates}
+	\caption{An LSTM unit with the forget and input gate }
+	\label{fig:forgetinputgates}
+\end{figure}
+
+Figure \ref{fig:forgetinputgates} shows how the forget and input gates. Below are the equations that determine the functionality of the input gate. % Input gate equation
+\[
+i_t = \sigma \Big( W_i \cdot [h_{t-1}, x_t] + b_i \Big)
+\tag{18}
+\label{eqn:inputgate}
+\]
+
+% Candidate cell state
+\[
+\tilde{C}_t = \tanh \Big( W_c \cdot [h_{t-1}, x_t] + b_c \Big)
+\tag{19}
+\label{eqn:candidatecell}
+\]
+
+% Cell state update
+\[
+C_t = f_t \odot C_{t-1} + i_t \odot \tilde{C}_t
+\tag{20}
+\label{eqn:cellupdate}
+\]
+
+\begin{itemize}
+	\item $i_t$: Input gate output at time step $t$.
+	\item $\sigma$: Sigmoid activation function.
+	\item $W_i, W_c$: Weight matrices for the input gate and candidate cell state.
+
+	\item $b_i, b_c$: Bias vectors for the input gate and candidate cell state.
+	\item $\tilde{C}_t$: Candidate cell state (potential new memory).
+	\item $\tanh$: Hyperbolic tangent activation function.
+	\item $C_t$: Updated cell state at time step $t$.
+	\item $f_t$: Forget gate activation vector at time step $t$.
+	\item $C_{t-1}$: Previous cell state.
+	\item $\odot$: Element-wise product.
+\end{itemize}
+
+As shown in figure \ref{fig:forgetinputgates} the candidate cell state and the input output gate are combined through an element wise multiplication. The global cell state is also updated by using an additive operation of the forget gate output and the output of the multiplication in the input gate.
+ \subsubsection{Output Gate}
+The output gate determines what information from the cell state should be passed onto the hidden state \cite{zhu2025novel}. The hidden state acts as the output of the unit of processing and will also be used in the following units of processing.
+ \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[width=0.5\linewidth]{Chapters/images/forget_input_output_gates1}
+ 	\caption{forget input and output gates together}
+ 	\label{fig:forgetinputoutputgates1}
+ \end{figure}
+ Figure \ref{fig:forgetinputoutputgates1} shows the complete unit of processing with the output gate. The hidden state takes a sigmoid processed concatenated $h_t{t-1}$ and $x_t$ with a tanh processed $C_t$ the output will be through a multiplicative output. 
+ % Output gate equation
+ \[
+ o_t = \sigma \Big( W_o \cdot [h_{t-1}, x_t] + b_o \Big)
+ \tag{21}
+ \label{eqn:outputgate}
+ \]
+ 
+ % Hidden state update
+ \[
+ h_t = o_t \odot \tanh(C_t)
+ \tag{22}
+ \label{eqn:hiddenstate}
+ \]
+ \begin{itemize}
+ 	\item $o_t$: Output gate activation vector at time step $t$.
+ 	\item $\sigma$: Sigmoid activation function.
+ 	\item $W_o$: Weight matrix for the output gate.
+ 
+ 	\item $b_o$: Bias vector for the output gate.
+ 	\item $h_t$: Hidden state at time step $t$ (output of the LSTM block).
+ 	\item $C_t$: Updated cell state at time step $t$.
+ 	\item $\tanh$: Hyperbolic tangent activation function.
+ 	\item $\odot$: Element-wise product.
+ \end{itemize}
+  Equation \ref{eqn:outputgate}  shows the combination for the output and \ref{eqn:hiddenstate} shows the output of the LSTM unit.
+  
+  
+ \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[width=0.7\linewidth]{"Chapters/images/full lstm"}
+ 	\caption{full lstm}
+ 	\label{fig:full-lstm}
+ \end{figure}
+ 

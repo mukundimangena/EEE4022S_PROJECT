@@ -293,4 +293,15 @@ GeeksforGeeks, ``Restricted boltzmann machine.''
   [2023].
 \newblock Accessed: [ 29 Sept. 2025].
 
+\bibitem{stryker_ibm_rnn}
+C.~Stryker, ``What is a recurrent neural network (rnn)?.''
+  \url{https://www.ibm.com/think/topics/recurrent-neural-networks}, —.
+\newblock Accessed: YYYY-MM-DD.
+
+\bibitem{colah2015understanding}
+C.~Olah, ``Understanding lstm networks.''
+  \url{https://colah.github.io/posts/2015-08-Understanding-LSTMs/}, Aug.27
+  2015.
+\newblock Accessed: YYYY-MM-DD.
+
 \end{thebibliography}
