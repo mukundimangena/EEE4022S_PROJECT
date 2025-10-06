@@ -296,12 +296,21 @@ GeeksforGeeks, ``Restricted boltzmann machine.''
 \bibitem{stryker_ibm_rnn}
 C.~Stryker, ``What is a recurrent neural network (rnn)?.''
   \url{https://www.ibm.com/think/topics/recurrent-neural-networks}, —.
-\newblock Accessed: YYYY-MM-DD.
+\newblock Accessed: 2025-09-29.
 
 \bibitem{colah2015understanding}
 C.~Olah, ``Understanding lstm networks.''
   \url{https://colah.github.io/posts/2015-08-Understanding-LSTMs/}, Aug.27
   2015.
-\newblock Accessed: YYYY-MM-DD.
+\newblock Accessed: 2025-09-29.
+
+\bibitem{alhussein2020hybrid}
+M.~Alhussein, K.~Aurangzeb, and S.~I. Haider, ``Hybrid cnn-lstm model for
+  short-term individual household load forecasting,'' {\em Ieee Access},
+  vol.~8, pp.~180544--180557, 2020.
+
+\bibitem{o2015introduction}
+K.~O'shea and R.~Nash, ``An introduction to convolutional neural networks,''
+  {\em arXiv preprint arXiv:1511.08458}, 2015.
 
 \end{thebibliography}

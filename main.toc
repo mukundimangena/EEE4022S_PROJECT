@@ -46,7 +46,7 @@
 \contentsline {paragraph}{Holiday Combination Feature}{24}{section*.25}%
 \contentsline {subsection}{\numberline {3.2.3}Outlier Detection and Removal using the Hampel Identifier Method}{24}{subsection.3.2.3}%
 \contentsline {subsubsection}{Data Normalization}{25}{section*.30}%
-\contentsline {section}{\numberline {3.3}Evaluation Metrics}{26}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Evaluation Metrics }{26}{section.3.3}%
 \contentsline {subsubsection}{Mean Absolute Percentage Error (MAPE)}{27}{section*.33}%
 \contentsline {subsubsection}{Mean Squared Error (MSE)}{27}{section*.34}%
 \contentsline {subsubsection}{Root Mean Squared Error (RMSE)}{27}{section*.35}%
@@ -74,17 +74,24 @@
 \contentsline {subsubsection}{Fine-Tuning (Supervised)}{36}{section*.67}%
 \contentsline {subsubsection}{Regularization Strategies}{37}{section*.68}%
 \contentsline {subsection}{\numberline {3.4.5}Long Short Term Memory Methodology}{38}{subsection.3.4.5}%
-\contentsline {subsubsection}{LSTM Theoretical Background}{38}{section*.69}%
+\contentsline {subsubsection}{LSTM Theoretical Background }{38}{section*.69}%
 \contentsline {paragraph}{AN RNN Background}{38}{section*.70}%
 \contentsline {subsubsection}{Cell State}{39}{section*.73}%
 \contentsline {subsubsection}{Forget gate}{39}{section*.75}%
 \contentsline {subsubsection}{Input Gate}{41}{section*.80}%
 \contentsline {subsubsection}{Output Gate}{42}{section*.85}%
-\contentsline {chapter}{\numberline {4}Results}{44}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Simulation Results}{44}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Experimental Results}{44}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Discussion}{45}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusions}{46}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Recommendations}{47}{chapter.7}%
-\contentsline {chapter}{\numberline {A}Addenda}{56}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Ethics Forms}{56}{section.A.1}%
+\contentsline {subsection}{\numberline {3.4.6}LSTM Architecture for STLF}{44}{subsection.3.4.6}%
+\contentsline {subsubsection}{Sequence Formation}{44}{section*.90}%
+\contentsline {subsubsection}{Model Architecture}{44}{section*.91}%
+\contentsline {subsubsection}{Model Training}{45}{section*.92}%
+\contentsline {section}{\numberline {3.5}Hybrid Model : CNN-LSTM }{46}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}CNN Theoretical Background}{46}{subsection.3.5.1}%
+\contentsline {paragraph}{Convolutional Layer : }{46}{section*.93}%
+\contentsline {chapter}{\numberline {4}Results}{47}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Simulation Results}{47}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Experimental Results}{47}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Discussion}{48}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusions}{49}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Recommendations}{50}{chapter.7}%
+\contentsline {chapter}{\numberline {A}Addenda}{59}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Ethics Forms}{59}{section.A.1}%
