@@ -313,4 +313,29 @@ M.~Alhussein, K.~Aurangzeb, and S.~I. Haider, ``Hybrid cnn-lstm model for
 K.~O'shea and R.~Nash, ``An introduction to convolutional neural networks,''
   {\em arXiv preprint arXiv:1511.08458}, 2015.
 
+\bibitem{yamashita2018convolutional}
+R.~Yamashita, M.~Nishio, R.~K.~G. Do, and K.~Togashi, ``Convolutional neural
+  networks: an overview and application in radiology,'' {\em Insights into
+  imaging}, vol.~9, no.~4, pp.~611--629, 2018.
+
+\bibitem{ajit2020review}
+A.~Ajit, K.~Acharya, and A.~Samanta, ``A review of convolutional neural
+  networks,'' in {\em 2020 international conference on emerging trends in
+  information technology and engineering (ic-ETITE)}, pp.~1--5, IEEE, 2020.
+
+\bibitem{wu2017introduction}
+J.~Wu, ``Introduction to convolutional neural networks,'' {\em National Key Lab
+  for Novel Software Technology. Nanjing University. China}, vol.~5, no.~23,
+  p.~495, 2017.
+
+\bibitem{li2021survey}
+Z.~Li, F.~Liu, W.~Yang, S.~Peng, and J.~Zhou, ``A survey of convolutional
+  neural networks: analysis, applications, and prospects,'' {\em IEEE
+  transactions on neural networks and learning systems}, vol.~33, no.~12,
+  pp.~6999--7019, 2021.
+
+\bibitem{IBM_WhatAreCNNs_2025}
+IBM, ``What are convolutional neural networks?.'' IBM Think, 2025.
+\newblock Accessed: 2025-10-08.
+
 \end{thebibliography}

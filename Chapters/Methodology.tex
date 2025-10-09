@@ -354,11 +354,12 @@ where $\eta$ is the learning rate. In this way, the RBM iteratively learns to re
 \end{figure} 
 This illustration highlights how the hidden layer of the first RBM is the visible layer of RBM 2. During pretraining each RBM is trained separately RBM1 will receive the original data and perform CD on RBM1, the recreated output on the hidden layer 1(HD1) becomes the input of RBM2 through the visible layer 2(V2). RBM2 will go through CD and continues the loop until the full RBM has been trained.
 
-\subsection{Implementation of DBN architecture for STLF}
+\subsubsection{Implementation of DBN architecture for STLF}
 The proposed DBN designed for the STLF task, leverages its hierarchical feature extraction capabilities to model complex temporal and non linear dependencies present in the time series data.
 
-The DBN was implemented using \textit{tensorflow.keras.callbacks} for fitting, evaluating and prediction functionality of the model. The DBN also uses \textit{tensorflow.keras.layers} for creating the different RBM layers in the model. Scikit-learn was also used for data scaling and evaluating performance using features such as the \textit{MinMaxScaler} and \textit{mean\_absolute\_percentage\_error}. 
-\subsubsection{Input Feature Engineering}
+The DBN was implemented using \textit{tensorflow.keras.callbacks} for fitting, evaluating and prediction functionality of the model. The DBN also uses \textit{tensorflow.keras.layers} for creating the different RBM layers in the model. Scikit-learn was also used for data scaling and evaluating performance using features such as the \textit{MinMaxScaler} and \textit{mean\_absolute\_percentage\_error}. \\ \\
+\textbf{Input Feature Engineering}
+\\
 The original dataset went through its initial feature engineering as explained in section \ref{sec:datapreprocessing}, however further feature engineering is performed to enhance performance.
 
 \begin{enumerate}
@@ -399,14 +400,15 @@ The architecture had 3 RBMs setup with 256, 128 and 64 units respectively. Each 
  The fine tuning layer acts as the combiner of RBM-initialized layers, putting them together before the output layer. This design implementation was chosen to allow the network to learn task specific transformations on top of the general features learned during unsupervised learning.\\ The final output layer is a single dense linear unit without an activation function, producing a continuous regression output representing the forecasted electricity demand. This type of output is appropriate for regression tasks as it allows the network to predict values across the full range of the target value without constraints.
 \textbf{ADD AN IMAGE OF THE DBN}
 
-\subsection{Training Procedure}
+\subsubsection{Training Procedure}
  DBN training is split into two sections, unsupervised learning for the RBMs and supervised learning for the stacked RBMs. These procedures will effectively initialize a deep forward netowrk to a good starting point.
- \subsubsection{Pre-training (Unsupervised)}Each of the RBMs are trained sequentially using the input data X\_train is an unsupervised manner to learn a robust and hierarchical representation of the input features. The CD algorithmn explained in \ref{label} is what is used to train each RBM, approximating the gradient using the error equation \ref{}. A fixed momentum term of 0.9 is set to accelerate convergence and dampen oscillation.\\ The learning rate was implemented during the pretraining, starting at 0.01 for the first layer and decaying by a factor or 0.8 for each subsequent RBM layer. This decaying factor is to counter the increasing abstraction in higher layer which will require the updates of the layers to be more conservative. Each RBM is trained for 25 epochs, this is because there was a negligible change in the final prediction with increased epochs.
  
- \subsubsection{Fine-Tuning (Supervised)} Following the supervised pre-training, the network was unrolled nto a standard feed-forward neural network and fine tuned using supervised learning. The learned RBM weights and biases from the pre-training are transferred to initialize the corresponding dense layers in the supervised network. This initialization provides the network with meaningful feature representation. After the transfer the network will learn through supervised learning using standard back-propagation method which will train the network end-to-end.
+ \paragraph{Pre-training (Unsupervised)}Each of the RBMs are trained sequentially using the input data X\_train is an unsupervised manner to learn a robust and hierarchical representation of the input features. The CD algorithmn explained in \ref{label} is what is used to train each RBM, approximating the gradient using the error equation \ref{}. A fixed momentum term of 0.9 is set to accelerate convergence and dampen oscillation.\\ The learning rate was implemented during the pretraining, starting at 0.01 for the first layer and decaying by a factor or 0.8 for each subsequent RBM layer. This decaying factor is to counter the increasing abstraction in higher layer which will require the updates of the layers to be more conservative. Each RBM is trained for 25 epochs, this is because there was a negligible change in the final prediction with increased epochs.
+ 
+ \paragraph{Fine-Tuning (Supervised)} Following the supervised pre-training, the network was unrolled nto a standard feed-forward neural network and fine tuned using supervised learning. The learned RBM weights and biases from the pre-training are transferred to initialize the corresponding dense layers in the supervised network. This initialization provides the network with meaningful feature representation. After the transfer the network will learn through supervised learning using standard back-propagation method which will train the network end-to-end.
  The Adam optimizer is chosen with a base learning rate of 0.001. Adam is preferred over standard SGD for deep learning due to its adaptive learning rates for individual parameters, leading to faster and more stable convergence. The network is then compiled using MSE as its loss function, which is appropriate for regression tasks and is minimized during training.
  
- \subsubsection{Regularization Strategies}
+ \paragraph{Regularization Strategies}
  Multiple regularization strategies were employed to prevent overfitting and improve generalization.
  
  \begin{itemize}
@@ -423,7 +425,7 @@ The architecture had 3 RBMs setup with 256, 128 and 64 units respectively. Each 
  
  
  
- \subsection{Long Short Term Memory Methodology}
+ \subsection{Long Short Term Memory}
  
  LSTM is a specialized type of RNN that is particularly effective for time series data prediction \cite{rafi2021short}
  . As an improved version of traditional RNN, the LSTM networks are designed to overcome long-term dependency issues such as vanishing and exploding gradients that can occur when processing long data sequences \cite{boopathy2024deep}. The LSTM was chosen for its effectiveness is overcoming long term dependency in this task of STLF. The data used for this task has long sequences. Using an RNN for this task would easily introduce the vanishing gradient problem as the model tries to remember long term dependencies of the data.
@@ -591,7 +593,7 @@ The output gate determines what information from the cell state should be passed
  \end{figure}
  The LSTM model uses the power of remembering past data and filtering out important and unnecessary data to the given task to make predictions. In STLF a model capable of finding the important data points in past data to predict for a future data point is crucial. The LSTM model perfects remembrance through its cell state and gate system making it effective for STLF.
  
- \subsection{LSTM Architecture for STLF}
+ \subsubsection{LSTM Architecture for STLF}
  
  The architecture for the LSTM model used in this research used tensorflow and scikitlearn frameworks to build and train the models. The model followed the same data preprocessing procedures mentioned in section \ref{sec:datapreprocessing}. In addition to the data pre-processing steps a lag feature was added for the STLF. LSTM requires past data to make an accurate prediction and by adding lag features to the data helps the model train with context of the past data. The lag features included the past demand values at 1-hour, 24-hours and 168-hours intervals. Introduction of lag features ensured that the model had access tp both short term and long term temporal dependencies. The dataset was further split into 80\% training and 20\% testing subsets, to monitor the models generalization.
  
@@ -608,14 +610,14 @@ The output gate determines what information from the cell state should be passed
  
  The proposed LSTM model was created using a stacked architecture to capture short and long term dependencies in the time series data. The architecture comprised: 
  \begin{itemize}
- 	\item \textbf{LSTM Layer 1} : 128 unites followed by batch normalization and 20\% dropout.
- 	\item \textbf{LSTM Layer 2} : 64 units with Batch Normalization and 20\% Dropout.
+ 	\item \textbf{LSTM Layer 1}: 128 unites followed by batch normalization and 20\% dropout.
+ 	\item \textbf{LSTM Layer 2}: 64 units with Batch Normalization and 20\% Dropout.
  	
- 	\item\textbf{ LSTM Layer 3}: 32 units with Batch Normalization and 10\% Dropout.
+ 	\item\textbf{LSTM Layer 3}: 32 units with Batch Normalization and 10\% Dropout.
  	
- 	\item \textbf{Dense Layer }: 50 neurons with ReLU activation and 10\% Dropout.
+ 	\item \textbf{Dense Layer}: 50 neurons with ReLU activation and 10\% Dropout.
  	
-   \item\textbf{ Output Layer:} Linear activation with 24 neurons, corresponding to the 24-hour forecast horizon.
+   \item\textbf{ Output Layer}: Linear activation with 24 neurons, corresponding to the 24-hour forecast horizon.
  \end{itemize}
  
  
@@ -636,17 +638,127 @@ The output gate determines what information from the cell state should be passed
  	\end{itemize}
  	Training progress was monitored through loss and MAE curves for training and validations sets. After training the model was evaluated using the evaluation metrics mentioned in section \ref{sec:eval_metrics}.
  	
-\textbf{ 	Below is an image of the step by step process taken to achieve the LSTM model used in this research.}\\
-This methodology ensured a systematic approach to implementing an LSTM-based forecasting framework, emphasizing robust feature engineering, careful data preprocessing, and a well-regularized deep learning model architecture optimized for temporal sequence learning.
+Flowchart \ref{fig:lstmflowchart} in appendix A shows a clear methodology followed to make the LSTM model. This methodology ensured a systematic approach to implementing an LSTM-based forecasting framework, emphasizing robust feature engineering, careful data preprocessing, and a well-regularized deep learning model architecture optimized for temporal sequence learning.
 
 
-\section{Hybrid Model : CNN-LSTM }
+\subsection{Hybrid Model : CNN-LSTM }
 A CNN-LSTM hybrid model is a deep learning architecture designed to combine the strengths of Convolutional Neural Networks (CNN) and LSTM networks, typically to enhance forecasting accuracy and handle complex, non-linear time series data, such as electrical load data sequences \cite{zhu2025novel}. The model takes advantage of the CNNs capability of feature extraction and the LSTMs ability to capability to extract sequence patterns and long-short term dependencies \cite{alhussein2020hybrid}. The LSTM theoretical background was covered in section \ref{sec:lstm_background}. In the next section we will discuss about the theoretical background of a CNN.
 
-\subsection{CNN Theoretical Background}
+\subsubsection{CNN Theoretical Background}
 
-A CNN is considered the most representative neural network, this is because of its inspiration byy biological nervous systems such as the brain \cite{o2015introduction}. A CNN is composed of neurons that self optimise through learning \cite{o2015introduction}.
+A CNN is considered the most representative neural network, this is because of its inspiration by biological nervous systems such as the brain \cite{o2015introduction}. A CNN is composed of neurons that self optimize through learning \cite{o2015introduction}.
 
 Their architecture is formed by stacking three primary types of layers:
 
-\paragraph{Convolutional Layer : } This is the fundamental component that perform feature extraction using learnable kernels or filters \cite{bibid}
+\paragraph{Convolutional Layer :} This is the fundamental component that perform feature extraction using learnable kernels or filters \cite{yamashita2018convolutional}. the kernels are usually small spatial dimensions but extend themselves across their entire depth of the input volume \cite{ajit2020review}. The kernels themselves are optimizable feature extractors, containing sets of learnable parameters \cite{yamashita2018convolutional}.
+
+The layer convolves or multiples each filter across the spatial dimensionality of the input volume. This is a specialized type of linear operation. As the kernel glides over the input, the scalar product  between the kernel's weights and the local region of the input volume is calculated and summed to obtain a single output value.
+
+\paragraph{Activation Layer Rectified linear Unit} layer is usually applied to every element after the convolution function \cite{o2015introduction}.The purpose of the ReLU is to introduce non-linearity into the network, which is essential because of the highly non linear format of the data CNN's process \cite{wu2017introduction}. The ReLU equation \ref{eqn:23} as adapted from \cite{wu2017introduction}.
+\[
+f_t = \max (0,x)
+\tag{23}
+\label{eqn:23}
+\]
+\paragraph{Pooling Layers} aim to gradually reduce the dimensionality of the representation, subsequently lowering the number of parameters and the model's computational complexity \cite{li2021survey}. In simple terms it reduces the size of the feature maps while keeping the most important information. The most common type of pooling is \textit{Max Pooling}, which takes the maximum value from each window of the output  which in turn helps in reduction of computation and overfitting.
+
+\paragraph{Fully Connected Layer} is the layer that performs the classification task in a CNN \cite{IBM_WhatAreCNNs_2025}. This will be based pn the features that are extracted in the pooling and Convolutional layers. This layer performs as a standard neural network, producing class scores from activation \cite{o2015introduction}.
+
+Figure \ref{fig:cnn} is the architecture of a CNN as adapted from \cite{o2015introduction}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Chapters/images/CNN}
+	\caption{An illustration of the CNN model}
+	\label{fig:cnn}
+\end{figure}
+
+
+\subsubsection{CNN-LSTM Architecture and Methodology}
+
+\subsubsection{Data Preparation and Framing}
+This model uses the continuous\_dataset.csv converted into pandas, this is to maintaining uniformity across the different models tested. The data is processed following the steps mentioned in section \ref{sec:datapreprocessing}. Adding onto the already extensive data processing a \textit{lookback window} of 168 hours was used to predict the next 24-hours which is the forecast horizon. This means that each input consisted of 168 hourly observations while the corresponding label contained the next 24 hourly demand values.
+
+\subsubsection{Constructing Multi Step Time series}
+In order to model multi hour ahead forecast , a sliding window approach was used to construct the input output pairs. For every time step \textit{t} an input matrix\\ \[
+X_t =[x_{t-167},x_{t-166}, ... , x_t]
+\] \\
+ was created to predict the target vector \\
+ \[
+ y_t = [y_{t+1},y_{t+2}, ... , y_{t+24}] 
+ \]
+\\ corresponding to the next 24 hours.This process generated overlapping input–output pairs that captured both short-term fluctuations and weekly seasonal patterns. The resulting sequences were reshaped into the three-dimensional format 
+\textit{(samples,timesteps,features)} required for deep learning models in TensorFlow.
+\subsubsection{CNN-LSTM Model Architecture}
+The proposed model combines a CNN and LSTM as implemented by \cite{rafi2021short}. The CNN layers act as feature extractors while the LSTM capture the longer term temporal relationships. The dense layers are used to integrate the learned features and generate multi-step forecasts for the next 24 hours.
+
+\begin{itemize}
+	\item \textbf{CNN Block}   \begin{itemize}
+		\item 64 filter Layer 1-D Convolutional layer
+		\item 32 filter Layer 1-D Convolutional layer
+		\item Kernel size = 3 , Padding = 3 (for temporal dimension preservation)
+		\item ReLU Activation 
+		\item MaxPooling 1D layer
+		\item Dropout rate =  0.2 (enhances generalization)
+	\end{itemize}
+	\item \textbf{LSTM Block} \begin{itemize}
+		\item 50 unit Layer 1 for hierarchical feature extraction
+		\item 50 unit Layer 2 for sequential output and passes its representation to dense layers.
+		\item Dropout rate = 0.2 also used between layers for enhanced generalization.
+	\end{itemize}
+	\item \textbf{Dense Layers (Fully Connected Block)}  \begin{itemize}
+		\item 64 neuron Dense layers with RelU activation
+		\item Dropout layer for reduction of overfitting
+		\item 32 neuron Dense layer
+		\item 24 neuron Output layer , with each neuron corresponding to a forecasted hour.
+	\end{itemize}
+\end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Chapters/images/CNN-LSTM}
+	\caption{Illustration of the CNN-LSTM hybrid model with 2 CNN layers and 2 LSTM layer and a dense layer that produces the output}
+	\label{fig:cnn-lstm}
+\end{figure}
+
+
+The model was compiled with the Adam Optimizer with a learning rate of 0.001. MAE, MAPE, MSE were used as performance metrics to evaluate the model. Figure \ref{fig:cnn-lstm} illustrates the cnn-lstm hybrid model as adapted from \cite{rafi2021short}.
+
+
+\subsubsection{Model Training and Validation}
+The CNN-LSTM model was trained on an 80/20 split train/test split. Training was run for 100 epochs with a batch size of 32. We use two callback functions to improve performance.
+\begin{itemize}
+	\item \textbf{EarlyStopping:} Monitored validation loss and halted training when no improvement was observed for 15 consecutive epochs, restoring the best weights.
+	\item \textbf{ReduceLROnPlateau:} Reduced the learning rate by a factor of 0.5 if validation loss plateaued for five epochs, preventing overfitting and ensuring stable convergence.
+\end{itemize}
+The training and validation losses were plotted to monitor model convergence and ensure that the model generalized well to unseen data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
