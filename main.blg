@@ -35,10 +35,9 @@ Repeated entry---line 501 of file Bibliography/References.bib
 I'm skipping whatever remains of this entry
 Warning--entry type for "featureScaling" isn't style-file defined
 --line 949 of file Bibliography/References.bib
-Warning--I didn't find a database entry for "bibid"
 You've used 64 entries,
             1876 wiz_defined-function locations,
-            857 strings with 17054 characters,
+            856 strings with 17049 characters,
 and the built_in function-call counts, 19132 in all, are:
 = -- 1967
 > -- 737

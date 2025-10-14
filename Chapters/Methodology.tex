@@ -1,6 +1,6 @@
 \chapter{Methodology}
 
-The goal for this research is to investigate the impact of ML methods in STLF. The literature review shows improved accuracy when using mL models. Though ML models have a processing time downside, this is offset by the need of an accurate method of prediction fueled by the cost of inaccurate predictions. The literature review \ref{litReview} highlights the effectiveness statistical models and SVM's as an early AI model that is also effective in temporal prediction tasks. The literature reviews \ref{litReview} explains the superiority of using hybrid models to capture the benefits of different methods in one combination. Therefore in this research we will test the effectiveness of the DBN , LSTM and CNN-LSTM models and compare them to the Exponential smoothing model in STLF. 
+The goal for this research is to investigate the impact of ML methods in STLF. The literature review shows improved accuracy when using ML models. It also highlights the effectiveness of statistical models and SVM's in temporal prediction tasks. It further shows the increased accuracy in ML and AI models, showing how hybrid models can capture the benefits of different models in one. In this section we will focus on the data processing steps, the theoretical background of the models and the methodology followed to produce them.  
 
 \section{Data Collection and Description}
 The dataset that is used in the experiments handled in this research was collected by the Panama City government in central America as an initiative to research and improve  methods for short term load forecasting. The dataset is available on Kaggle and  Mendeley Data and provides historical records of electrical load data and relevant weather variables of Panama city\cite{dataset}.
@@ -8,6 +8,7 @@ The dataset that is used in the experiments handled in this research was collect
 The dataset consists of hourly observations spanning the period from January 2015 to December 2019, yielding approximately 48048 data points. The target variable is the load demand measured in megawatts(MW), while the other features include multiple weather and environmental parameters recorded at different stations across Santiago, Tocumen and David. 
 
 The dataset has the following features as mentioned in \cite{dataset}:
+{\small
 \begin{itemize}
 	\item datetime - The date and time sampled every hour from 
 	\item T2M – Temperature at 2 meters above ground (°C)
@@ -19,7 +20,7 @@ The dataset has the following features as mentioned in \cite{dataset}:
 	\item school - a binary representing schools being open or closed 
 	
 \end{itemize}
-
+}
 
 The environmental features in the dataset are sampled hourly in the three cities and are represented as toc, san and dav as the extensions of the feature name (e.g. T2M\_dav would be the temperature in David). These meteorological inputs have been selected due to their established influence on electricity demand, as load consumption often correlates with environmental factors such as ambient temperature, humidity, and weather patterns. The relationship between temperature and load has been established with Hor et al \cite{hor2005analyzing} seeing a correlation in the increase in temperature with the increase in the load demand.
 
@@ -734,7 +735,7 @@ The CNN-LSTM model was trained on an 80/20 split train/test split. Training was 
 	\item \textbf{EarlyStopping:} Monitored validation loss and halted training when no improvement was observed for 15 consecutive epochs, restoring the best weights.
 	\item \textbf{ReduceLROnPlateau:} Reduced the learning rate by a factor of 0.5 if validation loss plateaued for five epochs, preventing overfitting and ensuring stable convergence.
 \end{itemize}}
-The training and validation losses were plotted to monitor model convergence and ensure that the model generalized well to unseen data.
+The training and validation losses were plotted to monitor model convergence and ensure that the model generalized well to unseen data. The callback functions helped in ensuring that our computational resources- are not wasted during the training of the models.
 
 
 

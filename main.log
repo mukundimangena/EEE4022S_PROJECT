@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.30)  9 OCT 2025 15:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.30)  13 OCT 2025 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -533,7 +533,7 @@ LaTeX Warning: Label `sec:datapreprocessing' multiply defined.
 LaTeX Warning: Label `sec:datapreprocessing' multiply defined.
 
 
-LaTeX Warning: Label `sec:datapreprocessing' multiply defined.
+LaTeX Warning: Label `sec:eval_metrics' multiply defined.
 
 
 LaTeX Warning: Label `sec:eval_metrics' multiply defined.
@@ -957,32 +957,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [21]
-Underfull \hbox (badness 1057) in paragraph at lines 49--49
+Underfull \hbox (badness 1057) in paragraph at lines 50--50
 []|\OT1/cmr/m/n/12 Rich data pro-cess-ing frame-
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 51--51
+Underfull \hbox (badness 2799) in paragraph at lines 52--52
 []|\OT1/cmr/bx/n/12 Machine Learn-
  []
 
 
-Underfull \hbox (badness 5970) in paragraph at lines 53--54
+Underfull \hbox (badness 5970) in paragraph at lines 54--55
 []|\OT1/cmr/m/n/12 Strong aca-demic/engineering
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--55
+Underfull \hbox (badness 10000) in paragraph at lines 56--56
 []|\OT1/cmr/bx/n/12 Flexibility of
  []
 
 
-Underfull \hbox (badness 4479) in paragraph at lines 59--60
+Underfull \hbox (badness 4479) in paragraph at lines 60--61
 \OT1/cmr/m/n/12 op-er-a-tions some-times faster
  []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
@@ -1039,6 +1036,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [27]
+<Chapters/images/weekly_demand.png, id=603, 593.21625pt x 406.51875pt>
+File: Chapters/images/weekly_demand.png Graphic file (type png)
+<use Chapters/images/weekly_demand.png>
+Package pdftex.def Info: Chapters/images/weekly_demand.png  used on input line 
+213.
+(pdftex.def)             Requested size: 317.07614pt x 217.28998pt.
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1048,13 +1052,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [28]
-<Chapters/images/weekly_demand.png, id=611, 593.21625pt x 406.51875pt>
-File: Chapters/images/weekly_demand.png Graphic file (type png)
-<use Chapters/images/weekly_demand.png>
-Package pdftex.def Info: Chapters/images/weekly_demand.png  used on input line 
-212.
-(pdftex.def)             Requested size: 317.07614pt x 217.28998pt.
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1076,7 +1073,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <Chapters/images/singleRBM.png, id=662, 1267.73625pt x 605.26125pt>
 File: Chapters/images/singleRBM.png Graphic file (type png)
 <use Chapters/images/singleRBM.png>
-Package pdftex.def Info: Chapters/images/singleRBM.png  used on input line 286.
+Package pdftex.def Info: Chapters/images/singleRBM.png  used on input line 287.
 
 (pdftex.def)             Requested size: 317.07614pt x 151.37958pt.
 
@@ -1088,7 +1085,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[31]
+[31 <./Chapters/images/singleRBM.png>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1097,17 +1094,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32 <./Chapters/images/singleRBM.png>]
-<Chapters/images/CORRECT_RBM.png, id=687, 1990.43625pt x 966.61125pt>
+[32]
+<Chapters/images/CORRECT_RBM.png, id=689, 1990.43625pt x 966.61125pt>
 File: Chapters/images/CORRECT_RBM.png Graphic file (type png)
 <use Chapters/images/CORRECT_RBM.png>
 Package pdftex.def Info: Chapters/images/CORRECT_RBM.png  used on input line 35
-0.
+1.
 (pdftex.def)             Requested size: 317.07614pt x 153.98248pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 
 
 
@@ -1117,26 +1110,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
+[33 <./Chapters/images/CORRECT_RBM.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 
  []
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[34 <./Chapters/images/CORRECT_RBM.png>]
-<Chapters/images/DBN_IMPLEMENTATION.png, id=715, 1541.76pt x 1267.73625pt>
+<Chapters/images/DBN_IMPLEMENTATION.png, id=706, 1541.76pt x 1267.73625pt>
 File: Chapters/images/DBN_IMPLEMENTATION.png Graphic file (type png)
 <use Chapters/images/DBN_IMPLEMENTATION.png>
 Package pdftex.def Info: Chapters/images/DBN_IMPLEMENTATION.png  used on input 
-line 404.
+line 405.
 (pdftex.def)             Requested size: 317.07614pt x 260.7194pt.
 
 
@@ -1147,7 +1133,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[35]
+[34]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1156,7 +1142,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[36 <./Chapters/images/DBN_IMPLEMENTATION.png>]
+[35 <./Chapters/images/DBN_IMPLEMENTATION.png>]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[36]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1166,18 +1161,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [37]
-<Chapters/images/rnn_singleunit.png, id=744, 557.08125pt x 936.49875pt>
+<Chapters/images/rnn_singleunit.png, id=746, 557.08125pt x 936.49875pt>
 File: Chapters/images/rnn_singleunit.png Graphic file (type png)
 <use Chapters/images/rnn_singleunit.png>
 Package pdftex.def Info: Chapters/images/rnn_singleunit.png  used on input line
- 446.
+ 447.
 (pdftex.def)             Requested size: 45.29955pt x 76.15034pt.
-<Chapters/images/unrolled_rnn.jpeg, id=748, 1606.0pt x 626.34pt>
+<Chapters/images/unrolled_rnn.jpeg, id=750, 1606.0pt x 626.34pt>
 File: Chapters/images/unrolled_rnn.jpeg Graphic file (type jpg)
 <use Chapters/images/unrolled_rnn.jpeg>
 Package pdftex.def Info: Chapters/images/unrolled_rnn.jpeg  used on input line 
-454.
+455.
 (pdftex.def)             Requested size: 226.48035pt x 70.05402pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
+
+ []
+
+<Chapters/images/cellstate.png, id=751, 6546.4575pt x 999.735pt>
+File: Chapters/images/cellstate.png Graphic file (type png)
+<use Chapters/images/cellstate.png>
+Package pdftex.def Info: Chapters/images/cellstate.png  used on input line 467.
+
+(pdftex.def)             Requested size: 452.90475pt x 45.29121pt.
 
 
 
@@ -1188,22 +1194,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [38 <./Chapters/images/rnn_singleunit.png> <./Chapters/images/unrolled_rnn.jpeg
->]
-Underfull \hbox (badness 10000) in paragraph at lines 462--463
-
- []
-
-<Chapters/images/cellstate.png, id=760, 6546.4575pt x 999.735pt>
-File: Chapters/images/cellstate.png Graphic file (type png)
-<use Chapters/images/cellstate.png>
-Package pdftex.def Info: Chapters/images/cellstate.png  used on input line 466.
-
-(pdftex.def)             Requested size: 452.90475pt x 45.29121pt.
-<Chapters/images/LSTM input gate.png, id=766, 2198.2125pt x 1327.96124pt>
+> <./Chapters/images/cellstate.png>]
+<Chapters/images/LSTM input gate.png, id=769, 2198.2125pt x 1327.96124pt>
 File: Chapters/images/LSTM input gate.png Graphic file (type png)
 <use Chapters/images/LSTM input gate.png>
 Package pdftex.def Info: Chapters/images/LSTM input gate.png  used on input lin
-e 493.
+e 494.
 (pdftex.def)             Requested size: 317.07614pt x 191.54643pt.
 
 
@@ -1214,18 +1210,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[39 <./Chapters/images/cellstate.png>]
+[39 <./Chapters/images/LSTM input gate.png>]
 <Chapters/images/forget_inputgates.png, id=787, 2198.2125pt x 1297.84875pt>
 File: Chapters/images/forget_inputgates.png Graphic file (type png)
 <use Chapters/images/forget_inputgates.png>
 Package pdftex.def Info: Chapters/images/forget_inputgates.png  used on input l
-ine 518.
+ine 519.
 (pdftex.def)             Requested size: 317.07614pt x 187.20297pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
+[40 <./Chapters/images/forget_inputgates.png>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1234,27 +1235,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[40 <./Chapters/images/LSTM input gate.png>]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[41 <./Chapters/images/forget_inputgates.png>]
+[41]
 <Chapters/images/forget_input_output_gates1.png, id=811, 2439.1125pt x 1171.376
 25pt>
 File: Chapters/images/forget_input_output_gates1.png Graphic file (type png)
 <use Chapters/images/forget_input_output_gates1.png>
 Package pdftex.def Info: Chapters/images/forget_input_output_gates1.png  used o
-n input line 587.
+n input line 588.
 (pdftex.def)             Requested size: 226.48395pt x 108.7617pt.
 <Chapters/images/full lstm.png, id=815, 5001.68625pt x 1571.8725pt>
 File: Chapters/images/full lstm.png Graphic file (type png)
 <use Chapters/images/full lstm.png>
-Package pdftex.def Info: Chapters/images/full lstm.png  used on input line 596.
+Package pdftex.def Info: Chapters/images/full lstm.png  used on input line 597.
 
 (pdftex.def)             Requested size: 407.66833pt x 128.10287pt.
 
@@ -1266,7 +1258,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[42 <./Chapters/images/forget_input_output_gates1.png>]
+[42 <./Chapters/images/forget_input_output_gates1.png> <./Chapters/images/full 
+lstm.png>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1275,7 +1268,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[43 <./Chapters/images/full lstm.png>]
+[43]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1294,11 +1287,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [45]
-<Chapters/images/CNN.png, id=871, 3044.37375pt x 1177.39874pt>
+<Chapters/images/CNN.png, id=872, 3044.37375pt x 1177.39874pt>
 File: Chapters/images/CNN.png Graphic file (type png)
 <use Chapters/images/CNN.png>
-Package pdftex.def Info: Chapters/images/CNN.png  used on input line 678.
+Package pdftex.def Info: Chapters/images/CNN.png  used on input line 679.
 (pdftex.def)             Requested size: 317.07614pt x 122.61545pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--691
+
+ []
+
 
 
 
@@ -1309,12 +1307,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [46 <./Chapters/images/CNN.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 690--690
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 692--694
+Underfull \hbox (badness 10000) in paragraph at lines 693--695
 
  []
 
@@ -1323,292 +1316,4 @@ Underfull \hbox (badness 10000) in paragraph at lines 692--694
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[47]
-<Chapters/images/CNN-LSTM.png, id=896, 5007.70876pt x 1273.75874pt>
-File: Chapters/images/CNN-LSTM.png Graphic file (type png)
-<use Chapters/images/CNN-LSTM.png>
-Package pdftex.def Info: Chapters/images/CNN-LSTM.png  used on input line 725.
-(pdftex.def)             Requested size: 452.9679pt x 115.21642pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[48 <./Chapters/images/CNN-LSTM.png>])
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[49]
-\openout2 = `Chapters/Result.aux'.
-
- (Chapters/Result.tex
-Chapter 4.
-)
-
-[50
-
-
-
-
-]
-\openout2 = `Chapters/Discussion.aux'.
-
- (Chapters/Discussion.tex
-Chapter 5.
-)
-
-[51
-
-
-
-
-]
-\openout2 = `Chapters/Conclusions.aux'.
-
- (Chapters/Conclusions.tex
-Chapter 6.
-)
-
-[52
-
-
-
-
-]
-\openout2 = `Chapters/Recommendations.aux'.
-
- (Chapters/Recommendations.tex
-Chapter 7.
-)
-
-[53
-
-
-
-
-]
-\openout2 = `Chapters/References.aux'.
-
- (Chapters/References.tex (main.bbl
-Underfull \hbox (badness 1377) in paragraph at lines 4--8
-[]\OT1/cmr/m/n/12 R. BURDETT-GARDINER, ``The great british ket-tle surge.'' []$
-\OT1/cmtt/m/n/12 https : / / www .
- []
-
-
-
-[54
-
-
-
-
-]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[55]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[56]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[57]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[58]
-Underfull \hbox (badness 10000) in paragraph at lines 285--289
-[]\OT1/cmr/m/n/12 GeeksforGeeks, ``Deep be-lief net-work (dbn) in deep learn-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 285--289
-\OT1/cmr/m/n/12 ing.'' []$\OT1/cmtt/m/n/12 https : / / www . geeksforgeeks . or
-g / deep-[]learning /
- []
-
-
-Underfull \hbox (badness 1616) in paragraph at lines 302--306
-[]\OT1/cmr/m/n/12 C. Olah, ``Un-der-stand-ing lstm net-works.'' []$\OT1/cmtt/m/
-n/12 https : / / colah . github . io / posts /
- []
-
-))
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[59]
-\openout2 = `Chapters/appendixa.aux'.
-
- (Chapters/appendixa.tex
-<Chapters/images/preprocess.png, id=966, 3854.4pt x 2503.3525pt>
-File: Chapters/images/preprocess.png Graphic file (type png)
-<use Chapters/images/preprocess.png>
-Package pdftex.def Info: Chapters/images/preprocess.png  used on input line 5.
-(pdftex.def)             Requested size: 385.46259pt x 250.34991pt.
-<Chapters/images/forward_fill.jpg, id=967, 383.93437pt x 301.8778pt>
-File: Chapters/images/forward_fill.jpg Graphic file (type jpg)
-<use Chapters/images/forward_fill.jpg>
-Package pdftex.def Info: Chapters/images/forward_fill.jpg  used on input line 1
-3.
-(pdftex.def)             Requested size: 153.57101pt x 120.74898pt.
-<Chapters/images/exponentialsmoothingmodel.png, id=968, 786.94pt x 3854.4pt>
-File: Chapters/images/exponentialsmoothingmodel.png Graphic file (type png)
-<use Chapters/images/exponentialsmoothingmodel.png>
-Package pdftex.def Info: Chapters/images/exponentialsmoothingmodel.png  used on
- input line 19.
-(pdftex.def)             Requested size: 141.64308pt x 693.76208pt.
-
-
-LaTeX Warning: Float too large for page by 17.7552pt on input line 22.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Chapters/images/lstm_flowchart.png, id=969, 1662.21pt x 2987.16pt>
-File: Chapters/images/lstm_flowchart.png Graphic file (type png)
-<use Chapters/images/lstm_flowchart.png>
-Package pdftex.def Info: Chapters/images/lstm_flowchart.png  used on input line
- 26.
-(pdftex.def)             Requested size: 317.07614pt x 569.79974pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-)
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[60
-
-
-
- <./Chapters/images/preprocess.png> <./Chapters/images/forward_fill.jpg>]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[61 <./Chapters/images/exponentialsmoothingmodel.png>]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[62 <./Chapters/images/lstm_flowchart.png>]
-\openout2 = `Chapters/appendixb.aux'.
-
- (Chapters/appendixb.tex
-Appendix A.
-)
-
-[63
-
-
-
-
-] 
-enddocument/afterlastpage (AED): lastpage setting LastPage.
-(main.aux (Chapters/Introduction.aux) (Chapters/LiteratureReview.aux)
-(Chapters/Methodology.aux) (Chapters/Result.aux) (Chapters/Discussion.aux)
-(Chapters/Conclusions.aux) (Chapters/Recommendations.aux)
-(Chapters/References.aux) (Chapters/appendixa.aux) (Chapters/appendixb.aux))
- ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-07-19>
- ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B4F4A19171C7964B321CD3BD73915D60;6697.
- ) 
-Here is how much of TeX's memory you used:
- 17321 strings out of 468149
- 348352 string characters out of 5426206
- 711251 words of memory out of 5000000
- 45352 multiletter control sequences out of 15000+600000
- 639465 words of font info for 85 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 75i,16n,79p,1947b,1199s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\mukundi mangena\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
-pi600\tcrm1095.pk> <C:\Users\mukundi mangena\AppData\Local\MiKTeX\fonts/pk/ljfo
-ur/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/mukundi mangena/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/mukundi mangena/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Use
-rs/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmbx8.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmbxti10.pfb><C:/Users/mukundi mangena/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/mukundi mangena/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users
-/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mmi12.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmmi8.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/mukundi mangena/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/muk
-undi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12
-.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmr17.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/mukundi mangena/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/mukundi ma
-ngena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C
-:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmti12.pfb><C:/Users/mukundi mangena/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (72 pages, 2965503 bytes).
-PDF statistics:
- 1135 PDF objects out of 1200 (max. 8388607)
- 300 named destinations out of 1000 (max. 500000)
- 395 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+(fancyhdr)                \setlength{\h
