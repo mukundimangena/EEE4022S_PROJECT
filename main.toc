@@ -97,10 +97,12 @@
 \contentsline {subsubsection}{CNN-LSTM Model Architecture}{47}{section*.114}%
 \contentsline {subsubsection}{Model Training and Validation}{48}{section*.116}%
 \contentsline {chapter}{\numberline {4}Results}{49}{chapter.4}%
-\contentsline {subsubsection}{Dataset Results}{49}{section*.117}%
-\contentsline {subsubsection}{Model Results}{51}{section*.121}%
-\contentsline {chapter}{\numberline {5}Discussion}{52}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusions}{53}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Recommendations}{54}{chapter.7}%
-\contentsline {chapter}{\numberline {A}Addenda}{64}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Ethics Forms}{64}{section.A.1}%
+\contentsline {subsection}{\numberline {4.0.1}Dataset Results}{49}{subsection.4.0.1}%
+\contentsline {subsection}{\numberline {4.0.2}Model Simulation Results}{51}{subsection.4.0.2}%
+\contentsline {subsubsection}{Exponential smoothing}{51}{section*.120}%
+\contentsline {subsubsection}{LSTM model results}{52}{section*.123}%
+\contentsline {chapter}{\numberline {5}Discussion}{53}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusions}{54}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Recommendations}{55}{chapter.7}%
+\contentsline {chapter}{\numberline {A}Addenda}{65}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Ethics Forms}{65}{section.A.1}%

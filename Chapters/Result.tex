@@ -4,7 +4,7 @@ In this section we present and compare results of the four models aplied in STLF
 The metrics theory is explained in \ref{sec:eval_metrics} which shows the mathematics behind each of the metrics used in the research. The methodology shows the creation of the models and how these results were produced. 
 
 
-\subsubsection{Dataset Results}
+\subsection{Dataset Results}
  The continuous\_dataset.csv contained well ordered data that was collected with minimum errors, empty data was filled using the forward and back-filling process.Figure \ref{fig:originaldataset}
  \begin{figure}[h]
  	\centering
@@ -58,4 +58,84 @@ The metrics theory is explained in \ref{sec:eval_metrics} which shows the mathem
   Figure \ref{fig:averagehourlydemand} shows the average hourly usage of data. The averages show that the lowest consumption is in the early hours of the day, with a steady rise in the early morning leading to a peak at midday. After midday there is a steady decrease in demand with a slight increase between the 18th and 20th hour of the day, this is followed by a drop in usage leading to the early hours of the day.  
 
 
-\subsubsection{Model Results}
+\subsection{Model Simulation Results}
+
+\subsubsection{Exponential smoothing}
+The models tested in the research were created using python and tensorflow, using google collab an cloud jupyter notebook environment for faster processing and version control through google drive. 
+
+The ES model being the benchmark model achieved a MAPE of 9.57\% with a MAE of 118.18Mwh using the triple Multiplicative Damped model. Table \ref{tab:exp_smoothing_results} below contains the the results produced by the ES model and the parameters of the model. 
+\begin{table}[h]
+	\centering
+	
+	\begin{tabular}{ll}
+		\hline
+		\textbf{Metric / Parameter} & \textbf{Value} \\
+		\hline
+		\multicolumn{2}{l}{\textbf{Model Results}} \\
+		AIC & 20118.40 \\
+		MAPE &  9.57\% \\
+		MAE & 118.14 \\
+		RMSE & 141.84 \\
+		Correlation & 0.7239\\
+		\hline
+		\multicolumn{2}{l}{\textbf{Model Parameters}} \\
+		Smoothing Level ($\alpha$) & 1.0000 \\
+		Smoothing Trend ($\beta$) & 0.0000 \\
+		Smoothing Seasonal ($\gamma$) & 0.0000 \\
+		Damping Trend ($\phi$) & 0.9744 \\
+		Initial Level ($l_0$) & 1071.1459 \\
+		Initial Trend ($b_0$) & 1.0236 \\
+		Initial Seasons & [0.9093, 0.8828, 0.8638, 0.8555, 0.8682, ...] (shape = 24) \\
+		Use Box-Cox & 0.0000 \\
+		Lambda ($\lambda$) & None \\
+		Remove Bias & 0.0000 \\
+		\hline
+	\end{tabular}
+	\caption{Triple Multiplicative Damped Exponential Smoothing Model Parameters and Results}
+	\label{tab:exp_smoothing_results}
+\end{table}
+These parameters produced the best results in comparison to other ES models and this was evaluated through the algorithm shown in  \ref{fig:exponential-smoothing-model-choice}. 
+\begin{figure}[h]
+	\begin{minipage}[b]{0.45\linewidth}
+	\centering
+	\includegraphics[width=\linewidth]{Chapters/images/results/ES_predicted_vs_actual}
+	\caption{The ES predicted results against the actual demand in a week}
+	\label{fig:espredictedvsactual}
+\end{minipage}
+\hfill
+% Second figure
+\begin{minipage}[b]{0.45\linewidth}
+	\centering
+	\includegraphics[width=\linewidth]{Chapters/images/results/ES_predicted_vs_actual_10weeks}
+	\caption{ES model predicted vs actual load demand over 10 weeks}
+	\label{fig:espredictedvsactual10weeks}
+	
+\end{minipage}
+\end{figure}
+ Figure \ref{fig:espredictedvsactual} shows the predicted and the actual values. This image shows that the model has learned the train data and does not adjust the prediction to the changing features.Figure \ref{fig:espredictedvsactual10weeks} further shows the generalization by the model. This is because ES models are not best suit for non linear problem sets.
+
+\subsubsection{LSTM model results}
+The LSTM model performed better than the ES model producing an MAPE value of 4.23\% and an MAE of 48.28 Mwh. LSTM models perform better because of their ability to learn context through the cell state mentioned in section \ref{sec:lstm_background}. Table \ref{tab:lstm_performance}of the results produced by the LSTM model.
+\begin{table}[h]
+	\centering
+	\caption{LSTM Model Performance Metrics}
+	\label{tab:lstm_performance}
+	\begin{tabular}{lc}
+		\hline
+		\textbf{Metric} & \textbf{Value} \\
+		\hline
+		Mean Squared Error (MSE) & 4548.4186 \\
+		Root Mean Squared Error (RMSE) & 67.4420 \\
+		Mean Absolute Error (MAE) & 48.2793 \\
+		Coefficient of Determination ($R^2$) & 0.8715 \\
+		Mean Absolute Percentage Error (MAPE) & 4.2312\% \\
+		\hline
+	\end{tabular}
+\end{table}
+ The lower MSE and RMSE values indicate that this model has a better fit. The $R^2$ score of 0.8715 reflects a robust generalization performance and the model loss curves in figure \ref{fig:lstmmodel-loss} further show that the model is learning and generalizing properly.\begin{figure}[h]
+ 	\centering
+ 	\includegraphics[width=0.9\linewidth]{"Chapters/images/results/lstm_model loss"}
+ 	\caption{The LSTM model loss during training and validation}
+ 	\label{fig:lstmmodel-loss}
+ \end{figure}
+ 
