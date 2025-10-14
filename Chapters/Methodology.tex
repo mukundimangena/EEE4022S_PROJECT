@@ -85,7 +85,7 @@ To incorporate longer-term seasonal variations, a \texttt{month} identifier was 
 \paragraph{Holiday Combination Feature}
 The dataset included two holiday-related variables: \texttt{holiday\_ID}, which was a categorical value ranging from 1 to 22 representing different types of holidays, and \texttt{holiday}, which was a binary value indicating whether a given day was a holiday or not. To enhance the usability of these features, a combined feature was created by multiplying \texttt{holiday\_ID} with \texttt{holiday}. This ensured that non-holiday days were represented as zero, while holidays retained their unique identifiers. This transformation simplified model training by consolidating redundant information into a single, more informative feature.
 
-\subsection{Outlier Detection and Removal using the Hampel Identifier Method}
+\subsection{Outlier Detection and Removal using the Hampel Identifier Method \label{sec:HI_method}}
 Outliers can significantly bias statistical and machine learning models if not properly addressed. To mitigate this, the Hampel identifier(HI) method was employed for outlier detection. The HI method was chosen because it is a robust statistical technique based on the median and the median absolute deviation (MAD)\cite{hiceemdanQteg}. The method is also robust to heavy tailed data and skewed distributions of raw data. Below are the equations used for the implementation as taken from \cite{hiceemdanQteg}.
 
 Consider the input sequence \(A = [a_1, a_2, \ldots, a_k]\). For each sample \(a_i\), a symmetric sliding window of length \(w = 2n + 1\) centered at \(i\) is defined. Within this window:
