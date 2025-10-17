@@ -338,4 +338,9 @@ Z.~Li, F.~Liu, W.~Yang, S.~Peng, and J.~Zhou, ``A survey of convolutional
 IBM, ``What are convolutional neural networks?.'' IBM Think, 2025.
 \newblock Accessed: 2025-10-08.
 
+\bibitem{plevris2022investigation}
+V.~Plevris, G.~Solorzano, N.~P. Bakas, and M.~E.~A. Ben~Seghier,
+  ``Investigation of performance metrics in regression analysis and machine
+  learning-based prediction models,'' 2022.
+
 \end{thebibliography}

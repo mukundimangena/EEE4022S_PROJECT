@@ -1,16 +1,15 @@
 \chapter{Methodology}
 
-The goal for this research is to investigate the impact of ML methods in STLF. The literature review shows improved accuracy when using ML models. It also highlights the effectiveness of statistical models and SVM's in temporal prediction tasks. It further shows the increased accuracy in ML and AI models, showing how hybrid models can capture the benefits of different models in one. In this section we will focus on the data processing steps, the theoretical background of the models and the methodology followed to produce them.  
 
 \section{Data Collection and Description}
 The dataset that is used in the experiments handled in this research was collected by the Panama City government in central America as an initiative to research and improve  methods for short term load forecasting. The dataset is available on Kaggle and  Mendeley Data and provides historical records of electrical load data and relevant weather variables of Panama city\cite{dataset}.
 
-The dataset consists of hourly observations spanning the period from January 2015 to December 2019, yielding approximately 48048 data points. The target variable is the load demand measured in megawatts(MW), while the other features include multiple weather and environmental parameters recorded at different stations across Santiago, Tocumen and David. 
+The dataset consists of hourly sampled observations spanning the period from January 2015 to December 2019. The target variable is the load demand measured in megawatt-hours(Mwh), while the other features include multiple weather and environmental parameters recorded at three stations in Santiago, Tocumen and David, cities in Panama. 
 
 The dataset has the following features as mentioned in \cite{dataset}:
 {\small
 \begin{itemize}
-	\item datetime - The date and time sampled every hour from 
+	\item datetime - The date and time sampled every hour 
 	\item T2M – Temperature at 2 meters above ground (°C)
 	\item QV2M – Specific humidity at 2 meters (\%) sampled in the three cities
 	\item TQL – Total cloud water content (liters/\si{m^2}) sampled n the three cities
@@ -22,9 +21,9 @@ The dataset has the following features as mentioned in \cite{dataset}:
 \end{itemize}
 }
 
-The environmental features in the dataset are sampled hourly in the three cities and are represented as toc, san and dav as the extensions of the feature name (e.g. T2M\_dav would be the temperature in David). These meteorological inputs have been selected due to their established influence on electricity demand, as load consumption often correlates with environmental factors such as ambient temperature, humidity, and weather patterns. The relationship between temperature and load has been established with Hor et al \cite{hor2005analyzing} seeing a correlation in the increase in temperature with the increase in the load demand.
+The environmental features in the dataset are sampled hourly in the three cities and are represented as toc, san and dav as the extensions of the feature name (e.g. T2M\_dav would be the temperature in the city David). These meteorological inputs have been selected due to their established influence on electricity demand, as load consumption often correlates with environmental factors such as ambient temperature, humidity, and weather patterns. The relationship between temperature and load has been established with Hor et.al. \cite{hor2005analyzing} seeing a correlation in the increase in temperature with the increase in the load demand.
 
-The dataset has been cleaned previously by the  initial collectors to ensure minimum erroneous values. The dataset has 4 separate folders namely:
+The dataset has been cleaned previously by the  initial collectors to ensure minimum erroneous values \cite{dataset}. The dataset has 4 separate folders namely:
 \begin{itemize}
 	\item continuous-dataset.csv - containing data sampled every hour for the duration of the collection
 	\item test\_dataframes.xslx - a test dataset prepared with historical load from 4 weeks previously \cite{dataset}
@@ -32,7 +31,7 @@ The dataset has been cleaned previously by the  initial collectors to ensure min
 	\item weekly\_pre\_dispatch\_forecast.csv - contains the load forecast from the weekly predispatch report
 \end{itemize}
 
-To train the models in this research we chose to use the continuous\_dataset.csv. This is  because of the comprehensive feature set in the dataset. This dataset also has continuous unsplit time series data allowing for testing of custom train test splits that align with the model designs. Finally the flexibility for feature engineering on this dataset is enhanced. It can allow you to generate custom lagged features and rolling statistics giving the researcher transparency and reproducibility.
+To train the models in this research we chose to use the continuous\_dataset.csv. This is  because of the comprehensive feature set in the dataset. This dataset also has continuous unsplit time series data allowing for testing of custom train test splits that align with the model designs. Finally the flexibility for feature engineering on this dataset is enhanced because custom train test splits can be customised to each problem set rather than using the provided test and train\_dataframes.csv. It can allow you to generate custom lagged features and rolling statistics giving the researcher transparency and reproducibility.
 
 \section{Data Preprocessing \label{sec:datapreprocessing}}
 
@@ -43,6 +42,8 @@ The two options for the programming language to use for this problem were Python
 \begin{table}[h!]
 	\centering
 	\renewcommand{\arraystretch}{1.8} % spacing
+	\caption{Comparison of Python and MATLAB for data analysis and machine learning.}
+	\label{tab:python_matlab_comparison}
 	\begin{tabular}{|p{3.5cm}|p{5.5cm}|p{5.5cm}|}
 		\hline
 		\textbf{Aspect} & \textbf{Python} & \textbf{MATLAB} \\
@@ -60,60 +61,55 @@ The two options for the programming language to use for this problem were Python
 		\textbf{Performance} & Fast with optimized libraries (NumPy, TensorFlow GPU acceleration). & Highly optimized for matrix operations sometimes faster out-of-the-box for linear algebra. \\
 		\hline
 	\end{tabular}
-	\caption{Comparison of Python and MATLAB for data analysis and machine learning.}
-	\label{tab:python_matlab_comparison}
+	
 \end{table}
 
-Matlab is powerful in numerical computing and is widely used in academia and engineering settings, python was chosen for this research due to several key reasons. Python provides robust data processing frameworks, which make data cleaning, transformation and preprocessing efficient and straightforward. Python supports industry standard ML frameworks such as TensorFlow and Scikit-learn that were extensively used in this research for setting up and training the models. These models offer a ease of use and advanced modeling and experimentation. Python has a massive global community offering more resources and troubleshooting support more than MATLAB. After careful consideration of the pros and cons, python was used for modeling.
+Matlab is powerful in numerical computing and is widely used in academia and engineering settings, python was chosen for this research due to several key reasons. Python provides robust data processing frameworks, which make data cleaning, transformation and preprocessing efficient and straightforward. Python supports industry standard ML frameworks such as TensorFlow and Scikit-learn that were extensively used in this research for setting up and training the models. These models offer an ease of use and advanced modeling and experimentation. Python has a massive global community offering more resources and troubleshooting support more than MATLAB. After careful consideration of the pros and cons, python was used for modeling.
 
 \subsection{Feature Engineering}
-The data handling framework that is used in the project is python Pandas. Pandas offers a wide range of processes to feature engineer your dataset. It also sets the dataset into a format that is user friendly for training and testing both statistical and machine learning models. 
+The project uses Python’s Pandas library for handling data. Pandas makes it easy to clean, organize, and prepare data for analysis. It also helps with feature engineering, which means creating or modifying data columns to improve how well your model learns. In short, Pandas puts your data into a format that’s simple to use when training and testing both statistical and machine learning models.
 
-\paragraph{Forward Filling}
+\subsubsection{Forward Filling}
 The first step taken to ensure that the dataset is complete and there are no missing values, was the forward fill method. Forward fill is a method where you fill a missing value with the last known value. The last known value is carried forward to replace the missing value. An illustration of how this method works is shown in figure \ref{fig:forward_fill}. This method is simple and effective for filling in values such as temperature which have low variance. 
 
-\paragraph{Day of Week Encoding}
+\subsubsection{Day of Week Encoding}
 A \texttt{day\_of\_week} column was added to the dataset to represent the weekday on which each observation occurred. This feature allows the models to capture temporal seasonality related to human activity patterns that typically vary across weekdays and weekends. For instance, energy consumption or cooling demand may be systematically higher on weekdays compared to weekends.
-\paragraph{Cyclical Encoding : } To avoid discontinuities and ensure the network learns smooth transition of time eg from 11PM to 12 AM , cyclical encoding is applied to hour, day of week and month. With cyclical encoding the times 11PM and 12AM are represented as being close to each. This is performed by using sine and cosine transformation to the dataset columns associated.
+\subsubsection{Cyclical Encoding : } To avoid discontinuities and ensure the network learns smooth transition of time eg from 11PM to 12 AM , cyclical encoding is applied to hour, day of week and month. With cyclical encoding the times 11PM and 12AM are represented as being close to each. This is performed by using sine and cosine transformation to the dataset columns associated.
 
-\paragraph{Weekend and Weekday Tag}
+\subsubsection{Weekend and Weekday Tag}
 Building on the day-of-week information, a binary tag distinguishing between weekdays and weekends was introduced. This feature reduces the dimensionality of temporal effects and allows the models to easily account for systematic differences in behaviour between weekdays and weekends.
 
-\paragraph{Month Identifier}
+\subsubsection{Month Identifier}
 To incorporate longer-term seasonal variations, a \texttt{month} identifier was added. This feature makes it possible to detect monthly or seasonal cycles in the data, such as weather-related patterns or operational schedules that repeat on a monthly basis.
 
-\paragraph{Holiday Combination Feature}
+\subsubsection{Holiday Combination Feature}
 The dataset included two holiday-related variables: \texttt{holiday\_ID}, which was a categorical value ranging from 1 to 22 representing different types of holidays, and \texttt{holiday}, which was a binary value indicating whether a given day was a holiday or not. To enhance the usability of these features, a combined feature was created by multiplying \texttt{holiday\_ID} with \texttt{holiday}. This ensured that non-holiday days were represented as zero, while holidays retained their unique identifiers. This transformation simplified model training by consolidating redundant information into a single, more informative feature.
 
-\subsection{Outlier Detection and Removal using the Hampel Identifier Method \label{sec:HI_method}}
+\subsubsection{Outlier Detection and Removal using the Hampel Identifier Method \label{sec:HI_method}}
 Outliers can significantly bias statistical and machine learning models if not properly addressed. To mitigate this, the Hampel identifier(HI) method was employed for outlier detection. The HI method was chosen because it is a robust statistical technique based on the median and the median absolute deviation (MAD)\cite{hiceemdanQteg}. The method is also robust to heavy tailed data and skewed distributions of raw data. Below are the equations used for the implementation as taken from \cite{hiceemdanQteg}.
 
 Consider the input sequence \(A = [a_1, a_2, \ldots, a_k]\). For each sample \(a_i\), a symmetric sliding window of length \(w = 2n + 1\) centered at \(i\) is defined. Within this window:
 
 \[
 m_i = \operatorname{median}(a_{i-n}, \ldots, a_i, \ldots, a_{i+n})
-\tag{1}
 \]
 
 The median absolute deviation (MAD) is calculated as:
 
 \[
 \mathrm{MAD}_i = \operatorname{median}\big(|a_{j} - m_i| : j \in [i-n,\, i+n]\big)
-\tag{2}
 \]
 
 To estimate the standard deviation, the MAD is scaled using a constant \(\alpha = 0.6745\) (consistent with normal distribution assumptions):
 
 \[
 \sigma_i = \frac{\mathrm{MAD}_i}{\alpha}
-\tag{3}
 \]
 
 An observation is identified as an outlier if it deviates from the local median beyond three times the estimated standard deviation:
 
 \[
 |a_i - m_i| > 3\sigma_i
-\tag{4}
 \]
 
 If an outlier is detected, the original value \(a_i\) is replaced with the local median \(m_i\). This correction preserves the temporal structure of the data while reducing the influence of anomalies. Incorporating HI ensures that erroneous spikes caused by equipment errors, missing sensor calibration, or human errors do not affect model training and forecasting. This HI formulation was shown to improve quality of raw data and reduce the occurrence of spikes in the data \cite{hiceemdanQteg}.
@@ -126,7 +122,6 @@ Several normalization and standardization approaches exist, such as z-score stan
 
 \[
 x' = \frac{x - x_{\min}}{x_{\max} - x_{\min}}
-\tag{5}
 \]
 
 where \(x\) is the original feature value, \(x_{\min}\) and \(x_{\max}\) are the minimum and maximum values of the feature, and \(x'\) is the normalized value re-scaled to the interval \([0,1]\).
@@ -141,39 +136,34 @@ The steps taken for the data preprocessing are shown in the fig \ref{fig:preproc
 \section{Evaluation Metrics \label{sec:eval_metrics}}
 The models were compared using standard error metrics and information criteria that are widely used in forecasting literature. These metrics provide complementary views on model performance in terms of accuracy, error magnitude, and model complexity. The chosen metrics are briefly described below. 
 
-\subsubsection{Mean Absolute Percentage Error (MAPE)} 
+\subsection{Mean Absolute Percentage Error (MAPE)} 
 MAPE expresses forecast accuracy as a percentage, making it easy to interpret across different scales. Lower values indicate better performance.  
 \[
 \text{MAPE} = \frac{100}{n}\sum_{t=1}^{n} \left| \frac{Y_t - \hat{Y}_t}{Y_t} \right|
-\tag{6}
 \]
 
-\subsubsection{Mean Squared Error (MSE)} 
+\subsection{Mean Squared Error (MSE)} 
 MSE penalises larger errors more heavily by squaring them, making it sensitive to outliers.  
 \[
 \text{MSE} = \frac{1}{n}\sum_{t=1}^{n} (Y_t - \hat{Y}_t)^2
-\tag{7}
 \]
 
-\subsubsection{Root Mean Squared Error (RMSE)} 
+\subsection{Root Mean Squared Error (RMSE)} 
 RMSE is the square root of MSE and brings the error measure back to the same scale as the original data.  
 \[
 \text{RMSE} = \sqrt{\frac{1}{n}\sum_{t=1}^{n} (Y_t - \hat{Y}_t)^2}
-\tag{8}
 \]
 
-\subsubsection{Coefficient of Determination ($R^2$)} 
+\subsection{Coefficient of Determination ($R^2$)} 
 $R^2$ measures how well the forecasts explain the variance in the actual data. Higher values (closer to 1) indicate better fit.  
 \[
 R^2 = 1 - \frac{\sum_{t=1}^{n} (Y_t - \hat{Y}_t)^2}{\sum_{t=1}^{n} (Y_t - \bar{Y})^2}
-\tag{9}
 \]
 
-\subsubsection{Akaike Information Criterion (AIC)} 
+\subsection{Akaike Information Criterion (AIC)} 
 AIC balances model fit and complexity. It penalizes over-parameterized models, with lower values indicating a better trade-off.  
 \[
 \text{AIC} = 2k - 2\ln(\hat{L})
-\tag{10}
 \]
 where $k$ is the number of model parameters and $\hat{L}$ is the maximized likelihood.
 
@@ -181,8 +171,7 @@ where $k$ is the number of model parameters and $\hat{L}$ is the maximized likel
 
 \section{Statistical and Machine Learning Models}
 \subsection{Exponential Smoothing}
-
-Exponential smoothing has been widely used in STLF due to its low computational needs and fast processing times. The core idea of this method is to produce a forecast from an exponentially weighted average of past observations, giving the largest weight to the most recent data and exponentially decreasing weights to older data \cite{ostertagova2011simple}. This method's functionality has been discussed extensively in section \ref{sec:exponential smoothing}. In this section we will focus on the theoretical fundamentals and the choice of model we used in our research.  
+Exponential smoothing has been widely used in STLF due to its low computational needs and fast processing times. The core idea of this method is to produce a forecast from an exponentially weighted average of past observations, giving the largest weight to the most recent data and exponentially decreasing weights to older data \cite{ostertagova2011simple}. This method's functionality has been discussed extensively in chapter \ref{litReview} section \ref{sec:exponential smoothing}. In this section we will focus on the theoretical fundamentals and the choice of model was used in this research.  
 
 There are multiple forms of ES, each designed to capture different components of a time series data.
 \paragraph{Simple Exponential Smoothing(SES)}\label{par:ses}
@@ -190,7 +179,6 @@ SES is designed for time series datasets that lack seasonality and trend. The fo
 
 \[
 \hat{S}_{t+1}  = \alpha Y_t + (1-\alpha)\hat{Y}_t
-\tag{11}
 \label{eqn:6}
 \]
  Though the simplicity of SES is good for very low computational tasks, it is not favorable because of its low accuracy and failure to identify presence of the trend and seasonality in the data.
@@ -198,94 +186,58 @@ SES is designed for time series datasets that lack seasonality and trend. The fo
  \paragraph{Double Exponential Smoothing (DES)} method introduces capturing of trend in the time series data. This is in addition to the already existing level component in SES \ref{par:ses}. The equation of DES as adapted from \cite{nist_double_exp_smoothing} would be:
  \[
   S_t = \alpha Y_t + (1-\alpha)(S_{t-1} + b_{t-1})
-  \tag{12}
  \label{eqn:7}
  \] 
  \[
   b_t = \gamma (S_t - S_{t-1}) + (1-\gamma) b_{t-1}
-  \tag{13}
  \label{eqn:8}
  \]
- 
- where $b_t$ would be the estimated trend or slope of the dataset and $\gamma$ would be the smoothing parameter for the trend  between 0 and 1. The data used in this research shows a clear flat trend over the long-term and seasonality every 24 hours with a fast rise and peak demand during midday shown in image \ref{fig:weeklydemand}. This 24 hour seasonality brings us to the third ES model which is the Triple Exponential Smoothing (TES). 
- \begin{figure}[h]
- 	\centering
- 	\includegraphics[width=0.7\linewidth]{Chapters/images/weekly_demand}
- 	\caption{Real electricity demand from Sunday 13th to Saturday 20th of October 2019}
- 	\label{fig:weeklydemand}
- \end{figure}
- 
+
+ where $b_t$ would be the estimated trend or slope of the dataset and $\gamma$ would be the smoothing parameter for the trend  between 0 and 1. 
  \paragraph{Triple Exponential Smoothing }introduces the equation that takes care of the seasonality component \cite{nist_double_exp_smoothing}. TES inherits equation \ref{eqn:7} and \ref{eqn:8} and introduces equation \ref{eqn:9} for seasonality adapted from \cite{nist_double_exp_smoothing}.
  \[
  I_t = \beta \frac{Y_t}{S_t} + (1-\beta) I_{t-m}  
- \tag{14}
  \label{eqn:9}
  \]
  $I_t$ is the estimated seasonal component and $\beta$ is the seasonality constant that is between 0 and 1. With the combination of equation \ref{eqn:6} , \ref{eqn:8}  and \ref{eqn:9} the overall smoothed value equation would be \ref{eqn:10}. 
  \[
  S_t = \alpha \frac{Y_t}{I_{t-L}} + (1-\alpha)(S_{t-1}+b_{t-1})
- \tag{15}
  \label{eqn:10}
  \]
  
  \paragraph{Damping} is a mechanism used to reduce or dampen the trend in forecasts over long horizons \cite{taylor2003exponential}. This method makes the forecast trend more conservative, preventing it from overshooting the actual data, which is a common problem in ES methods projecting a linear trend indefinitely in the future \cite{taylor2003exponential}. The equation below is for the smoothed value inclusive of the damping factor $\phi$ which is between 0 and 1, adapted from \cite{taylor2003exponential}. With equation \ref{eqn:11.a} being the additive in level and equation \ref{eqn:11.b} being the multiplicative in level.
  \[
  	S_t = \alpha \frac{Y_t}{I_{t-L}} + (1-\alpha)\bigl(S_{t-1} + \phi\, b_{t-1}) 
- \tag{16}
  \label{eqn:11.a}
  \] 
  \[
  S_t = \alpha \frac{Y_t}{I_{t-L}} + (1-\alpha)\bigl(S_{t-1} \cdot b_{t-1}^{\,\phi}\bigr)
- \tag{17}
  \label{eqn:11.b}
  \]
  
 
  \subsubsection{Choice of best Exponential Smoothing model}
- ES was used as a benchmark for testing the ML models. However because of the different variations of ES an algorithm was  developed to help choose the best performing ES model for the research. The models performance were compared on their MAPE, MAE, Mean Squared Error(MSE), RMSE and the AIC.
+ ES was used to assess and compare with the performance of the ML models. However because of the different variations of ES an algorithm was  developed to help choose the best performing ES model for the research. The models performance were compared on their MAPE, MAE, Mean Squared Error(MSE), RMSE and the AIC.
  
- This algorithm would create a model using \textit{statsmodel holtwinters} \cite{statsmodels_expsmoothing_doc} and test  performance of forecasts o. Different model's performance would be compared to each other. Image \ref{fig:exponential-smoothing-model-choice} in appendix A shows a the algorithm followed to choose the best ES model. Table \ref{tab:es_model_selection} shows the different models that were tested to find the best model.
-
-\begin{table}[ht]
-	\centering
-	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{lccccccc}
-			\hline \\
-			\textbf{Model} & \textbf{Trend} & \textbf{Seasonality} & \textbf{Seasonality Period} & \textbf{Damped} & \textbf{MAPE (\%)} & \textbf{MSE (MWh)} & \textbf{AIC}
-			 \\
-			\hline
-			Simple               & None  & None & –  & No  & 13.76\%  & 180.98 & 343990.96 \\
-			Double               & Add   & None & –  & No  & 15.14\%  & 172.11 & 327001.68 \\
-			Triple\_Add          & Add   & Add  & 24 & No  & 10.56\%  & 125.56 & 277981.02 \\
-			Triple\_Mul          & Mul   & Mul  & 24 & No   & 34.48\%  & 408.23 & 272265.85 \\
-			Triple\_Add\_Damped  & Add   & Add  & 24 & Yes &  9.99\%  & 120.81 & 277708.98 \\
-			Triple\_Mul\_Damped  & Mul   & Mul  & 24 & Yes & 10.01\%  & 119.49 & 272266.18 \\
-			\hline
-		\end{tabular}%
-	}
-	\caption{Exponential Smoothing Models chosen for benchmarking and their performance.}
-	\label{tab:es_model_selection}
-\end{table}
-
-Comparison of performance metrics through the algorithm in figure \ref{fig:exponential-smoothing-model-choice} was the Triple Multiplicative Damped algorithm with a seasonality period of 24 data points. Since the dataset is sampled hourly the seasonality was set to 24 hours. The MAPE and MSE are very close to each other with a difference of about 0.01 each. However the AIC value for  $Triple\_Mul\_Damped$ is lower than the one for $Triple\_Add\_Damped$, this showing a better model fit for  $Triple\_Mul\_Damped$. The final choice for the ES model was  $Triple\_Mul\_Damped$ and it served as a benchmark for testing performance of other models used in the experiment.
+ This algorithm would create a model using \textit{statsmodel holtwinters} python framework \cite{statsmodels_expsmoothing_doc} and test  performance of forecasts. Different model's performance would be compared to each other. Figure\ref{fig:exponential-smoothing-model-choice} in appendix \ref{sec:appendixA} shows a the algorithm followed to choose the best ES model. 
 \subsubsection{Implementation of the Triple Multiplicative Damped ES model}
 
-
+\section{Machine Learning Models}
 
 \subsection{Deep Belief Network}
  
- A DBN is a probabilistic generative model composed of multiple layers of stochastic, latent variables \cite{zhang2017deep}. It is constructed by stacking multiple layers of RBMs on top of each other \cite{zhang2016short}. This model benefits from its capabilities of limiting the occurrence of the local minima by pre-training RBMs using unsupervised training to adjust weights and parameters to ensure an enhanced performance in actual prediction use cases.
+ A DBN is a probabilistic generative model composed of multiple layers of stochastic, latent variables \cite{zhang2017deep}. It is constructed by stacking multiple layers of Restricted Boltzmann Machines (RBMs) on top of each other \cite{zhang2016short}. This model benefits from its capabilities of limiting the occurrence of the local minima by pre-training RBMs using unsupervised training to adjust weights and parameters to ensure an enhanced performance in actual prediction use cases.
  
-\subsubsection{Restricted Boltzmann Machine (RBM)}
+\subsubsection{Restricted Boltzmann Machine}
 
 A Restricted Boltzmann Machine (RBM) is a two-layer probabilistic generative model designed to learn the underlying probability distribution of input data. RBMs are widely used as building blocks for constructing DBNs \cite{dong2021short}. The architecture consists of a \textit{visible layer}, which receives the observed data, and a \textit{hidden layer}, which captures latent features and higher-order correlations in the data. Learning in RBMs is unsupervised, the model attempts to represent the structure of the input data by adjusting its parameters weights and biases so as to maximize the likelihood of the training samples \cite{zhang2017deep}.
 
-An RBM is defined by a weight matrix that connects each visible unit to each hidden unit in a bipartite manner, together with bias vectors for both layers. No intra-layer connections are permitted, which simplifies inference and training. The structure is shown in figure \ref{fig:singlerbm}, adapted from Zhang et al. \cite{zhang2017deep}.
+An RBM is defined by a weight matrix that connects each visible unit to each hidden unit in a bipartite manner, together with bias vectors for both layers. No intra-layer connections are permitted, which simplifies inference and training. The structure is shown in figure \ref{fig:singlerbm}, which was adapted from Zhang et al. \cite{zhang2017deep}.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Chapters/images/singleRBM}
-	\caption{Illustration of an RBM with visible and hidden layers, including weights and biases}
+	\caption{Illustration of an RBM with visible and hidden layers, including weights and biases \cite{zhang2017deep}}
 	\label{fig:singlerbm}
 \end{figure}
 
@@ -294,7 +246,6 @@ An RBM is an energy-based model, meaning it assigns a scalar energy value to eac
 
 \[
 E(v,h;\theta) = -\sum_i a_i v_i - \sum_j b_j h_j - \sum_{i,j} v_i W_{ij} h_j
-\tag{18}
 \label{eqn:12}
 \]
 
@@ -313,20 +264,17 @@ Using the energy function, the joint probability of a visible hidden configurati
 
 \[
 P(v,h) = \frac{e^{-E(v,h)}}{Z}
-\tag{19}
 \label{eqn:13}
 \]
 
 where $Z$ is the \textit{partition function}, given by summing over all possible visible and hidden states:
 \[
 Z = \sum_{v,h} e^{-E(v,h)}
-\tag{20}
 \]
 
 The probability of a visible vector $v$ is obtained by marginalizing out the hidden layer:
 \[
 P(v) = \frac{1}{Z} \sum_{h} e^{-E(v,h)}
-\tag{21}
 \]
 
 \paragraph{Training RBMs:} 
@@ -340,7 +288,6 @@ RBMs are typically trained using the \textit{Contrastive Divergence} (CD) algori
 The difference between the two phases which is error provides the learning signal for updating weights:
 \[
 \Delta W_{ij} = \eta \Big( \langle v_i h_j \rangle_{\text{data}} - \langle v_i h_j \rangle_{\text{recon}} \Big)
-\tag{22}
 \label{eqn:14}
 \]
 where $\eta$ is the learning rate. In this way, the RBM iteratively learns to reduce the gap between the distribution of the training data and the distribution it models. The feed-forward (data-to-hidden) and feed-backward (hidden-to-reconstruction) passes, together with weight updates, constitute the CD training loop \cite{RBM_GeeksforGeeks}.
@@ -411,13 +358,13 @@ The architecture had 3 RBMs setup with 256, 128 and 64 units respectively. Each 
 \subsubsection{Training Procedure}
  DBN training is split into two sections, unsupervised learning for the RBMs and supervised learning for the stacked RBMs. These procedures will effectively initialize a deep forward network to a good starting point.
  
- \paragraph{Pre-training (Unsupervised)}Each of the RBMs are trained sequentially using the input data in an unsupervised manner to learn a robust and hierarchical representation of the input features. The CD algorithm is used to train each RBM, approximating the gradient using the error equation \ref{eqn:14}. A fixed momentum term of 0.9 is set to accelerate convergence and dampen oscillation.\\ The learning rate was implemented during the pretraining, starting at 0.01 for the first layer and decaying by a factor or 0.8 for each subsequent RBM layer. This decaying factor is to counter the increasing abstraction in higher layer which will require the updates of the layers to be more conservative. Each RBM is trained for 25 epochs, this is because there was a negligible change in the final prediction with increased epochs.
+ \subsubsection{Pre-training (Unsupervised)}Each of the RBMs are trained sequentially using the input data in an unsupervised manner to learn a robust and hierarchical representation of the input features. The CD algorithm is used to train each RBM, approximating the gradient using the error equation \ref{eqn:14}. A fixed momentum term of 0.9 is set to accelerate convergence and dampen oscillation.\\ The learning rate was implemented during the pretraining, starting at 0.01 for the first layer and decaying by a factor or 0.8 for each subsequent RBM layer. This decaying factor is to counter the increasing abstraction in higher layer which will require the updates of the layers to be more conservative. Each RBM is trained for 25 epochs, this is because there was a negligible change in the final prediction with increased epochs.
  
- \paragraph{Fine-Tuning (Supervised)} Following the supervised pre-training, the network is unrolled into a standard feed-forward neural network and fine tuned using supervised learning. The learned RBM weights and biases from the pre-training are transferred to initialize the corresponding dense layers in the supervised network. This initialization provides the network with meaningful feature representation. After the transfer the network will learn through supervised learning using standard back-propagation method which will train the network end-to-end.
+ \subsubsection{Fine-Tuning (Supervised)} Following the supervised pre-training, the network is unrolled into a standard feed-forward neural network and fine tuned using supervised learning. The learned RBM weights and biases from the pre-training are transferred to initialize the corresponding dense layers in the supervised network. This initialization provides the network with meaningful feature representation. After the transfer the network will learn through supervised learning using standard back-propagation method which will train the network end-to-end.
  \\
  The Adam optimizer is chosen with a base learning rate of 0.001. Adam is preferred over standard SGD for deep learning due to its adaptive learning rates for individual parameters, leading to faster and more stable convergence. The network is then compiled using MSE as its loss function, which is appropriate for regression tasks and is minimized during training.
  
- \paragraph{Regularization Strategies}
+ \subsubsection{Regularization Strategies}
  Multiple regularization strategies were employed to prevent overfitting and improve generalization.
  
  \begin{itemize}
@@ -439,7 +386,7 @@ The architecture had 3 RBMs setup with 256, 128 and 64 units respectively. Each 
  
 \subsubsection{LSTM Theoretical Background \label{sec:lstm_background}}
  
-\paragraph{AN RNN Background} is essential to understand how an LSTM model functions. An RNN is a model that utilizes past sets of information to make a prediction of the present. They achieve this feat by using a feedback loop. The RNN tracks context or previous data on a hidden state at each time step \cite{stryker_ibm_rnn}. This hidden state then works as the memory of the system. 
+An RNN is essential to understand how an LSTM model functions. An RNN is a model that utilizes past sets of information to make a prediction of the present. They achieve this feat by using a feedback loop. The RNN tracks context or previous data on a hidden state at each time step \cite{stryker_ibm_rnn}. This hidden state then works as the memory of the system. 
 Imagine \textit{A} is a single unit of the RNN receiving input \textit{$X_t$} , \textit{A} will have a  hidden state \textit{$H_t$} that will store information about the previous input $X_{t-1}$ and it will output \textit{$Y_t$}. Image \ref{fig:rnnsingleunit} adapted from \cite{colah2015understanding} shows how the single unit looks like.
 
 \begin{figure}[h]
@@ -476,7 +423,6 @@ The cell state contains previous information however there needs to be a way to 
 
 \[
 f_t = \sigma \Big( W_f \cdot [h_{t-1}, x_t] + b_f \Big)
-\tag{23}
 \label{eqn:15}
 \]
 {\small
@@ -499,19 +445,17 @@ Figure \ref{fig:forgetgate} adapted from \cite{colah2015understanding} shows how
 
 \[
 C_{t-1}*f_t = 0   ..... \text{    if} f_t = 0 \text{           (forget everything)}
-\tag{24.a}
 \label{eqn:16.a}
 \]
 
 \[
 C_{t-1}*f_t = 1  ..... \text{  if} f_t = 1 \text{            (forget nothing)}
-\tag{24.b}
 \label{eqn:16.b}
 \]
  Equation \ref{eqn:16.a} and \ref{eqn:16.b} adapted from \cite{stryker_ibm_rnn} shows how the forget gate will be applied to the cell state through the multiplicative process.
  
  
- \paragraph{Input Gate}
+ \subsubsection{Input Gate}
  The input gate determines what new information from the current input and previous hidden state should be stored in the current cell state \cite{rafi2021short}. 
  The input gate quantifies the importance of new data carried in the input \cite{stryker_ibm_rnn}. The input layer is split into two parts, the output of the input gate $i_t$ and a candidate cell state $\tilde{C_t}$ used to update the global cell state. $\tilde{C_t}$ allows retaining of important information and effectively updating the global cell state \cite{zhu2025novel}.
 \begin{figure}[h]
@@ -524,21 +468,18 @@ C_{t-1}*f_t = 1  ..... \text{  if} f_t = 1 \text{            (forget nothing)}
 Figure \ref{fig:forgetinputgates} shows how the forget and input gates. Below are the equations that determine the functionality of the input gate. % Input gate equation
 \[
 i_t = \sigma \Big( W_i \cdot [h_{t-1}, x_t] + b_i \Big)
-\tag{25}
 \label{eqn:inputgate}
 \]
 
 % Candidate cell state
 \[
 \tilde{C}_t = \tanh \Big( W_c \cdot [h_{t-1}, x_t] + b_c \Big)
-\tag{26}
 \label{eqn:candidatecell}
 \]
 
 % Cell state update
 \[
 C_t = f_t \odot C_{t-1} + i_t \odot \tilde{C}_t
-\tag{27}
 \label{eqn:cellupdate}
 \]
 {\small
@@ -557,20 +498,18 @@ C_t = f_t \odot C_{t-1} + i_t \odot \tilde{C}_t
 \end{itemize}
 }
 As shown in figure \ref{fig:forgetinputgates} the candidate cell state and the input output gate are combined through an element wise multiplication. The global cell state is also updated by using an additive operation of the forget gate output and the output of the multiplication in the input gate.
- \paragraph{Output Gate}
+\subsubsection{Output Gate}
 The output gate determines what information from the cell state should be passed onto the hidden state \cite{zhu2025novel}. The hidden state acts as the output of the unit of processing and will also be used in the following units of processing.
  
  Figure \ref{fig:forgetinputoutputgates1} shows the complete unit of processing with the output gate. The hidden state takes a sigmoid processed concatenated $h_{t-1}$ and $x_t$ with a tanh processed $C_t$ the output will be through a multiplicative output. 
  % Output gate equation
  \[
  o_t = \sigma \Big( W_o \cdot [h_{t-1}, x_t] + b_o \Big)
- \tag{28}
- \label{eqn:outputgate}
+\label{eqn:outputgate}
  \]
  % Hidden state update
  \[
  h_t = o_t \odot \tanh(C_t)
- \tag{29}
  \label{eqn:hiddenstate}
  \]
  {\small 
@@ -600,7 +539,7 @@ The output gate determines what information from the cell state should be passed
  \end{figure}
  The LSTM model uses the power of remembering past data and filtering out important and unnecessary data to the given task to make predictions. In STLF a model capable of finding the important data points in past data to predict for a future data point is crucial. The LSTM model perfects remembrance through its cell state and gate system making it effective for STLF.
  
- \subsubsection{LSTM Architecture for STLF}
+ \subsection{LSTM Architecture for STLF}
  
  The architecture for the LSTM model used in this research used tensorflow and scikitlearn frameworks to build and train the models. The model followed the same data preprocessing procedures mentioned in section \ref{sec:datapreprocessing}. In addition to the data pre-processing steps a lag feature was added for the STLF. LSTM requires past data to make an accurate prediction and by adding lag features to the data helps the model train with context of the past data. The lag features included the past demand values at 1-hour, 24-hours and 168-hours intervals. Introduction of lag features ensured that the model had access tp both short term and long term temporal dependencies. The dataset was further split into 80\% training and 20\% testing subsets, to monitor the models generalization.
  
@@ -649,7 +588,7 @@ The output gate determines what information from the cell state should be passed
  	\end{itemize} }
  Training progress was monitored through loss and MAE curves for training and validations sets. The model was evaluated using the evaluation metrics mentioned in section \ref{sec:eval_metrics}.
  	
-Flowchart \ref{fig:lstmflowchart} in appendix A shows a clear methodology followed to make the LSTM model. This methodology ensured a systematic approach to implementing an LSTM-based forecasting framework, emphasizing robust feature engineering, careful data preprocessing, and a well-regularized deep learning model architecture optimized for temporal sequence learning.
+Flowchart \ref{fig:lstmflowchart} in appendix A(\ref{sec:appendixA}) shows a clear methodology followed to make the LSTM model. This methodology ensured a systematic approach to implementing an LSTM-based forecasting framework, emphasizing robust feature engineering, careful data preprocessing, and a well-regularized deep learning model architecture optimized for temporal sequence learning.
 
 
 \subsection{Hybrid Model : CNN-LSTM }
@@ -666,7 +605,6 @@ The layer convolves each filter across the dimensions of the input volume. This 
 \paragraph{Activation Layer with  Rectified linear Unit} layer is usually applied to every element after the convolution function \cite{o2015introduction}.The purpose of the ReLU is to introduce non-linearity into the network, which is essential because of the highly non linear format of the data CNN's process \cite{wu2017introduction}. The ReLU equation \ref{eqn:23} as adapted from \cite{wu2017introduction}.
 \[
 f_t = \max (0,x)
-\tag{30}
 \label{eqn:23}
 \]
 \paragraph{Pooling Layers} aim to gradually reduce the dimensionality of the representation, subsequently lowering the number of parameters and the model's computational complexity \cite{li2021survey}. In simple terms it reduces the size of the feature maps while keeping the most important information. The most common type of pooling is \textit{Max Pooling}, which takes the maximum value from each window of the output  which in turn helps in reduction of computation and overfitting.
