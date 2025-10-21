@@ -131,7 +131,7 @@ The Min–Max scaling method was chosen because it is well-suited for neural net
 By applying Min–Max scaling, the dataset was transformed into a consistent format across all features, thereby improving model training stability and ensuring fair contribution of each feature to the learning process.
 
 
-The steps taken for the data preprocessing are shown in the fig \ref{fig:preprocessing_steps_flowchart} in appendix   \ref{sec:appendixA}. 
+The steps taken for the data preprocessing are shown in the fig \ref{fig:preprocessing_steps_flowchart} in appendix \ref{sec:appendixA}. 
 
 \section{Evaluation Metrics \label{sec:eval_metrics}}
 The models were compared using standard error metrics and information criteria that are widely used in forecasting literature. These metrics provide complementary views on model performance in terms of accuracy, error magnitude, and model complexity. The chosen metrics are briefly described below. 
@@ -320,9 +320,10 @@ All missing values resulting from lag and rolling window operations were handled
 The DBN structure comprises a stacking of 3 RBMs, forming a deep architecture representation. Table \ref{tab:dbn_architecture} shows the representation of each layer.
 \begin{table}[h]
 	\centering
-	
-	
+	\caption{DBN Layer configuration}
+	\label{tab:dbn_architecture}
 	\resizebox{\textwidth}{!}{%
+	
 	\begin{tabular}{lccc}
 		\hline \\
 		\textbf{Layer Type} & \textbf{Units ($\boldsymbol{n}_{\mathbf{h}}$)} & \textbf{Activation (RBM Pre-training)} & \textbf{Activation (Fine-Tuning)} \\
@@ -338,13 +339,10 @@ The DBN structure comprises a stacking of 3 RBMs, forming a deep architecture re
 	
 		Output Layer & 1 & - & Linear (None) \\
 	\hline
-	\end{tabular}
-}
-	\caption{DBN Layer configuration}
-	\label{tab:dbn_architecture}
+	\end{tabular}}
 \end{table}
 
-The architecture had 3 RBMs setup with 256, 128 and 64 units respectively. Each of these layers were trained using CD, before being stacked and initialized for the deep network. The final layer added a dense layer of 32 ReLU units for finetuning and a linear regression output layer for predicting continuous load values. The ReLu activation function is chosen due to its ability to mitigate to the disappearing gradient problem \cite{dong2017short}.\\
+The architecture had 3 RBMs setup with 256, 128 and 64 units respectively. Each of these layers were trained using CD, before being stacked and initialized for the deep network. The final layer added a dense layer of 32 ReLU units for fine-tuning and a linear regression output layer for predicting continuous load values. The ReLu activation function is chosen due to its ability to mitigate to the disappearing gradient problem \cite{dong2017short}.\\
  The fine tuning layer acts as the combiner of RBM-initialized layers, putting them together before the output layer. This design implementation was chosen to allow the network to learn task specific transformations on top of the general features learned during unsupervised learning.\\
  The final output layer is a single dense linear unit without an activation function, producing a continuous regression output representing the forecasted electricity demand. This type of output is appropriate for regression tasks as it allows the network to predict values across the full range of the target value without constraints. Figure \ref{fig:dbnimplementation} shows the implementation of the network.
 \begin{figure}[H]
@@ -588,7 +586,7 @@ The output gate determines what information from the cell state should be passed
  	\end{itemize} }
  Training progress was monitored through loss and MAE curves for training and validations sets. The model was evaluated using the evaluation metrics mentioned in section \ref{sec:eval_metrics}.
  	
-Flowchart \ref{fig:lstmflowchart} in appendix A(\ref{sec:appendixA}) shows a clear methodology followed to make the LSTM model. This methodology ensured a systematic approach to implementing an LSTM-based forecasting framework, emphasizing robust feature engineering, careful data preprocessing, and a well-regularized deep learning model architecture optimized for temporal sequence learning.
+Flowchart \ref{fig:lstmflowchart} in appendix \ref{sec:appendixA} shows a clear methodology followed to make the LSTM model. This methodology ensured a systematic approach to implementing an LSTM-based forecasting framework, emphasizing robust feature engineering, careful data preprocessing, and a well-regularized deep learning model architecture optimized for temporal sequence learning.
 
 
 \subsection{Hybrid Model : CNN-LSTM }
