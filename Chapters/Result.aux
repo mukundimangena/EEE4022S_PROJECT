@@ -3,7 +3,7 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Results}{50}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Dataset Results}{50}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Dataset Preprocessing Results}{50}{section.4.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces The original national demand .}}{50}{figure.caption.16}\protected@file@percent }
 \newlabel{fig:originaldataset}{{4.1}{50}{The original national demand }{figure.caption.16}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces HI processed dataset with traintest split.}}{50}{figure.caption.16}\protected@file@percent }
@@ -17,59 +17,75 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}Model Simulation Results}{52}{section.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Exponential smoothing}{52}{subsection.4.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.1}Model Choice result}{52}{subsubsection.4.2.1.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Exponential Smoothing Models chosen for benchmarking and their performance.}}{52}{table.caption.19}\protected@file@percent }
-\newlabel{tab:es_model_selection}{{4.1}{52}{Exponential Smoothing Models chosen for benchmarking and their performance}{table.caption.19}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Exponential Smoothing Models chosen for benchmarking and their performance (Add = Additive , Mul = Multiplicative).}}{52}{table.caption.19}\protected@file@percent }
+\newlabel{tab:es_model_selection}{{4.1}{52}{Exponential Smoothing Models chosen for benchmarking and their performance (Add = Additive , Mul = Multiplicative)}{table.caption.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.2}ES model Results}{52}{subsubsection.4.2.1.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Triple Multiplicative Damped Exponential Smoothing Model Parameters and Results}}{53}{table.caption.20}\protected@file@percent }
 \newlabel{tab:exp_smoothing_results}{{4.2}{53}{Triple Multiplicative Damped Exponential Smoothing Model Parameters and Results}{table.caption.20}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces The ES predicted results against the actual demand in a week}}{53}{figure.caption.21}\protected@file@percent }
 \newlabel{fig:espredictedvsactual}{{4.6}{53}{The ES predicted results against the actual demand in a week}{figure.caption.21}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces ES model predicted vs actual load demand over 10 weeks}}{53}{figure.caption.21}\protected@file@percent }
 \newlabel{fig:espredictedvsactual10weeks}{{4.7}{53}{ES model predicted vs actual load demand over 10 weeks}{figure.caption.21}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}LSTM model results}{53}{subsection.4.2.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces LSTM Model Performance Metrics}}{54}{table.caption.22}\protected@file@percent }
-\newlabel{tab:lstm_performance}{{4.3}{54}{LSTM Model Performance Metrics}{table.caption.22}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces The LSTM model loss during training and validation}}{54}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:lstmmodel-loss}{{4.8}{54}{The LSTM model loss during training and validation}{figure.caption.23}{}}
-\newlabel{sec:dbn results}{{4.2.3}{54}{DBN Model results}{subsection.4.2.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}DBN Model results }{54}{subsection.4.2.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Training and Testing Performance of the DBN Model}}{54}{table.caption.24}\protected@file@percent }
-\newlabel{tab:dbn_performance}{{4.4}{54}{Training and Testing Performance of the DBN Model}{table.caption.24}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}XGBoost Model Results}{53}{subsection.4.2.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Comparison of XGBoost Results with Different Data Processing Techniques}}{53}{table.caption.22}\protected@file@percent }
+\newlabel{tab:xgboost_comparison}{{4.3}{53}{Comparison of XGBoost Results with Different Data Processing Techniques}{table.caption.22}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}LSTM model results}{53}{subsection.4.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Comparison of XGBoost with the actual load}}{54}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:xgboostoutput}{{4.8}{54}{Comparison of XGBoost with the actual load}{figure.caption.23}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces LSTM Model Performance Metrics}}{54}{table.caption.24}\protected@file@percent }
+\newlabel{tab:lstm_performance}{{4.4}{54}{LSTM Model Performance Metrics}{table.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces The LSTM model loss during training and validation}}{54}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:lstmmodel-loss}{{4.9}{54}{The LSTM model loss during training and validation}{figure.caption.25}{}}
+\newlabel{sec:dbn results}{{4.2.4}{54}{DBN Model results}{subsection.4.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}DBN Model results }{54}{subsection.4.2.4}\protected@file@percent }
 \citation{plevris2022investigation}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Predicted vs Actual load over a 1 week period of DBN}}{55}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:dbnpredictedvsactual}{{4.9}{55}{Predicted vs Actual load over a 1 week period of DBN}{figure.caption.25}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Distribution of prediction errors for the DBN model}}{55}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:dbnerrordistribution}{{4.10}{55}{Distribution of prediction errors for the DBN model}{figure.caption.25}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces DBN model loss during training and validation}}{55}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:dbnvalidation-loss}{{4.11}{55}{DBN model loss during training and validation}{figure.caption.26}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}CNN model results}{56}{subsection.4.2.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Performance Metrics of the CNN Model}}{56}{table.caption.27}\protected@file@percent }
-\newlabel{tab:cnn_performance_diff}{{4.5}{56}{Performance Metrics of the CNN Model}{table.caption.27}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces The predicted and actual loading from the CNN model}}{56}{figure.caption.28}\protected@file@percent }
-\newlabel{fig:cnnpredictionvsactual}{{4.12}{56}{The predicted and actual loading from the CNN model}{figure.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces The CNN model validation and test loss against the epochs}}{56}{figure.caption.28}\protected@file@percent }
-\newlabel{fig:cnnmodelloss}{{4.13}{56}{The CNN model validation and test loss against the epochs}{figure.caption.28}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Hybrid Model Results: CNN-LSTM}{57}{subsection.4.2.5}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces Performance Metrics of the CNN Model}}{57}{table.caption.29}\protected@file@percent }
-\newlabel{tab:cnn-lstm-results}{{4.6}{57}{Performance Metrics of the CNN Model}{table.caption.29}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Model train and validation loss over 69 epochs.}}{57}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:cnn-lstm-model-loss}{{4.14}{57}{Model train and validation loss over 69 epochs}{figure.caption.30}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces comparison of predicted vs actual load in a CNN-LSTM model}}{58}{figure.caption.31}\protected@file@percent }
-\newlabel{fig:cnnlstmpredictionvsactual}{{4.15}{58}{comparison of predicted vs actual load in a CNN-LSTM model}{figure.caption.31}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces The complete comparison of the CNN-LSTMs predicted vs actual demand}}{58}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:cnnlstmpredictionvsactualfull}{{4.16}{58}{The complete comparison of the CNN-LSTMs predicted vs actual demand}{figure.caption.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Comparison of the predicted LSTM output vs the actual demand}}{55}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:lstmpredictedvsactual}{{4.10}{55}{Comparison of the predicted LSTM output vs the actual demand}{figure.caption.26}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Training and Testing Performance of the DBN Model}}{55}{table.caption.27}\protected@file@percent }
+\newlabel{tab:dbn_performance}{{4.5}{55}{Training and Testing Performance of the DBN Model}{table.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Predicted vs Actual load over a 1 week period of DBN}}{55}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:dbnpredictedvsactual}{{4.11}{55}{Predicted vs Actual load over a 1 week period of DBN}{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Distribution of prediction errors for the DBN model}}{55}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:dbnerrordistribution}{{4.12}{55}{Distribution of prediction errors for the DBN model}{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces DBN model loss during training and validation}}{56}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:dbnvalidation-loss}{{4.13}{56}{DBN model loss during training and validation}{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}CNN model results}{56}{subsection.4.2.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces Performance Metrics of the CNN Model}}{56}{table.caption.30}\protected@file@percent }
+\newlabel{tab:cnn_performance_diff}{{4.6}{56}{Performance Metrics of the CNN Model}{table.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces The predicted and actual loading from the CNN model}}{57}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:cnnpredictionvsactual}{{4.14}{57}{The predicted and actual loading from the CNN model}{figure.caption.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces The CNN model validation and test loss against the epochs}}{57}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:cnnmodelloss}{{4.15}{57}{The CNN model validation and test loss against the epochs}{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Hybrid Model Results: CNN-LSTM}{57}{subsection.4.2.6}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Performance Metrics of the CNN Model}}{57}{table.caption.32}\protected@file@percent }
+\newlabel{tab:cnn-lstm-results}{{4.7}{57}{Performance Metrics of the CNN Model}{table.caption.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces Model train and validation loss over 69 epochs.}}{57}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:cnn-lstm-model-loss}{{4.16}{57}{Model train and validation loss over 69 epochs}{figure.caption.33}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces comparison of predicted vs actual load in a CNN-LSTM model}}{58}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:cnnlstmpredictionvsactual}{{4.17}{58}{comparison of predicted vs actual load in a CNN-LSTM model}{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces The complete comparison of the CNN-LSTMs predicted vs actual demand}}{58}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:cnnlstmpredictionvsactualfull}{{4.18}{58}{The complete comparison of the CNN-LSTMs predicted vs actual demand}{figure.caption.35}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}Comparative Results}{58}{section.4.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Performance comparison of forecasting models}}{58}{table.caption.34}\protected@file@percent }
-\newlabel{tab:model-performance}{{4.7}{58}{Performance comparison of forecasting models}{table.caption.34}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces performance comparison of 6 models}}{59}{figure.caption.33}\protected@file@percent }
-\newlabel{fig:allmodelcomparison}{{4.17}{59}{performance comparison of 6 models}{figure.caption.33}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces \relax }}{59}{figure.caption.35}\protected@file@percent }
-\newlabel{fig:rmsecomparison}{{4.18}{59}{\relax }{figure.caption.35}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces \relax }}{59}{figure.caption.35}\protected@file@percent }
-\newlabel{fig:maecomparison}{{4.19}{59}{\relax }{figure.caption.35}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces \relax }}{59}{figure.caption.35}\protected@file@percent }
-\newlabel{fig:mapecomparison1}{{4.20}{59}{\relax }{figure.caption.35}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.8}{\ignorespaces Performance comparison of forecasting models}}{59}{table.caption.36}\protected@file@percent }
+\newlabel{tab:model-performance}{{4.8}{59}{Performance comparison of forecasting models}{table.caption.36}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces RMSE Comparison}}{59}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:rmsecomparison}{{4.19}{59}{RMSE Comparison}{figure.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces MAE Comparison}}{59}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:maecomparison}{{4.20}{59}{MAE Comparison}{figure.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.21}{\ignorespaces MAPE Comparison}}{59}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:mapecomparison1}{{4.21}{59}{MAPE Comparison}{figure.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.22}{\ignorespaces XGBoost vs ES and the actual load}}{59}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:xgboostvsexpsmoothing}{{4.22}{59}{XGBoost vs ES and the actual load}{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.23}{\ignorespaces DBN compared to CNN}}{60}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:cnnvsdbnactual}{{4.23}{60}{DBN compared to CNN}{figure.caption.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.24}{\ignorespaces DBN, CNN, LSTM and actual compared to each other}}{60}{figure.caption.40}\protected@file@percent }
+\newlabel{fig:cnnvsdbnvslstmvsactual}{{4.24}{60}{DBN, CNN, LSTM and actual compared to each other}{figure.caption.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.25}{\ignorespaces CNN, LSTM, CNN-LSTM compared to each other}}{61}{figure.caption.41}\protected@file@percent }
+\newlabel{fig:cnnvslstmvscnn-lstmvsactual}{{4.25}{61}{CNN, LSTM, CNN-LSTM compared to each other}{figure.caption.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.26}{\ignorespaces performance comparison of 6 models}}{61}{figure.caption.42}\protected@file@percent }
+\newlabel{fig:allmodelcomparison}{{4.26}{61}{performance comparison of 6 models}{figure.caption.42}{}}
 \@setckpt{Chapters/Result}{
-\setcounter{page}{60}
+\setcounter{page}{63}
 \setcounter{equation}{0}
 \setcounter{enumi}{2}
 \setcounter{enumii}{0}
@@ -84,8 +100,8 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{20}
-\setcounter{table}{7}
+\setcounter{figure}{26}
+\setcounter{table}{8}
 \setcounter{parentequation}{0}
 \setcounter{lastpagecount}{0}
 \setcounter{subfigure}{0}
@@ -95,7 +111,7 @@
 \setcounter{section@level}{1}
 \setcounter{Item}{8}
 \setcounter{Hfootnote}{0}
-\setcounter{bookmark@seq@number}{45}
+\setcounter{bookmark@seq@number}{46}
 \setcounter{caption@flags}{2}
 \setcounter{continuedfloat}{0}
 \setcounter{float@type}{4}
