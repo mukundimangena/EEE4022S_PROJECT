@@ -57,7 +57,7 @@ The weekly load profile in figure \ref{fig:weeklyloadprofile} shows a daily patt
 
 \section{Model Simulation Results}
 
-\subsection{Exponential smoothing}
+\subsection{Statistical Model : Exponential smoothing}
 \subsubsection{Model Choice result}
 The algorithm in Appendix \ref{sec:appendixA}, figure \ref{fig:exponential-smoothing-model-choice} was used to find the best model to use for the ES model. Table \ref{tab:es_model_selection} shows the ES models and a parameters that were tested to find the best model.
 
@@ -85,8 +85,8 @@ The algorithm in Appendix \ref{sec:appendixA}, figure \ref{fig:exponential-smoot
 The best performing ES model was the Triple Multiplicative Damped algorithm, which uses a seasonality period of 24 to capture daily recurring patterns. While the MAPE and MSE values for Triple\_Add\_Damped and Triple\_Mul\_Damped are very close, the lower AIC of Triple\_Mul\_Damped indicates a better overall model fit. This model was selected as the benchmark for evaluating other forecasting approaches in this study.
 
 \subsubsection{ES model Results}
-The ES model being the benchmark model achieved a MAPE of 9.57\% with a MAE of 118.14Mwh using the Triple Multiplicative Damped configuration. Table \ref{tab:exp_smoothing_results} summarizes the model performance metrics. 
-\begin{table}[h]
+The ES model achieved a MAPE of 9.57\% with a MAE of 118.14Mwh using the Triple Multiplicative Damped configuration. Table \ref{tab:exp_smoothing_results} summarizes the model performance metrics. 
+\begin{table}[h!]
 	\centering
 	\caption{Triple Multiplicative Damped Exponential Smoothing Model Parameters and Results}
 	\label{tab:exp_smoothing_results}
@@ -104,7 +104,7 @@ The ES model being the benchmark model achieved a MAPE of 9.57\% with a MAE of 1
 	\end{tabular}
 \end{table}
 These parameters produced the best results among the ES models tested, as determined by the selection algorithm shown in Figure \ref{fig:exponential-smoothing-model-choice} in Appendix \ref{sec:appendixA}.
-\begin{figure}[h]
+\begin{figure}[h!]
 	\begin{minipage}[b]{0.45\linewidth}
 	\centering
 	\includegraphics[width=\linewidth]{Chapters/images/results/ES_predicted_vs_actual}
@@ -123,9 +123,11 @@ These parameters produced the best results among the ES models tested, as determ
 \end{figure}
  Figures \ref{fig:espredictedvsactual} and \ref{fig:espredictedvsactual10weeks} compare the predicted and actual load values. Figure \ref{fig:espredictedvsactual} illustrates the model’s ability to capture the training data patterns; however, it shows limited responsiveness to changing demand features. Figure \ref{fig:espredictedvsactual10weeks} highlights the model’s performance over a longer period, indicating limited generalization, which is consistent with the known limitation of ES models when handling nonlinear and complex time series data.
  
- \subsection{XGBoost Model Results}
+ \subsection{Machine Learning  : XGBoost Model Results}
  
- The XGBoost model produces an MAPE of 1.598\% and a $R^2$ value of 0.979. This model gradient boosting method enables it to minimize errors on every epoch. This enables it to have a minimized output if test dataset does not significantly change from the training data. The XGBoost models also benefited from the data preprocessing as shown in table \ref{tab:xgboost_comparison} which shows an increased performance with the addition of lag features to the input dataset.
+The XGBoost model achieved a MAPE of 1.60\% and an $R^2$ value of 0.979, demonstrating excellent predictive performance and strong correlation with the actual load demand. The model’s gradient boosting framework iteratively minimizes residual errors at each boosting stage, leading to highly accurate forecasts particularly when the test data closely resembles the training distribution.
+
+
  \begin{table}[h!]
  	\centering
  	\small
@@ -145,52 +147,21 @@ These parameters produced the best results among the ES models tested, as determ
  }
  	\label{tab:xgboost_comparison}
  \end{table}
- The models performance is also shown in figure \ref{fig:xgboostoutput}.
+ Table \ref{tab:xgboost_comparison} presents a comparison of XGBoost performance under different data preprocessing techniques. The inclusion of lag features and cyclical encoding significantly enhanced the model’s accuracy, reducing the MSE from 20,358 MWh (no preprocessing) to just 873 MWh when both preprocessing methods were applied. Similarly, the MAPE improved from 9.46\% to 1.64\%, highlighting the importance of feature engineering in improving model generalization.
+
+Figure \ref{fig:xgboostoutput} illustrates the comparison between the predicted and actual load values. The model closely follows the true demand pattern, indicating its strong ability to capture nonlinear relationships and adapt to temporal variations in the load data.
  \begin{figure}[h!]
  	\centering
  	\includegraphics[width=0.75\linewidth]{Chapters/images/results/xgboost_output}
  	\caption{Comparison of XGBoost with the actual load}
  	\label{fig:xgboostoutput}
  \end{figure}
- The model traces the 
+Overall, the XGBoost model demonstrated superior performance compared to traditional statistical models, largely due to its ensemble learning mechanism and the effectiveness of feature engineering applied during data preprocessing.
 
-\subsection{LSTM model results}
-The LSTM model performed better than the ES model producing an MAPE value of 2.82\% and an MAE of 33.48 Mwh.  Table \ref{tab:lstm_performance} contains of the results produced by the LSTM model.
-\begin{table}[h]
-	\centering
-	
-	\begin{tabular}{lc}
-		\hline
-		\textbf{Metric} & \textbf{Value} \\
-		\hline
-		Mean Squared Error (MSE) & 2319 \\
-		Root Mean Squared Error (RMSE) &48.016 \\
-		Mean Absolute Error (MAE) & 33.48 \\
-		Coefficient of Determination ($R^2$) & 0.933 \\
-		Mean Absolute Percentage Error (MAPE) & 2.82\% \\
-		\hline
-	\end{tabular}
-	\caption{LSTM Model Performance Metrics}
-	\label{tab:lstm_performance}
-\end{table}
- The low MSE and RMSE values indicate that this model has a better fit. The $R^2$ score of 0.933 reflects a robust generalization and the model loss curves in figure \ref{fig:lstmmodel-loss} further show that the model is learning and generalizing properly the the losses settle without fluctuating. 
- \begin{figure}[h]
- 	\centering
- 	\includegraphics[width=0.9\linewidth]{"Chapters/images/results/lstm_model loss"}
- 	\caption{The LSTM model loss during training and validation}
- 	\label{fig:lstmmodel-loss}
- \end{figure}
- Figure \ref{fig:lstmpredictedvsactual} shows the comparison of the predicted versus the actual load demand over a period of one week. In this Image it is clear that the model is capable of tracking the actual load very closely.
- \begin{figure}[h]
- 	\centering
- 	\includegraphics[width=0.5\linewidth]{Chapters/images/results/lstm_predicted_vs_actual}
- 	\caption{Comparison of the predicted LSTM output vs the actual demand}
- 	\label{fig:lstmpredictedvsactual}
- \end{figure}
+
  
- 
- \subsection{DBN Model results \label{sec:dbn results}}
- The DBN model produced an impressive MAPE value of 2.13\% and an $R^2$ value of 0.966. The $R^2$ value did raise overfitting suspicions as it very high. To ensure that the model is not overfitting the train and test results were compared for the model.
+ \subsection{Deep Learning : DBN Model results \label{sec:dbn results}}
+ The DBNmodel achieved strong predictive performance, recording a MAPE of 2.13\% and an $R^2$ value of 0.966. Although the high $R^2$ value initially raised concerns about potential overfitting, a detailed comparison between the training and testing metrics revealed that the model generalizes effectively to unseen data.
  \begin{table}[h!]
  	\centering
  	\caption{Training and Testing Performance of the DBN Model}
@@ -205,7 +176,7 @@ The LSTM model performed better than the ES model producing an MAPE value of 2.8
  		MSE & 670.23 & 1160.3 & +490.03 \\ \hline
  	\end{tabular}
  \end{table}
-  Table \ref{tab:dbn_performance} shows a slightly higher MAE which is expected for non seen data in the test case. The MAPE, RMSE and MSE also show an acceptable increase that represents a normal generalization in the model. The -0.016 drop in the $R^2$ value is minimal meaning that the model has not memorized the training data supporting that the model is not overfitting.
+  As shown in Table \ref{tab:dbn_performance}, the testing metrics exhibit a modest increase in error compared to the training set, which is expected for unseen data. The slight rise in MAPE, MAE, RMSE, and MSE values suggests normal generalization behavior rather than overfitting. Furthermore, the minimal drop of only 0.016 in the $R^2$ value indicates that the model retains its predictive accuracy on new data, confirming its robustness and stability.
   \begin{figure}[h!]
   	\centering
   	\begin{minipage}[b]{0.45\linewidth}
@@ -224,19 +195,20 @@ The LSTM model performed better than the ES model producing an MAPE value of 2.8
   	
   \end{figure}
   
-  Figure \ref{fig:dbnpredictedvsactual} illustrates how the predicted load closely follows the actual load over a one-week period. The model’s errors are minimal, as highlighted in Figure \ref{fig:dbnerrordistribution}, which shows the distribution of prediction errors across all test cases. The error distribution approximates a normal distribution, with the majority of errors clustered near zero, indicating strong predictive performance.   
+Figure \ref{fig:dbnpredictedvsactual} shows that the predicted load values closely follow the actual demand, with minimal deviation across the observed period. The error distribution in Figure \ref{fig:dbnerrordistribution} further supports this, displaying a near normal distribution centered around zero indicating that most prediction errors are small and unbiased.  
   \begin{figure}[h!]
   	\centering
   	\includegraphics[width=0.4\linewidth]{"Chapters/images/results/dbn_validation loss"}
   	\caption{DBN model loss during training and validation}
   	\label{fig:dbnvalidation-loss}
   \end{figure}
+  Finally, the loss curves in Figure \ref{fig:dbnvalidation-loss} confirm stable convergence during training, with training decreasing steadily before flattening out and validation losses decreasing erratically but further flattening out. This behavior demonstrates effective learning and generalization without significant overfitting.
   
  
  
- \subsection{CNN model results}
+ \subsection{Deep Learning : CNN model results}
  
- The CNN model produced a Test MAPE of 2.89\% however similar to the DBN values, with an $R^2$ value of 0.93. Table \ref{tab:cnn_performance_diff} contains the test and train results of the model. The comparison is meant to show if there was a possibility of an overfitting of the data.
+ The CNN model achieved a Test MAPE of 2.89\% and an $R^2$ value of 0.93, demonstrating strong predictive performance comparable to the DBN model. Table \ref{tab:cnn_performance_diff} summarizes the model’s training and testing performance metrics. The comparison between the two phases helps assess the model’s generalization capability and identify potential overfitting.
  \begin{table}[h!]
  	\small
  	\centering
@@ -254,8 +226,7 @@ The LSTM model performed better than the ES model producing an MAPE value of 2.8
  		\hline
  	\end{tabular}
  \end{table}
-Similar to the results obtained for the DBN model (Section \ref{sec:dbn results}), the high $R^2$ values observed do not imply overfitting. The elevated $R^2$ can be attributed to the inclusion of additional engineered features generated during data preprocessing and feature engineering. As no discussed by Plevris et al. \cite{plevris2022investigation}, the $R^2$ value tends to increase with more features, even when some of these features do not directly correlate with the  output. Figure \ref{fig:cnnmodelloss} shows how the train and value loss change over the epochs. The image shows a smooth decline in the train loss, however the validation loss has a fluctuating loss that does not converge.
-Figure \ref{fig:cnnpredictionvsactual} shows the prediction vs the actual output of the CNN model. The predicted load closely follows the actual load.
+The results show a moderate increase in error metrics between the training and testing sets, suggesting that the model generalized reasonably well without significant overfitting. Although the $R^2$ values are high, this does not necessarily indicate overfitting. As discussed by Plevris et al. \cite{plevris2022investigation}, the $R^2$ metric can increase with the addition of more input features, even if some of these features have limited correlation with the target variable. In this study, the inclusion of engineered temporal and statistical features likely contributed to the elevated $R^2$ value observed.
 \begin{figure}[h!]
 	\centering
 	\begin{minipage}[b]{0.46\linewidth}
@@ -269,10 +240,48 @@ Figure \ref{fig:cnnpredictionvsactual} shows the prediction vs the actual output
 	\label{fig:cnnmodelloss}
 	\end{minipage}
 \end{figure}
+Figure \ref{fig:cnnmodelloss} illustrates the training and validation loss curves across epochs. The training loss decreases steadily, indicating effective learning of spatial patterns within the input data. However, the validation loss exhibits slight fluctuations and does not converge smoothly, suggesting that the model may be somewhat sensitive to variations in the validation data. This behaviour could be attributed to the limited dataset size or the complex, non-linear nature of the short-term load data.
 
-\subsection{Hybrid Model Results: CNN-LSTM}
- The hybrid model produced an MAPE of 2.9\% and a MAE of 34.63Mwh. The table \ref{tab:cnn-lstm-results} shows the results produced by the hybrid model.
-  \begin{table}[h]
+As shown in Figure \ref{fig:cnnpredictionvsactual}, the predicted load closely follows the actual demand, confirming the CNN model’s ability to capture key short-term variations and underlying load profiles. Overall, the CNN demonstrated strong predictive capability and generalization, effectively learning spatial dependencies from the structured time-series data while maintaining competitive accuracy relative to the other models tested.
+
+\subsection{LSTM model results}
+The LSTM model outperformed ES model, achieving a MAPE of 2.82\% and a MAE of 33.48 MWh. These results indicate that the model was able to effectively capture the temporal dependencies and nonlinear characteristics of the load data. The full set of performance metrics is presented in Table \ref{tab:lstm_performance}.
+\begin{table}[h!]
+	\centering
+	
+	\begin{tabular}{lc}
+		\hline
+		\textbf{Metric} & \textbf{Value} \\
+		\hline
+		MSE (Mwh) & 2319 \\
+		RMSE(Mwh)&48.016 \\
+	MAE (Mwh)& 33.48 \\
+	$R^2$ (\%)& 0.933 \\
+	MAPE & 2.82\% \\
+		\hline
+	\end{tabular}
+	\caption{LSTM Model Performance Metrics}
+	\label{tab:lstm_performance}
+\end{table}
+The low MSE and RMSE values reflect a well-fitting model with minimal deviation between predicted and actual load values. The high $R^2$ score of 0.933 demonstrates strong generalization capability and suggests that the LSTM effectively captured underlying temporal trends in the data.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\linewidth]{"Chapters/images/results/lstm_model loss"}
+	\caption{The LSTM model loss during training and validation}
+	\label{fig:lstmmodel-loss}
+\end{figure}
+Figure \ref{fig:lstmmodel-loss} shows the training and validation loss curves, indicating stable convergence and the absence of overfitting. Both losses decrease smoothly and plateau without significant fluctuations, confirming that the model successfully learned the data patterns without memorizing noise.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Chapters/images/results/lstm_predicted_vs_actual}
+	\caption{Comparison of the predicted LSTM output vs the actual demand}
+	\label{fig:lstmpredictedvsactual}
+\end{figure}
+As shown in Figure \ref{fig:lstmpredictedvsactual}, the predicted values closely follow the actual load demand over a one-week period, demonstrating the model’s ability to track short-term fluctuations in energy consumption accurately. This result highlights the LSTM’s strength in modeling nonlinear, sequential dependencies, making it well-suited for short-term load forecasting tasks.
+
+\subsection{Hybrid Model : CNN-LSTM Model Results}
+The hybrid CNN-LSTM model achieved a MAPE of 2.90\% and a MAE of 34.63 MWh on the test dataset. The detailed performance metrics are presented in Table \ref{tab:cnn-lstm-results}.
+  \begin{table}[h!]
  	\centering
  	\caption{Performance Metrics of the CNN Model}
  	\label{tab:cnn-lstm-results}
@@ -288,21 +297,21 @@ Figure \ref{fig:cnnpredictionvsactual} shows the prediction vs the actual output
  		\hline
  	\end{tabular}
  \end{table}
- \begin{figure}[h]
+ \begin{figure}[h!]
  	\centering
  	\includegraphics[width=0.9\linewidth,height=0.3\textwidth]{Chapters/images/results/CNN-LSTM-MODEL-LOSS}
  	\caption{Model train and validation loss over 69 epochs.}
  	\label{fig:cnn-lstm-model-loss}
  \end{figure}
-Figure \ref{fig:cnn-lstm-model-loss} shows a settling in the training and validation loss. The MAE loss it also below the train MAE which shows normalcy in the training process. Figure \ref{fig:cnnlstmpredictionvsactual} shows the prediction and actual load over a period of a week. The plot shows close tracing however this does not provide the full figure of the performance of the model.
- \begin{figure}[h]
+Figure \ref{fig:cnn-lstm-model-loss} shows a settling in the training and validation loss. The MAE loss it also below the train MAE which shows normalcy in the training process. 
+ \begin{figure}[h!]
  	\centering
  	\includegraphics[width=0.9\linewidth,height=0.38\textwidth]{Chapters/images/results/cnn_lstm_prediction_vs_actual}
  	\caption{comparison of predicted vs actual load in a CNN-LSTM model}
  	\label{fig:cnnlstmpredictionvsactual}
  \end{figure}
  
- In order to show the complete performance of the model, figure \ref{fig:cnnlstmpredictionvsactualfull} shows the performance of the model across all the samples. This shows that though the model is capable of predicting in most cases there is a period of low demand that the model fails to generalize well. This may be due to a phenomenon where the demand dropped but the features used in the model were consistent with the training data.
+Figure \ref{fig:cnnlstmpredictionvsactual} presents a one-week comparison between the predicted and actual load demand. The predicted curve closely follows the actual load trend, indicating that the hybrid model captures temporal dependencies effectively within short-term horizons. However, when evaluated over the entire dataset (Figure \ref{fig:cnnlstmpredictionvsactualfull}), it becomes evident that the model underperforms in specific periods—particularly during sudden drops or fluctuations in demand.
  \begin{figure}[h]
  	\centering
  	\includegraphics[width=0.9\linewidth,height=0.3\textwidth]{Chapters/images/results/cnn_lstm_prediction_vs_actual_full}
@@ -314,9 +323,7 @@ Figure \ref{fig:cnn-lstm-model-loss} shows a settling in the training and valida
  \section{Comparative Results}
  
 The six models tested in this research were trained and tested on data with an 80/20 train-test split. The validation was set to a 20\% of the testing data. The performance metrics of the models have been captured in Table \ref{tab:model-performance}. The table contains the MAPE values which show the XGBoost model performing the best amongst all the models. The ES model however had the highest MAPE representing a lack of generalization of the model, this is also further backed by its $r^2$ value.
-
- 
- \begin{table}[htbp]
+\begin{table}[htbp]
  	\centering
  	\small
  	\caption{Performance comparison of forecasting models}
@@ -336,8 +343,9 @@ The six models tested in this research were trained and tested on data with an 8
  		\hline
  	\end{tabular}}
  \end{table}
- To show the comparison of the comparison metrics of the model, the bar graphs \ref{fig:rmsecomparison}, \ref{fig:maecomparison} and \ref{fig:mapecomparison1}. These graphs help paint a clearer picture of the comparison between the models.
- Figure \ref{fig:rmsecomparison} shows that the ES model having the largest RMSE value while the XGBoost followed by the DBN Model. This is the same representation of the metrics in figure \ref{fig:maecomparison} and \ref{fig:mapecomparison1}.
+ From Table \ref{tab:model-performance}, the XGBoost model achieved the best overall performance with the lowest MAPE 1.598\% and MAE 19.06 MWh, while the ES model performed the worst, showing weak generalization and the lowest $R^2$ value 0.5241. Among the deep learning models, the DBN outperformed both the CNN and LSTM, achieving a MAPE of 2.1\% compared to 2.89\% and 2.82\% respectively. The hybrid CNN-LSTM model yielded only a marginal improvement, achieving a MAPE of 2.9\%, which was slightly higher than its component models.
+ 
+ To visualize these results, Figures \ref{fig:rmsecomparison}, \ref{fig:maecomparison}, and \ref{fig:mapecomparison1} present a comparison of RMSE, MAE, and MAPE values across all models. These visualizations reinforce the numerical results, highlighting the superior performance of XGBoost and the comparatively weak performance of the ES model.
  
  \begin{figure}[h]
  	\centering
@@ -358,8 +366,7 @@ The six models tested in this research were trained and tested on data with an 8
  	\end{minipage}
  \end{figure}
  
- Table \ref{tab:model-performance} and the images showing the performance of the models numerically. The images below compare how well the model traces the actual load data in real time. 
-
+Figure \ref{fig:xgboostvsexpsmoothing} compares the XGBoost and ES model forecasts against the actual load over three days. The XGBoost model closely follows the actual demand profile, while the ES model lags during peak load periods, explaining its higher MAPE and RMSE values.
 
  \begin{figure}[h!]
  	\centering
@@ -368,14 +375,14 @@ The six models tested in this research were trained and tested on data with an 8
  	\label{fig:xgboostvsexpsmoothing}
  \end{figure}
  
- Figure \ref{fig:xgboostvsexpsmoothing} shows the comparison of the xgboost, ES model and the actual load data over a period of three days. The result is showing a very close tracing the actual load. On the other hand the ES models fails to set itself to the values on the peaks. this results in the ES model having higher peaks than the actual the load data.
- 
+ The performance of the DBN and CNN models, both of which utilize deep feature extraction, is compared in Figure \ref{fig:cnnvsdbnactual}. While both models track the actual load well, the DBN demonstrates smoother adaptation during dips, consistent with its lower MAPE and higher $R^2$. 
  \begin{figure}[h!]
  	\centering
  	\includegraphics[width=0.75\linewidth]{Chapters/images/results/cnn_vs_dbn_actual}
  	\caption{DBN compared to CNN}
  	\label{fig:cnnvsdbnactual}
  \end{figure}
+ 
  The DBN and CNN have a similar neural network architecture with multilevel features on both models. Their performance was also compared to each other and in figure \ref{fig:cnnvsdbnactual} the models are compared to each other. Table \ref{tab:model-performance} shows the DBN outperforming the CNN on all performance parameters and this is also highlighted in figure \ref{fig:cnnvsdbnactual}. The two models trace the actual load very well however the CNN model fails to trace at certain points on dips. The difference is negligible though as the difference in their MAPE values is 0.7\%.
  \begin{figure}[h!]
  	\centering
@@ -383,6 +390,8 @@ The six models tested in this research were trained and tested on data with an 8
  	\caption{DBN, CNN, LSTM and actual compared to each other}
  	\label{fig:cnnvsdbnvslstmvsactual}
  \end{figure}
+ 
+ Further comparison among the deep learning models DBN, CNN, and LSTM is shown in Figure \ref{fig:cnnvsdbnvslstmvsactual}. All models capture general demand trends effectively, though the CNN and LSTM tend to underperform during sudden drops in load.
  
  Further in the comparison of the models in figure \ref{fig:cnnvsdbnvslstmvsactual} compares the Deep learning models usd in the research. The performance metrics shows that the DBN performs best with a MAPE of 2.1\% while LSTM and CNN trail close behind with 2.82\% and 2.89\% respectively. Figure \ref{fig:cnnvsdbnvslstmvsactual} shows the three models tracing the actual load. IT however shows the CNN and LSTM trailing behind on the dips which is expected because of their higher MAPE, MAE and RMSE values.
   \begin{figure}[h!]
@@ -392,14 +401,18 @@ The six models tested in this research were trained and tested on data with an 8
  	\label{fig:cnnvslstmvscnn-lstmvsactual}
  \end{figure}
  
-The CNN-LSTM model being a hybrid of the CNN and LSTM model, the performance of the three was also compared. Figure \ref{fig:cnnvslstmvscnn-lstmvsactual} shows the comparison. The hybrid model does not show a very big improvement in the hybrid model, it however shows a mixture of improved performances at different points in the shown tiem with each of the models taking turns at being good. Their values in \ref{tab:model-performance} are also close to each other showing an actual slight decrease in its MAPE with 2.902\% which is 0.1\% higher than the CNN and LSTM models.
- 
-  
- \begin{figure}[h]
+
+The hybrid CNN-LSTM model was expected to outperform the standalone CNN and LSTM due to its combined spatial and temporal learning capabilities. However, as shown in Figure \ref{fig:cnnvslstmvscnn-lstmvsactual}, the hybrid model achieved only a marginal improvement. While it demonstrated localized accuracy improvements in certain regions, its overall performance metrics indicate no substantial gain.
+\begin{figure}[h]
  	\centering
  	\includegraphics[width=0.8\linewidth]{Chapters/images/results/all_model_comparison}
  	\caption{performance comparison of 6 models}
  	\label{fig:allmodelcomparison}
  \end{figure}
-  Finally in figure \ref{fig:allmodelcomparison} we compare the performance of all the models used in the research. Supported by the table of results, \ref{tab:model-performance} the ES model manages to trace really well when load peaks and troughs are in the weekly range, however dues to its generalization once the load data reduces such as on weekends it fails to adjust accordingly causing the high error in the models. All the other models performance can not be conclusive from just looking at the performance curves. However the CNN-LSTM  and CNN models fail to generalize on the peaks and troughs. All models show  great capability in leaning the increases in the data as they trace the actual load with minimum error. The data shown in figure \ref{fig:allmodelcomparison} supports the data that was collected in table \ref{tab:model-performance}.
+
+  
+  
+ Finally, Figure \ref{fig:allmodelcomparison} summarizes the performance of all six models over the full evaluation period. The XGBoost and DBN models consistently trace the actual load with minimal deviation, while the ES model shows high sensitivity to variations in demand. The CNN-based models demonstrate strong pattern recognition but struggle to generalize on peaks and troughs. These results collectively support the effectiveness of machine learning and deep learning techniques in short-term load forecasting, with tree-based ensemble methods like XGBoost showing the most reliable performance.
+  
+  
  

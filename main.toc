@@ -100,18 +100,18 @@
 \contentsline {chapter}{\numberline {4}Results}{50}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Dataset Preprocessing Results}{50}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Model Simulation Results}{52}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Exponential smoothing}{52}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.1}Statistical Model : Exponential smoothing}{52}{subsection.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.1.1}Model Choice result}{52}{subsubsection.4.2.1.1}%
 \contentsline {subsubsection}{\numberline {4.2.1.2}ES model Results}{52}{subsubsection.4.2.1.2}%
-\contentsline {subsection}{\numberline {4.2.2}XGBoost Model Results}{53}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}LSTM model results}{53}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}DBN Model results }{54}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}CNN model results}{56}{subsection.4.2.5}%
-\contentsline {subsection}{\numberline {4.2.6}Hybrid Model Results: CNN-LSTM}{57}{subsection.4.2.6}%
-\contentsline {section}{\numberline {4.3}Comparative Results}{58}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Discussion}{63}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusions}{64}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Recommendations}{65}{chapter.7}%
-\contentsline {chapter}{\numberline {A}}{73}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Addenda}{76}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Ethics Forms}{76}{section.B.1}%
+\contentsline {subsection}{\numberline {4.2.2}Machine Learning : XGBoost Model Results}{53}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Deep Learning : DBN Model results }{54}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Deep Learning : CNN model results}{55}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}LSTM model results}{57}{subsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.2.6}Hybrid Model : CNN-LSTM Model Results}{58}{subsection.4.2.6}%
+\contentsline {section}{\numberline {4.3}Comparative Results}{59}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Discussion}{64}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusions}{65}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Recommendations}{66}{chapter.7}%
+\contentsline {chapter}{\numberline {A}}{74}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Addenda}{77}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Ethics Forms}{77}{section.B.1}%
